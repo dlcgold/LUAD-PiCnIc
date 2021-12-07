@@ -25,6 +25,107 @@ loadRData <- function(fileName){
 #' # load with custom genes array
 #' input_genes(gene_custom = c('TP53', 'KRAS', 'KEAP11', 'STK11'))
 input_genes <- function(interactive = TRUE, genes_custom = c()) {
+  
+  ## use custom genes
+  if(length(genes_custom) != 0){
+    LUADmut <- GDCquery_Maf(tumor = "LUAD", pipelines = "mutect2");
+    LUADmut <- as.data.frame(LUADmut);
+    LUADclear <- subset(LUADmut, Hugo_Symbol %in% genes_custom);
+    cols_exc <- names(LUADclear) %in% c("Hugo_Symbol", 
+                                        "Tumor_Sample_Barcode",
+                                        "Variant_Classification");
+    LUADclear <- LUADclear[cols_exc];
+    #LUADclearr <- reduce_samples(LUADclear, 9);
+    
+    LUAD = import.MAF(LUADclear,
+                      merge.mutation.types = FALSE, 
+                      irregular = TRUE);
+    
+    LUAD <- annotate.description(LUAD, 
+                                 "Lung cancer data from Cbio portal");
+    return(LUAD);
+  }
+  
+  if(interactive){
+    ## choose if use default drivers
+    c <- readline(prompt = "Use default gene drivers (IMC)? [yes/no] ");
+    c <- as.character(c);
+    while(c != "yes" && c != "no"){
+      c <- readline(prompt = "Use default gene drivers? [yes/no] ");
+      c <- as.character(c);
+    }
+    if (c == "yes"){
+      choice_bool <- TRUE;
+    }else{
+      choice_bool <- FALSE;
+    }
+    
+    if(!choice_bool){
+      ## if not default load xlsx file from suppl. 4
+      file_drivers <- "input/gene_drivers.xlsx";
+      wb <- loadWorkbook(file_drivers);
+      sheets <- names(getSheets(wb));
+      count <- 1;
+      ## choose desired software
+      print("Select gene driver software from");
+      for (elem in sheets) {
+        if(elem == "IMCDriver"){
+          cat(elem, "(suggested)", count, "\n");
+        }else{
+          cat(elem, count, "\n");
+        }
+        count <- count + 1
+      }
+      
+      choice_raw <- readline(prompt = "Enter your choice: ");
+      choice <- as.integer(choice_raw);
+      choice_str <- as.character(choice);
+      
+      while(choice_raw != choice_str ||
+            choice <= 0 ||
+            choice > length(sheets)){
+        choice_raw <- readline(prompt = "Enter your choice: "); 
+        choice <- as.integer(choice_raw);
+        choice_str <- as.character(choice);
+      }
+      ## load genes
+      genes <- read.xlsx(file_drivers, 
+                         sheetIndex = choice, 
+                         header = TRUE);
+      
+      LUADmut <- GDCquery_Maf(tumor = "LUAD", pipelines = "mutect2");
+      LUADmut <- as.data.frame(LUADmut);
+      genes <- read.xlsx("input/gene_drivers.xlsx", 
+                         sheetIndex = 1, 
+                         header = TRUE);
+      LUADclear <- subset(LUADmut, Hugo_Symbol %in% genes$LUAD);
+      cols_exc <- names(LUADclear) %in% c("Hugo_Symbol", 
+                                          "Tumor_Sample_Barcode",
+                                          "Variant_Classification");
+      LUADclear <- LUADclear[cols_exc];
+      #LUADclearr <- reduce_samples(LUADclear, 9);
+      
+      LUAD = import.MAF(LUADclear,
+                        merge.mutation.types = FALSE, 
+                        irregular = TRUE);
+      LUAD <- annotate.description(LUAD, 
+                                   "Lung cancer data from Cbio portal");
+      save(LUAD, file = "input/luadIMC2020full.rda");
+      return(LUAD);
+    }else{
+      ## default genes already in a RDATA file
+      LUAD <- loadRData("input/luadIMC2020.rda");
+      return (LUAD);
+    }
+  }else{
+    ## default genes already in a RDATA file
+    LUAD <- loadRData("input/luadIMC2020.rda");
+    return(LUAD);
+  }
+}
+
+
+input_genes_old <- function(interactive = TRUE, genes_custom = c()) {
 
     ## use custom genes
     if(length(genes_custom) != 0){
@@ -149,12 +250,24 @@ input_genes <- function(interactive = TRUE, genes_custom = c()) {
             return(LUAD);
         }else{
             ## default genes already in a RDATA file
-            LUAD <- loadRData("input/luadIMC2020full.rda");
+            LUAD <- loadRData("input/luadIMC2020.rda");
             return (LUAD);
         }
     }else{
         ## default genes already in a RDATA file
-        LUAD <- loadRData("input/luadIMC2020full.rda");
+        LUAD <- loadRData("input/luadIMC2020.rda");
         return(LUAD);
     }
+}
+
+
+reduce_samples <- function(LUAD, n_samples){
+  uni_samples <- unique(LUAD$Tumor_Sample_Barcode);
+  if(length(uni_samples) < n_samples){
+    n_samples <- length(uni_samples);
+  }
+  
+  samples <- uni_samples[1:n_samples];
+  LUADreduced <- subset(LUAD, Tumor_Sample_Barcode %in% samples);
+  return(LUADreduced);
 }
