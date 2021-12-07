@@ -19,8 +19,12 @@ stagesStudy <- function(LUAD, LUAD_samples, n_stages){
     }
     stages = as.matrix(stages);
     rownames(stages) = as.samples(LUAD);
-    dataset = annotate.stages(LUAD, stages = stages);
-    print(head(as.stages(dataset)));
-    oncoprint(dataset, legend = FALSE);
-    oncoprint(dataset, group.samples = as.stages(dataset));
+    LUAD_grouped = annotate.stages(LUAD, stages = stages);
+    print(head(as.stages(LUAD_grouped)));
+    oncoprint(LUAD_grouped);
+    oncoprint(LUAD_grouped, 
+              group.samples = as.stages(LUAD_grouped));
+    oncoprint(LUAD_grouped,
+              samples.cluster = TRUE,
+              genes.cluster = TRUE);
 }
