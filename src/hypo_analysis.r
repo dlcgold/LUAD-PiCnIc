@@ -6,18 +6,18 @@ hypo_analysis <- function(LUAD){
                                   filter.freq = .05);
     oncoprint(LUAD_less);
     del <- consolidate.data(LUAD_less);
-    if(length(del[["indistinguishable"]]) > 0){
-        for (i in 1:length(del[["indistinguishable"]])) {
-            type <- del[["indistinguishable"]][[i]][[1]];
-            beg <- as.integer(length(del[["indistinguishable"]][[i]]) / 2) + 1;
-            for (j in beg:length(del[["indistinguishable"]][[i]])){
-                LUAD_less <- delete.event(LUAD_less, 
-                                          gene = del[["indistinguishable"]][[i]][[j]], 
-                                          type = type);
-                
-            }
-        }
-    }
+    # if(length(del[["indistinguishable"]]) > 0){
+    #     for (i in 1:length(del[["indistinguishable"]])) {
+    #         type <- del[["indistinguishable"]][[i]][[1]];
+    #         beg <- as.integer(length(del[["indistinguishable"]][[i]]) / 2) + 1;
+    #         for (j in beg:length(del[["indistinguishable"]][[i]])){
+    #             LUAD_less <- delete.event(LUAD_less, 
+    #                                       gene = del[["indistinguishable"]][[i]][[j]], 
+    #                                       type = type);
+    #             
+    #         }
+    #     }
+    # }
     oncoprint(LUAD_less);
     alterations = events.selection(as.alterations(LUAD_less),
                                    filter.freq = .05);
@@ -33,33 +33,47 @@ hypo_analysis <- function(LUAD){
     oncoprint(LUAD.clean,
               gene.annot = list(priors = gene.hypotheses),
               sample.id = TRUE);
-                                        #LUAD_hypo <- nhypotheses(LUAD);
+                        #LUAD_hypo <- nhypotheses(LUAD);
                                         #print(LUAD_hypo);
                                         # RANDOM hypotesis
-    LUAD.hypo = hypothesis.add(LUAD.clean, 
-                               'TNR xor KRAS',
-                               XOR('TNR', 'KRAS'));
-    LUAD.hypo = hypothesis.add(LUAD.clean, 
-                               'TNR or KRAS',
-                               OR('TNR', 'KRAS'));
+    LUAD.hypo = hypothesis.add(LUAD.clean,
+                               'TP53 xor KRAS',
+                               XOR('TP53', 'KRAS'));
     oncoprint(events.selection(LUAD.hypo,
-                               filter.in.names = c('KRAS', 'TNR')),
+                               filter.in.names = c('TP53', 'KRAS')),
               font.row = 8,
               ann.hits = FALSE);
-    LUAD.hypo = hypothesis.add(LUAD.clean, 
-                               'FLG xor TTN',
-                               XOR('FLG', 'TTN'), 
-                               '*');
-    LUAD.hypo <- hypothesis.add(LUAD.clean, 
-                                'FLG or TTN',
-                                OR('FLG', 'TTN'), 
-                                '*');
+    LUAD.hypo = hypothesis.add(LUAD.clean,
+                               'BRAF xor KRAS',
+                               XOR('BRAF', 'KRAS'));
+    oncoprint(events.selection(LUAD.hypo,
+                               filter.in.names = c('BRAF', 'KRAS')),
+              font.row = 8,
+              ann.hits = FALSE);
+    # LUAD.hypo = hypothesis.add(LUAD.clean,
+    #                            'ERBB2 xor KRAS',
+    #                            XOR('ERBB2', 'KRAS'));
+    # oncoprint(events.selection(LUAD.hypo,
+    #                            filter.in.names = c('ERBB2', 'KRAS')),
+    #           font.row = 8,
+    #           ann.hits = FALSE);
+    # LUAD.hypo = hypothesis.add(LUAD.clean,
+    #                            'ERBB2 xor EGRF',
+    #                            XOR('ERBB2', 'EGRF'));
+    # oncoprint(events.selection(LUAD.hypo,
+    #                            filter.in.names = c('ERBB2', 'EGRF')),
+    #           font.row = 8,
+    #           ann.hits = FALSE);
+  
+    
     LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo);
     LUAD <- hypothesis.add.group(LUAD.clean, 
-                                 OR,
-                                 group = c('ATM', 
-                                           'NF1', 
-                                           'SMARCA4'));
+                                 XOR,
+                                 group = c('KRAS', 
+                                           'EGFR', 
+                                           'ALK',
+                                           'ERBB2',
+                                           'BRAF'));
     oncoprint(LUAD.hypo, 
               gene.annot = list(priors = gene.hypotheses), 
               sample.id = TRUE,
@@ -72,8 +86,8 @@ hypo_analysis <- function(LUAD){
     
     tronco.pattern.plot(LUAD,
                         group = as.events(LUAD, 
-                                          genes=c('ATM', 
-                                                  'NF1')),
+                                          genes=c('TP53', 
+                                                  'KRAS')),
                         to = c('LRP1B', 
                                'Missense_Mutation'),
                         legend.cex=0.8,
@@ -81,8 +95,8 @@ hypo_analysis <- function(LUAD){
     
     tronco.pattern.plot(LUAD,
                         group = as.events(LUAD, 
-                                          genes=c('ATM', 
-                                                  'NF1')),
+                                          genes=c('TP53', 
+                                                  'KRAS')),
                         to = c('LRP1B', 
                                'Missense_Mutation'),
                         legend.cex=0.8,
@@ -129,13 +143,13 @@ hypo_analysis <- function(LUAD){
              fontsize_col = 6,
              display_numbers = TRUE,
              number_format = "%d");
-    model.boot <- tronco.kfold.eloss(model.boot);
-    model.boot <- tronco.kfold.prederr(model.boot, 
+    model.boot <<- tronco.kfold.eloss(model.boot);
+    model.boot <<- tronco.kfold.prederr(model.boot, 
                                        runs = 2,
                                        cores.ratio = 0);
     model.boot <- tronco.kfold.posterr(model.boot,
                                        runs = 2,
-                                       cores.ratio = 0)
+                                       cores.ratio = 0);
     tab <<- tabular(model.boot, 
                     'capri_bic');
     tronco.plot(model.boot,

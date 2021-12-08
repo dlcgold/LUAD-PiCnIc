@@ -1,10 +1,9 @@
 library(TRONCO)
-library(xlsx)
 source("src/input.r")
 source("src/stages.r")
 source("src/hypo_analysis.r")
 
-LUAD <- input_genes_gdc(interactive = FALSE);
+LUAD <- input_default();
 # LUADGistic <- input_gistic(interactive = TRUE);
 oncoprint(LUAD);
 # tronco.plot(

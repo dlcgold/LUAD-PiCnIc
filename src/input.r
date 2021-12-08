@@ -382,6 +382,24 @@ input_gistic <- function(interactive = TRUE, genes_custom = c()) {
     }
 }
 
+input_default <- function(){
+  # genes <- as.genes(LUAD);
+  # genes <- append(genes, "ERBB2");
+  # genes <- append(genes, "ALK");
+  # genes <- append(genes, "NRAS");
+  # genes <- append(genes, "PIK3CA");
+  # genes <- append(genes, "CTNNB1");
+  # genes <- append(genes, "STK11");
+  # genes <- append(genes, "CDKN2A");
+  # genes <- append(genes, "APC");
+  # genes <- append(genes, "RB1");
+  # genes <- append(genes, "NRAS");
+  # genes <- append(genes, "WRN");
+  # genes <- append(genes, "RHOC");
+  # genes <- unique(genes);
+  LUAD <- loadRData("input/luadDef.rda");
+  return(LUAD);
+}
 
 reduce_samples <- function(LUAD, n_samples){
     uni_samples <- unique(LUAD$Tumor_Sample_Barcode);
