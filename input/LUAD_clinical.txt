@@ -1,0 +1,523 @@
+rn	Composite Element REF	years_to_birth	vital_status	days_to_death	days_to_last_followup	tumor_tissue_site	pathologic_stage	pathology_T_stage	pathology_N_stage	pathology_M_stage	gender	date_of_initial_pathologic_diagnosis	days_to_last_known_alive	radiation_therapy	karnofsky_performance_score	histological_type	number_pack_years_smoked	year_of_tobacco_smoking_onset	residual_tumor	race	ethnicity
+TCGA-05-4245	value	81	0		730	lung	Stage IIIA	t2	n2	m0	male	2009		no		lung adenocarcinoma- not otherwise specified (nos)	32		r2		
+TCGA-05-4382	value	68	0		607	lung	Stage IB	t2	n0	m0	male	2009		yes		lung adenocarcinoma mixed subtype	62		r0		
+TCGA-05-4384	value	66	0		426	lung	Stage IIIA	t2	n2	m0	male	2009		yes		lung adenocarcinoma mixed subtype	20	1963	rx		
+TCGA-05-4396	value	76	1	303		lung	Stage IIIB	t4	n1	m0	male	2006				lung adenocarcinoma mixed subtype	19	1947	r0		
+TCGA-05-4402	value	57	1	244		lung	Stage IV	t2	nx	m1	female	2007		no		lung adenocarcinoma mixed subtype			r2		
+TCGA-05-4405	value	74	0		610	lung	Stage IB	t2	n0	m0	female	2006		no		lung adenocarcinoma mixed subtype	65	1951	r0		
+TCGA-05-4410	value	62	0		0	lung	Stage IB	t2	n0	m0	male	2007				lung adenocarcinoma mixed subtype	98	1958	rx		
+TCGA-05-4418	value	69	1	274		lung	Stage IIIA	t3	n2	m0	male	2008				lung adenocarcinoma mixed subtype	25		r0		
+TCGA-05-4427	value	65	0		791	lung	Stage IIB	t2	n1	m0	female	2008		no		lung adenocarcinoma mixed subtype	8	1993	r0		
+TCGA-05-4434	value	67	1	457		lung	Stage IV	t4	n1	m1	female	2008				lung adenocarcinoma mixed subtype	15		r2		
+TCGA-05-5420	value	67	0		457	lung	Stage IIIA	t2	n2	m0	male	2008				lung adenocarcinoma- not otherwise specified (nos)	40	1961	r0		
+TCGA-38-4629	value	68	1	864		lung	Stage IIB	t3	n0	m0	male	2003		no		lung adenocarcinoma- not otherwise specified (nos)	100		r0	white	not hispanic or latino
+TCGA-38-4630	value	75	1	1073		lung	Stage IB	t2	n0	m0	female	2000		no		lung papillary adenocarcinoma			r1	white	not hispanic or latino
+TCGA-38-4631	value	72	1	354		lung	Stage IB	t2	n0	m0	female	1997		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-38-6178	value	70	0		448	lung	Stage IIIA	t2b	n2		female	2010		no		lung adenocarcinoma- not otherwise specified (nos)			r1	white	not hispanic or latino
+TCGA-38-7271	value	72	1	800		lung	Stage IA	t1	n0	m0	female	2006		no		lung adenocarcinoma- not otherwise specified (nos)	25	1971	r0	white	not hispanic or latino
+TCGA-44-2655	value	65	0		1324	lung	Stage IA	t1	n0	m0	female	2009	575	no		lung adenocarcinoma- not otherwise specified (nos)	30	1958	r0	white	not hispanic or latino
+TCGA-44-2661	value	69	0		1159	lung	Stage IA	t1	n0	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-44-2662	value	65	0		1280	lung	Stage IB	t2	n0	m0	male	2009		no		lung adenocarcinoma- not otherwise specified (nos)	56	1956	r0	white	not hispanic or latino
+TCGA-44-6146	value	64	0		728	lung	Stage IIB	t3	n0	m0	male	2010		no		lung mucinous adenocarcinoma	15			white	not hispanic or latino
+TCGA-44-6147	value	67	0		845	lung	Stage IA	t1b	nx	m0	female	2010		no	80	lung adenocarcinoma- not otherwise specified (nos)		1976		white	not hispanic or latino
+TCGA-44-6776	value	60	0		2616	lung	Stage IA	t1	n0	mx	female	2005		no		lung adenocarcinoma- not otherwise specified (nos)	45	1960		white	
+TCGA-44-7661	value	69	1	557		lung	Stage IB	t2a	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	22	1961		white	not hispanic or latino
+TCGA-44-7670	value	47	0		882	lung	Stage IIA	t1b	n1	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	30	1980		white	hispanic or latino
+TCGA-44-7671	value	64	0		889	lung	Stage IB	t2a	n0	m0	male	2010		no		lung adenocarcinoma mixed subtype				black or african american	not hispanic or latino
+TCGA-44-8119	value	73	0		285	lung	Stage IIB	t3	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	50	1961		white	not hispanic or latino
+TCGA-44-A47F	value	74	0		337	lung	Stage IIB	t2b	n1	m0	male	2012		no	90	lung adenocarcinoma- not otherwise specified (nos)	20	1955		white	not hispanic or latino
+TCGA-49-4501	value	67	1	1421		lung	Stage IB	t2	n0	m0	female	1996		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-49-6742	value	70	1	488		lung	Stage IIA	t2a	n1	m0	male	2010		no	40	mucinous (colloid) carcinoma	10		r0	white	not hispanic or latino
+TCGA-49-6745	value	82	0		522	lung	Stage IIIA	t2a	n2	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	20			white	
+TCGA-49-6761	value	68	0		354	lung	Stage IIIA	t1	n2	mx	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	50		r0	white	not hispanic or latino
+TCGA-49-AAR0	value	57	0		4765	lung	Stage IA	t1	n0	mx	male	2002		no	80	lung adenocarcinoma- not otherwise specified (nos)	37		r0	black or african american	not hispanic or latino
+TCGA-49-AARN	value	56	1	1135		lung	Stage IA	t1	n0	mx	female	2000		no	90	lung adenocarcinoma- not otherwise specified (nos)			r0	black or african american	not hispanic or latino
+TCGA-50-5932	value	75	1	1235		lung	Stage IIB	t2	n1	m0	male	2001		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-5935	value	86	1	653		lung	Stage IA	t1	n0	m0	female	2006		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-6597	value	79	1	1268		lung	Stage IB	t2	n0	m0	female	2007		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-1592	value		1	701		lung	Stage IA	t2	n0	m0	male	2005		no		lung adenocarcinoma- not otherwise specified (nos)		1957	r0	white	not hispanic or latino
+TCGA-55-1595	value		0		1479	lung	Stage IA	t1	n0	m0	female	2004		no		lung clear cell adenocarcinoma		1964		asian	not hispanic or latino
+TCGA-55-6978	value		1	176		lung	Stage IIA	t2b	n0	mx	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-6979	value	59	1	237		lung	Stage IIB	t2	n1	m0	female	2006		no		lung adenocarcinoma- not otherwise specified (nos)				white	
+TCGA-55-7284	value	74	1	243		lung	Stage IIB	t3	n0	mx	male	2011		no		lung bronchioloalveolar carcinoma nonmucinous			r0	white	not hispanic or latino
+TCGA-55-7573	value	72	0		487	lung	Stage IA	t1b	n0	mx	female	2011		no	90	lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-7724	value	76	0		705	lung	Stage IB	t2a	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	50	1958	r0	white	not hispanic or latino
+TCGA-55-7725	value	68	0		442	lung	Stage IA	t1a	n0	mx	female	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)	16	1963	r0	white	not hispanic or latino
+TCGA-55-7726	value	72	0		652	lung	Stage IA	t1b	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	30	1955	r0	white	not hispanic or latino
+TCGA-55-7914	value	71	1	187		lung	Stage IIA	t1b	n1	mx	female	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)	5	1990	r0	white	not hispanic or latino
+TCGA-55-8090	value	80	1	598		lung	Stage IA	t1a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8091	value	74	0		600	lung	Stage IB	t2	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8203	value	69	0		547	lung	Stage IA	t1b	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	50		r0	white	not hispanic or latino
+TCGA-55-8204	value	87	0		515	lung	Stage IB	t2a	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8205	value	76	0		599	lung	Stage IIA	t2b	n0	m0	female	2012		no	100	lung adenocarcinoma- not otherwise specified (nos)	30	1951	r0	white	not hispanic or latino
+TCGA-55-8207	value	73	0		977	lung	Stage IB	t2a	n0	mx	male	2011		no		lung acinar adenocarcinoma			r0	white	not hispanic or latino
+TCGA-55-8511	value	73	0		552	lung	Stage IB	t2a	n0	mx	female	2012		no	70	lung adenocarcinoma- not otherwise specified (nos)	58	1953	r0	white	not hispanic or latino
+TCGA-55-8619	value	72	0		416	lung	Stage IIB	t3	n0	mx	female	2012		no	90	mucinous (colloid) carcinoma			r0	white	not hispanic or latino
+TCGA-55-8621	value	75	0		515	lung	Stage IA	t1a	n0	mx	female	2012		no	90	lung adenocarcinoma- not otherwise specified (nos)	30	1980	r0	white	not hispanic or latino
+TCGA-55-A48X	value	63	0		689	lung	Stage IIA	t1b	n1	m0	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	36	1963	r0	white	not hispanic or latino
+TCGA-55-A491	value	81	0		626	lung	Stage IA	t1b	n0	mx	female	2012		no	80	lung adenocarcinoma- not otherwise specified (nos)	45	1952	r0	white	not hispanic or latino
+TCGA-55-A492	value	70	0		596	lung	Stage IA	t1a	n0	mx	female	2012		no	80	lung adenocarcinoma- not otherwise specified (nos)	35	1962	r0	white	not hispanic or latino
+TCGA-55-A4DF	value	88	1	614		lung	Stage IA	t1b	n0	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	60		r0	white	not hispanic or latino
+TCGA-64-1677	value	77	1	628		lung	Stage IIIA	t2	n2	m0	female	2005		no	0	lung adenocarcinoma- not otherwise specified (nos)	50	1955	r0	white	not hispanic or latino
+TCGA-67-6217	value	73	0		422	lung	Stage IIA	t2a	n1	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-73-4658	value	80	1	1600		lung	Stage IB	t2	n0	m0	female	2004		no		lung adenocarcinoma- not otherwise specified (nos)	25		r0	white	not hispanic or latino
+TCGA-73-4662	value	65	0		2515	lung	Stage IA	t1	n0	m0	female	2007		no	100	lung adenocarcinoma- not otherwise specified (nos)	10	1955	r0	white	not hispanic or latino
+TCGA-73-7498	value	58	0		1189	lung	Stage IA	t1b	n0	m0	female	2010		no	100	lung bronchioloalveolar carcinoma nonmucinous	28	1969	r0	white	not hispanic or latino
+TCGA-78-7166	value	84	1	258		lung	Stage IIB	t2	n1	m0	male	2002		yes		lung adenocarcinoma- not otherwise specified (nos)	38	1934	r0	white	
+TCGA-78-7633	value	67	1	1528		lung	Stage IB	t2	n0	m0	male	2009				lung adenocarcinoma mixed subtype	94	1955	r0	white	
+TCGA-78-8660	value	69	1	321		lung	Stage IIB	t2	n1	m0	male	2005		yes		lung adenocarcinoma- not otherwise specified (nos)	11	1954	r0		
+TCGA-80-5607	value		0			lung	Stage IIB	t2	n1	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)	15	1965	r0		
+TCGA-80-5611	value		0		2595	lung	Stage IB	t2	n0	m0	male			no		lung solid pattern predominant adenocarcinoma	60		r0		
+TCGA-91-6836	value	52	0		417	lung	Stage IB	t2	n0	mx	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	50	1973		white	not hispanic or latino
+TCGA-91-7771	value	62	0		492	lung	Stage IIB	t3	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	75			white	not hispanic or latino
+TCGA-91-A4BC	value	59	0		44	lung	Stage IIA	t2b	n0	mx	male	2012				lung adenocarcinoma- not otherwise specified (nos)	30	1976		white	not hispanic or latino
+TCGA-93-8067	value	77	0		186	lung	Stage IB	t2a	n0	mx	male	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)	20	1961	rx	asian	not hispanic or latino
+TCGA-93-A4JQ	value	49	0		526	lung	Stage IA	t1b	n0	mx	male	2012		no		lung acinar adenocarcinoma		1973	rx	white	not hispanic or latino
+TCGA-95-7043	value	63	1	503		lung	Stage IA	t1a	n0	mx	female	2011		no		lung adenocarcinoma mixed subtype	40	1964		white	not hispanic or latino
+TCGA-95-7562	value	71	1	87		lung	Stage IIA	t2a	n1	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	10	1973	rx	black or african american	not hispanic or latino
+TCGA-95-7947	value	67	0		477	lung	Stage IA	t1a	n0	m0	male	2011		no		lung adenocarcinoma mixed subtype	100	1956	r0	white	not hispanic or latino
+TCGA-95-7948	value	42	0		476	lung	Stage IB	t2a	n0	m0	female	2011		no		lung adenocarcinoma mixed subtype	0.15	1993	r0	white	not hispanic or latino
+TCGA-95-A4VK	value	74	0		651	lung	Stage IIIA	t2b	n2	m0	female	2012		yes		lung adenocarcinoma mixed subtype	45	1956	rx	white	not hispanic or latino
+TCGA-95-A4VN	value	62	0		553	lung	Stage IIA	t2a	n1	m0	female	2012		no		lung solid pattern predominant adenocarcinoma	42	1965	r0	white	not hispanic or latino
+TCGA-97-8172	value	75	0		545	lung	Stage IB	t2a	n0	m0	female	2011		no		lung acinar adenocarcinoma	20	1961		white	not hispanic or latino
+TCGA-97-A4LX	value	81	0		614	lung	Stage IB	t2a	n0	m0	male	2012		no		lung adenocarcinoma mixed subtype	120	1945		white	not hispanic or latino
+TCGA-97-A4M2	value	66	0		624	lung	Stage IA	t1a	n0	m0	male	2012		no		lung adenocarcinoma mixed subtype	100	1972	r0	white	not hispanic or latino
+TCGA-97-A4M3	value	69	0		540	lung	Stage IA	t1b	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype	37.5	1959		white	not hispanic or latino
+TCGA-97-A4M7	value	74	0		629	lung	Stage IA	t1b	n0	m0	male	2012		no		lung adenocarcinoma mixed subtype	40	1958	r0	white	not hispanic or latino
+TCGA-J2-8192	value	65	0		739	lung	Stage IIA	t2a	n1	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-J2-8194	value	69	0		724	lung	Stage IIB	t3	n0	mx	female	2011		yes		lung adenocarcinoma mixed subtype	20	1956		white	not hispanic or latino
+TCGA-L9-A443	value	63	1	193		lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	90	1960	r0	white	not hispanic or latino
+TCGA-L9-A444	value	60	0		307	lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	10	1972	r0	white	not hispanic or latino
+TCGA-L9-A743	value	56	0		664	lung	Stage IIA	t2a	n1	m0	male	2013		no		lung adenocarcinoma- not otherwise specified (nos)	40.5	1986	r0	black or african american	not hispanic or latino
+TCGA-MN-A4N1	value	60	0		827	lung	Stage IIA	t2a	n1	m0	male	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)		1967	r0	black or african american	not hispanic or latino
+TCGA-MP-A4T8	value	68	1	161		lung	Stage IIIA	t2	n2	m0	male	2006		no		lung adenocarcinoma- not otherwise specified (nos)	25	1957	r0		
+TCGA-MP-A4TA	value	75	1	950		lung	Stage IA	t1	n0	m0	female	2006		no		lung adenocarcinoma- not otherwise specified (nos)	55	1951	r0	white	not hispanic or latino
+TCGA-MP-A4TC	value	77	1	74		lung	Stage IIIA	t1	n2	m0	male	2008		no		lung adenocarcinoma- not otherwise specified (nos)	125	1944	r0	white	not hispanic or latino
+TCGA-MP-A4TD	value	71	1	307		lung	Stage IIIA	t2	n2	m0	male	2008		no		lung adenocarcinoma- not otherwise specified (nos)	20		rx	white	
+TCGA-05-4244	value	70	0		0	lung	Stage IV	t2	n2	m1	male	2009				lung adenocarcinoma- not otherwise specified (nos)	38		rx		
+TCGA-05-4249	value	67	0		1523	lung	Stage IB	t2	n0	m0	male	2007		no		lung adenocarcinoma- not otherwise specified (nos)	52		r0		
+TCGA-05-4250	value	79	1	121		lung	Stage IIIA	t3	n1	m0	female	2007				lung adenocarcinoma- not otherwise specified (nos)	47		r2		
+TCGA-05-4389	value	70	0		1369	lung	Stage IA	t1	n0	m0	male	2005		no		lung adenocarcinoma mixed subtype	43		r0		
+TCGA-05-4390	value	58	0		1126	lung	Stage IB	t2	n0	m0	female	2005		no		lung adenocarcinoma mixed subtype	15	1966	r0		
+TCGA-05-4395	value	76	1	0		lung	Stage IIIB	t4	n2	m0	male	2006				lung adenocarcinoma mixed subtype			r0		
+TCGA-05-4397	value	65	1	731		lung	Stage IIB	t2	n1	m0	male	2006				lung adenocarcinoma mixed subtype	45		r0		
+TCGA-05-4398	value	47	0		1431	lung	Stage IIIB	t4	n3	m0	female	2006		no		lung adenocarcinoma mixed subtype	72		r0		
+TCGA-05-4403	value	76	0		578	lung	Stage IB	t2	n0	m0	male	2006				lung adenocarcinoma mixed subtype			r0		
+TCGA-05-4415	value	57	1	91		lung	Stage IIIB	t4	n2	m0	male	2008		no		lung adenocarcinoma mixed subtype	29	1997	r0		
+TCGA-05-4417	value	51	0		455	lung	Stage IB	t2	n0	m0	female	2008		no		lung adenocarcinoma mixed subtype	56	1971	r0		
+TCGA-05-4420	value	41	0		912	lung	Stage IB	t2	n0	m0	male	2008		no		lung adenocarcinoma mixed subtype	38		r0		
+TCGA-05-4422	value	68	0		365	lung	Stage IB	t2	n0	m0	male	2008				lung adenocarcinoma mixed subtype	147		r0		
+TCGA-05-4424	value	70	0		913	lung	Stage IIB	t3	n0	m0	male	2008		yes		lung adenocarcinoma mixed subtype	50	1957	r1		
+TCGA-05-4425	value	70	0		669	lung	Stage IV	t2	n0	m1	female	2008				lung adenocarcinoma mixed subtype	28		r1		
+TCGA-05-4426	value	71	0		791	lung	Stage IB	t2	n0	m0	male	2008				lung adenocarcinoma mixed subtype	20		r0		
+TCGA-05-4430	value	59	0		761	lung	Stage IB	t2	n0	m0	female	2008				lung adenocarcinoma mixed subtype	80		r0		
+TCGA-05-4432	value	66	0		761	lung	Stage IIB	t2	n1	m0	male	2008		no		lung adenocarcinoma mixed subtype	58		r0		
+TCGA-05-4433	value	82	0		730	lung	Stage IB	t2	n0	m0	male	2008				lung adenocarcinoma mixed subtype	1	1946	r0		
+TCGA-05-5423	value	65	0		151	lung	Stage IIB	t2	n1	m0	male	2006				lung adenocarcinoma mixed subtype	72	1956	r0		
+TCGA-05-5425	value	68	0		882	lung	Stage IIB	t2b	n1	m0	male	2009		yes		lung adenocarcinoma mixed subtype	40	1965	r0		
+TCGA-05-5428	value	57	0		670	lung	Stage IIA	t1b	n1	m0	male	2010		yes		lung adenocarcinoma mixed subtype	30	1969	r0		
+TCGA-05-5429	value	60	1	275		lung	Stage IIIA	t3	n2	m0	male	2010				lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-05-5715	value	69	0		62	lung	Stage IB	t2a	n0	m0	female	2010				lung adenocarcinoma mixed subtype			r0		
+TCGA-35-3615	value	57	0		14	lung	Stage IB	t2	n0	m0	male	2007				lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-35-4122	value	69	0		225	lung	Stage IA	t1	n0	m0	male	2010			80	lung adenocarcinoma- not otherwise specified (nos)	45	1965	r0	white	not hispanic or latino
+TCGA-35-4123	value	38	0		182	lung	Stage IA	t1	n0	m0	male	2010			90	lung adenocarcinoma- not otherwise specified (nos)	20	1990	r0	white	not hispanic or latino
+TCGA-35-5375	value	61	0		264	lung	Stage IIIA	t2	n2	m0	male	2010			90	lung adenocarcinoma- not otherwise specified (nos)	35	1971	r0	white	not hispanic or latino
+TCGA-38-4625	value	66	0		2973	lung	Stage IB	t2a	n0	m0	female	2002		no		lung adenocarcinoma- not otherwise specified (nos)	50	1952	r0	white	not hispanic or latino
+TCGA-38-4626	value	57	0		3674	lung		t2b	n0	m0	female	2003		no		lung adenocarcinoma- not otherwise specified (nos)	40	1962	r0	white	not hispanic or latino
+TCGA-38-4627	value	64	1	1147		lung	Stage IIA	t1b	n1	m0	female	2003		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-38-4628	value	65	1	1492		lung	Stage IIB	t2	n1	m0	female	2002		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-38-4632	value	42	1	1357		lung	Stage IV	t2	n1	m1	male	1998		no		lung adenocarcinoma- not otherwise specified (nos)	10		r0	black or african american	not hispanic or latino
+TCGA-38-A44F	value	80	0		133	lung	Stage IB	t2a	n0	m0	male	2012		no		lung adenocarcinoma mixed subtype	12	1965	r0	white	not hispanic or latino
+TCGA-44-2656	value	59	0		1429	lung	Stage IB	t2	n0	m0	male	2009		no		lung adenocarcinoma- not otherwise specified (nos)	23	1994		white	not hispanic or latino
+TCGA-44-2657	value	74	0		1351	lung	Stage IB	t2	nx	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	25	1959	r0	white	not hispanic or latino
+TCGA-44-2659	value	65	0		1367	lung	Stage IIB	t1	n1	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	57	1965	r0	white	not hispanic or latino
+TCGA-44-2664	value	66	0		1251	lung	Stage IA	t1	n0	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	23	1964	r0	black or african american	not hispanic or latino
+TCGA-44-2665	value	55	0		1301	lung	Stage IIB	t2	n1	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-44-2666	value	43	1	97		lung	Stage IB	t2	n0	m0	male	2009	97	no		lung adenocarcinoma- not otherwise specified (nos)	30	1979	r0	white	hispanic or latino
+TCGA-44-2668	value	51	1	761		lung	Stage IB	t2	n0	m0	male	2009		no		lung adenocarcinoma- not otherwise specified (nos)	60	1979	r0	white	not hispanic or latino
+TCGA-44-3396	value	74	0		1130	lung	Stage IIIA	t2	n2	m0	female	2009		no	80	lung adenocarcinoma- not otherwise specified (nos)	50	1959	r0	white	not hispanic or latino
+TCGA-44-3398	value	77	0		1163	lung	Stage IA	t1b	n0	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	60	1959	r0	white	not hispanic or latino
+TCGA-44-3917	value	33	0		1183	lung	Stage IB	t2	n0	m0	female	2009		no	100	lung adenocarcinoma- not otherwise specified (nos)	16	1993	r0	white	not hispanic or latino
+TCGA-44-3918	value	60	0		1036	lung	Stage IA	t1	n0	m0	female	2010	197	no	90	lung adenocarcinoma- not otherwise specified (nos)	20	1974	r0	white	not hispanic or latino
+TCGA-44-3919	value	71	1	1026		lung	Stage IA	t1	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-44-4112	value	60	1	808		lung	Stage IB	t2a	n0	m0	female	2010	141	no	70	lung adenocarcinoma- not otherwise specified (nos)	30	1972	r0	white	not hispanic or latino
+TCGA-44-5643	value	53	0		1013	lung	Stage IIIA	t2b	n2	m0	male	2010		yes		lung adenocarcinoma- not otherwise specified (nos)	20			black or african american	not hispanic or latino
+TCGA-44-5644	value	51	0		863	lung	Stage IB	t2a	n0		female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	17.5	1975		white	not hispanic or latino
+TCGA-44-5645	value	61	0		852	lung	Stage IA	t1	nx		female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	5	1963		black or african american	not hispanic or latino
+TCGA-44-6144	value	58	0		723	lung	Stage IA	t1a	n0	m0	male	2011	9	no	70	lung adenocarcinoma- not otherwise specified (nos)	67.5	1968	rx	white	not hispanic or latino
+TCGA-44-6145	value	62	0		595	lung	Stage IA	t1	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	75	1963		white	not hispanic or latino
+TCGA-44-6148	value	60	0		704	lung	Stage IA	t1b	n0	m0	male	2011	96	no		lung mucinous adenocarcinoma	60	1963	rx	white	not hispanic or latino
+TCGA-44-6774	value	56	0		658	lung	Stage IIIA	t1	n2	m0	female	2011		yes		lung adenocarcinoma- not otherwise specified (nos)	20	1971		white	not hispanic or latino
+TCGA-44-6775	value	72	0		705	lung	Stage IB	t2a	n0	mx	female	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)	25	1955	rx	white	hispanic or latino
+TCGA-44-6777	value	85	1	987		lung	Stage IB	t2	nx	mx	female	2006		yes		lung adenocarcinoma- not otherwise specified (nos)	64	1942		white	
+TCGA-44-6778	value	59	0		1864	lung	Stage IA	t1	n0	mx	male	2007		no		lung adenocarcinoma- not otherwise specified (nos)	15	1974		black or african american	
+TCGA-44-6779	value	50	1	500		lung	Stage IIB	t2	n1	mx	female	2008		no		lung adenocarcinoma- not otherwise specified (nos)	15	1978		white	
+TCGA-44-7659	value	70	0		691	lung	Stage IA	t1b	n0	mx	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)	40	1989		white	not hispanic or latino
+TCGA-44-7660	value	72	0		592	lung	Stage IB	t2	n0	mx	male	2011		no	70	lung adenocarcinoma- not otherwise specified (nos)	124	1949		white	not hispanic or latino
+TCGA-44-7662	value	61	0		218	lung	Stage IB	t2a	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	50	1961		white	not hispanic or latino
+TCGA-44-7667	value	49	0		1097	lung	Stage IIB	t3	n0	mx	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	50	1974		white	not hispanic or latino
+TCGA-44-7669	value	59	1	574		lung	Stage IIA	t1b	n1	mx	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)	20	1970		black or african american	not hispanic or latino
+TCGA-44-7672	value	52	0		719	lung	Stage IA	t1b	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	20	1980		white	not hispanic or latino
+TCGA-44-8117	value	54	0		385	lung	Stage IB	t2a	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	54	1975		white	not hispanic or latino
+TCGA-44-8120	value	58	0		260	lung	Stage IB	t2a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	30	1981		black or african american	not hispanic or latino
+TCGA-44-A479	value	73	0		486	lung	Stage IB	t2	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	40	1962	r0	black or african american	not hispanic or latino
+TCGA-44-A47A	value	78	0		466	lung	Stage IB	t2a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	80	1970	r0	white	not hispanic or latino
+TCGA-44-A47B	value	79	0		287	lung	Stage IB	t2a	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	4.5	1956	r0	white	not hispanic or latino
+TCGA-44-A47G	value	73	0		351	lung	Stage IA	t1	n0	m0	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	28	1956	r0	white	not hispanic or latino
+TCGA-44-A4SS	value	73	0		415	lung	Stage IA	t1b	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	90	1952		white	not hispanic or latino
+TCGA-44-A4SU	value	67	1	409		lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	50	1961	r0	white	not hispanic or latino
+TCGA-49-4486	value	72	1	2318		lung	Stage IA	t1	n0	m0	male	1992		no	60	lung adenocarcinoma- not otherwise specified (nos)	17.5	1932	r0	white	not hispanic or latino
+TCGA-49-4487	value	72	1	855		lung	Stage IA	t1	n0	m0	female	1992		yes		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-49-4488	value	74	1	869		lung	Stage IA	t1	n0	mx	female	1992		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-49-4490	value	45	1	385		lung	Stage IIIA	t3	n2	m0	female	1993		yes		lung adenocarcinoma- not otherwise specified (nos)	5			white	not hispanic or latino
+TCGA-49-4494	value	77	1	1081		lung	Stage IIIA	t3	n2	m0	male	1995			90	lung adenocarcinoma- not otherwise specified (nos)	50	1930	r0	white	not hispanic or latino
+TCGA-49-4505	value	61	1	428		lung	Stage IIB	t2	n1	m0	female	1996		no	80	lung adenocarcinoma- not otherwise specified (nos)	74	1949	r0	white	not hispanic or latino
+TCGA-49-4506	value	68	1	999		lung	Stage IIB	t2	n1	m0	female	1997		yes	70	lung adenocarcinoma- not otherwise specified (nos)	100		r1	white	not hispanic or latino
+TCGA-49-4507	value	73	1	268		lung	Stage IIIA	t3	n1	m0	female	1997		yes		lung adenocarcinoma- not otherwise specified (nos)	78		r0	white	not hispanic or latino
+TCGA-49-4510	value	51	1	896		lung	Stage IIB	t2	n1	m0	female	2001		yes	80	lung adenocarcinoma- not otherwise specified (nos)	55.5		r0	black or african american	not hispanic or latino
+TCGA-49-4512	value	69	1	905		lung	Stage IIIA	t2	n2	mx	female	2007		no		lung adenocarcinoma- not otherwise specified (nos)			r1	white	not hispanic or latino
+TCGA-49-4514	value	79	0		1700	lung	Stage IA	t1	n0	m0	female	2007		no		lung papillary adenocarcinoma	65		r0	white	
+TCGA-49-6743	value	81	0		1621	lung	Stage IIIA	t1	n2	mx	female	2010		no	100	lung clear cell adenocarcinoma	50			white	
+TCGA-49-6744	value	64	0		1683	lung	Stage IIA	t2a	n1	mx	female	2010		no	90	lung adenocarcinoma mixed subtype	20		r0	white	
+TCGA-49-6767	value	46	0		677	lung	Stage IIB	t3	n0	mx	female	2010				lung adenocarcinoma- not otherwise specified (nos)	30		r0	white	
+TCGA-49-AAQV	value	63	1	677		lung	Stage II	t1	n1	mx	female	2012		no	90	lung adenocarcinoma mixed subtype			r0	black or african american	not hispanic or latino
+TCGA-49-AAR2	value	64	0		2224	lung	Stage IB	t2	n0	mx	male	2009		no	90	lung acinar adenocarcinoma			r0	black or african american	not hispanic or latino
+TCGA-49-AAR3	value	69	0		1893	lung	Stage IIB	t2	n1	mx	male	2008		no	100	lung adenocarcinoma- not otherwise specified (nos)			r0	black or african american	not hispanic or latino
+TCGA-49-AAR4	value	51	1	879		lung	Stage IIIA	t2	n2	mx	male	2006		yes	80	lung adenocarcinoma- not otherwise specified (nos)	35		r0	black or african american	not hispanic or latino
+TCGA-49-AAR9	value	61	1	260		lung	Stage IIB	t3	n0	mx	male	1999		no	80	lung adenocarcinoma- not otherwise specified (nos)			r0	black or african american	not hispanic or latino
+TCGA-49-AARE	value	51	1	1229		lung	Stage IA	t1	n0	mx	female	1999		no	90	lung adenocarcinoma- not otherwise specified (nos)	15	1980	r0	black or african american	not hispanic or latino
+TCGA-49-AARO	value	39	0		3759	lung	Stage IA	t1a	n0	mx	female	2003		yes	40	lung papillary adenocarcinoma			r0	black or african american	not hispanic or latino
+TCGA-49-AARQ	value	41	0		6732	lung	Stage I	t2	n0	mx	female	1996		no	90	lung adenocarcinoma- not otherwise specified (nos)	60		r0	black or african american	not hispanic or latino
+TCGA-49-AARR	value	68	0		4992	lung	Stage IA	t1	n0	mx	male	2001		no	80	lung adenocarcinoma- not otherwise specified (nos)			r0	black or african american	not hispanic or latino
+TCGA-4B-A93V	value	52	1	300		lung	Stage IA	t1b	n0	m0	female	2013		yes	0	lung adenocarcinoma mixed subtype	30	1984	r0	black or african american	not hispanic or latino
+TCGA-50-5044	value	72	1	624		lung	Stage IIIB	t4	n1	m0	female	2002		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-5045	value	57	1	2174		lung		t2	n1	m0	female	2004		yes		lung adenocarcinoma- not otherwise specified (nos)				black or african american	not hispanic or latino
+TCGA-50-5049	value	70	0		3094	lung	Stage IA	t2	n0	m0	male	2006		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-5051	value	42	1	478		lung	Stage IIIA	t2	n2	m0	female	2007		yes		lung adenocarcinoma- not otherwise specified (nos)	30		r0	white	not hispanic or latino
+TCGA-50-5055	value	79	1	1830		lung	Stage IIA	t1	n1	m0	female	2008		no		lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-50-5066	value	72	0		1442	lung	Stage IB	t2	n0	m0	male	2009		no		lung adenocarcinoma mixed subtype			r0	black or african american	not hispanic or latino
+TCGA-50-5068	value	59	1	1499		lung	Stage IIB	t2	n1	mx	female	2003		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-5072	value	74	1	250		lung	Stage IIIA	t2	n2	m0	male	2009		yes		lung adenocarcinoma- not otherwise specified (nos)	15			white	not hispanic or latino
+TCGA-50-5930	value	47	1	282		lung	Stage IIIA	t2	n2	m0	male	2001		yes		lung adenocarcinoma mixed subtype				white	not hispanic or latino
+TCGA-50-5931	value	75	1	434		lung	Stage IB	t2	n0	m0	female	2001		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-50-5933	value	72	1	2393		lung	Stage IIIB	t4	n2	m0	male	2001		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-5936	value	58	1	257		lung	Stage IIIA	t2	n2	m0	male	2007		no		mucinous (colloid) carcinoma				white	not hispanic or latino
+TCGA-50-5939	value	85	1	460		lung	Stage IB	t2	n0	m0	male	2008		no		lung adenocarcinoma mixed subtype	15			white	not hispanic or latino
+TCGA-50-5941	value	55	0		1474	lung	Stage IIIA	t2a	n2	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	25			white	
+TCGA-50-5942	value	67	0		1847	lung	Stage IA	t1	n0	m0	female	2009		yes		lung adenocarcinoma- not otherwise specified (nos)	30		r0	white	not hispanic or latino
+TCGA-50-5944	value	69	0		1750	lung	Stage IA	t1	n0	m0	female	2010		no		lung acinar adenocarcinoma			r0	white	
+TCGA-50-5946	value	62	0		1617	lung	Stage IA	t1	n0	mx	male	2010		no		lung adenocarcinoma mixed subtype				white	
+TCGA-50-6590	value	72	1	1288		lung	Stage IB	t2	n0	m0	female	2005		no		lung adenocarcinoma- not otherwise specified (nos)	50			white	not hispanic or latino
+TCGA-50-6591	value	63	1	119		lung	Stage IV	t2	n0	m1	female	2007		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-6592	value	71	1	777		lung	Stage IB	t2	n0	m0	female	2007		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-6593	value	49	1	336		lung	Stage IIIA	t1	n2	m0	female	2008		yes		lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-50-6594	value	79	1	370		lung	Stage IIIA	t3	n2	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)				black or african american	not hispanic or latino
+TCGA-50-6595	value	74	1	189		lung	Stage IIIA	t2	n2	m0	female	2009		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-50-6673	value	84	1	22		lung	Stage I	t1	n0	m0	female	2004		yes		lung adenocarcinoma- not otherwise specified (nos)			r0	white	
+TCGA-50-7109	value	60	1	308		lung	Stage IA	t1	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	120			white	not hispanic or latino
+TCGA-50-8457	value	63	0		1125	lung	Stage IA	t1a	n0	m0	female	2011		no		lung adenocarcinoma mixed subtype	30			black or african american	not hispanic or latino
+TCGA-50-8459	value	68	0		1119	lung	Stage IIB	t3	n0	m0	male	2012		no		mucinous (colloid) carcinoma	10			white	not hispanic or latino
+TCGA-50-8460	value	74	0		829	lung	Stage IA	t1a	n0	m0	male	2012		yes		lung papillary adenocarcinoma			r0	white	not hispanic or latino
+TCGA-53-7624	value	40	1	1043		lung	Stage IV	t2	n0	m1	female	2008		no	0	lung adenocarcinoma- not otherwise specified (nos)	50	1986	r0	white	hispanic or latino
+TCGA-53-7626	value	76	1	929		lung	Stage IIA	t1	n1	m0	female	2008		no		lung adenocarcinoma- not otherwise specified (nos)	35	1971	r0	white	not hispanic or latino
+TCGA-53-7813	value	51	0		424	lung	Stage IIIB	t4	n0	m0	female	2008		no		lung bronchioloalveolar carcinoma nonmucinous	35	1973		white	not hispanic or latino
+TCGA-53-A4EZ	value	63	0		1071	lung	Stage IIA	t2a	n1	mx	male	2012		yes	80	lung acinar adenocarcinoma	40	1956	rx	white	hispanic or latino
+TCGA-55-1594	value	68	0		1178	lung	Stage IIIA	t2	n2	m0	male	2005	1178			lung adenocarcinoma- not otherwise specified (nos)		1965	r0	white	not hispanic or latino
+TCGA-55-1596	value	55	0		2065	lung	Stage IIB	t2	n1	m0	male	2004		no		lung adenocarcinoma- not otherwise specified (nos)	50	1979	r0	asian	not hispanic or latino
+TCGA-55-5899	value		0		930	lung		t1a	n1	m0	male	2010		no	100	lung adenocarcinoma- not otherwise specified (nos)		1985	r0	white	not hispanic or latino
+TCGA-55-6543	value		0		435	lung	Stage IA	t1b	n0	mx	female	2010		no		lung bronchioloalveolar carcinoma mucinous	60			white	
+TCGA-55-6642	value	63	0		2449	lung	Stage IB	t2	n0	mx	male	2006		no		lung adenocarcinoma- not otherwise specified (nos)		1961	r0	white	
+TCGA-55-6712	value		1	171		lung	Stage IIA	t2a	n1	mx	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)		1970	r1	white	
+TCGA-55-6968	value	61	1	1293		lung	Stage IV	t1	n0	m1	male	2004		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-6969	value	52	0		1239	lung	Stage IB	t2	n0	m0	male	2004				lung adenocarcinoma- not otherwise specified (nos)				white	
+TCGA-55-6970	value	67	1	464		lung	Stage IIIA	t2	n2	mx	female	2004		yes		lung papillary adenocarcinoma			r1	white	
+TCGA-55-6971	value	59	0		1400	lung	Stage IB	t2	n0	mx	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	60	1970	r0	white	
+TCGA-55-6972	value	72	1	1632		lung	Stage IB	t2	n0	m0	male	2005		no		lung papillary adenocarcinoma			r0	white	not hispanic or latino
+TCGA-55-6975	value		1	118		lung	Stage IIB	t2	n1	m0	male	2004		no		lung adenocarcinoma mixed subtype				white	not hispanic or latino
+TCGA-55-6980	value		0		2109	lung	Stage IA	t1	n0	m0	male	2006		no		lung bronchioloalveolar carcinoma nonmucinous			r0	white	
+TCGA-55-6981	value	53	1	1379		lung	Stage IIIA	t1	n2	m0	female	2005		yes		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-6982	value		1	995		lung	Stage IIB	t2	n1	m0	female	2004		no		lung adenocarcinoma- not otherwise specified (nos)				white	
+TCGA-55-6983	value		0		2823	lung	Stage IIB	t2	n1	m0	male	2005		no		mucinous (colloid) carcinoma	60		r0	white	not hispanic or latino
+TCGA-55-6984	value		1	760		lung	Stage IIB	t2	n1	m0	female	2006		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-6985	value	58	0		1233	lung	Stage IB	t2	n0	mx	female	2004		no		lung adenocarcinoma- not otherwise specified (nos)	50		r0	white	
+TCGA-55-6986	value		0		3261	lung	Stage IB	t2	n0	m0	female	2004		no		lung bronchioloalveolar carcinoma nonmucinous				white	
+TCGA-55-6987	value	77	0		2137	lung	Stage IA	t1	n0	m0	male	2006		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-7227	value	77	1	952		lung	Stage IIIA	t3	n1	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)		1953	r0	white	not hispanic or latino
+TCGA-55-7281	value	70	0		872	lung	Stage IA	t1b	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	20		r0	white	
+TCGA-55-7283	value	76	0		609	lung	Stage IIIA	t3	n2	mx	female	2011		no	100	lung bronchioloalveolar carcinoma nonmucinous	5	1950		white	not hispanic or latino
+TCGA-55-7570	value	60	0		824	lung	Stage IA	t1a	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)		1971	r0	black or african american	not hispanic or latino
+TCGA-55-7574	value	64	1	995		lung	Stage IB	t2a	n0	m0	female	2011		yes	50	lung adenocarcinoma- not otherwise specified (nos)	2	1971	r1	white	not hispanic or latino
+TCGA-55-7576	value	54	0		670	lung	Stage IB	t2a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)		1972	r0	black or african american	not hispanic or latino
+TCGA-55-7727	value	70	0		119	lung	Stage IIIA	t1a	n2	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-7728	value	64	0		704	lung	Stage IB	t2a	n0	mx	female	2011		no		mucinous (colloid) carcinoma	30	1980	r0	white	not hispanic or latino
+TCGA-55-7815	value	76	0		773	lung	Stage IB	t2a	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-55-7816	value	49	1	468		lung	Stage IV	tx	nx	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-55-7903	value	64	0		567	lung	Stage IA	t1b	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-55-7907	value	77	1	343		lung	Stage IIA	t2a	n1	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	80	1954	r0	white	not hispanic or latino
+TCGA-55-7910	value	50	0		1040	lung	Stage IIA	t2b	n0	m0	female	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)	15	1996	r0	black or african american	not hispanic or latino
+TCGA-55-7911	value	70	0		537	lung	Stage IA	t1a	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	96	1959	r0	white	not hispanic or latino
+TCGA-55-7913	value	61	1	561		lung	Stage IA	t1b	n0	mx	female	2011		no	90	lung adenocarcinoma- not otherwise specified (nos)	40	1971	r0	black or african american	not hispanic or latino
+TCGA-55-7994	value	81	0		603	lung	Stage IIB	t3	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	28		r0	white	not hispanic or latino
+TCGA-55-7995	value	73	0		889	lung	Stage IA	t1b	n0	m0	female	2012		no	80	lung adenocarcinoma- not otherwise specified (nos)	60		r0	white	not hispanic or latino
+TCGA-55-8085	value	64	0		904	lung	Stage IA	t1b	n0	m0	male	2011		no		lung papillary adenocarcinoma			r0	white	not hispanic or latino
+TCGA-55-8087	value	59	0		462	lung	Stage IB	t2a	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8089	value	56	1	702		lung	Stage IA	t1a	n0	m0	male	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)	97	1973	r0	white	not hispanic or latino
+TCGA-55-8092	value	75	1	154		lung	Stage IIB	t3	n0	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	40	1972	r0	white	not hispanic or latino
+TCGA-55-8094	value	51	0		541	lung	Stage IV	t2b	n0	m1b	male	2012		yes		lung adenocarcinoma- not otherwise specified (nos)	70	1976	r0	white	not hispanic or latino
+TCGA-55-8096	value	67	1	719		lung	Stage IB	t2a	n0	mx	female	2011		no	70	lung adenocarcinoma- not otherwise specified (nos)	104	1959		white	not hispanic or latino
+TCGA-55-8097	value	60	0		476	lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	35	1973	r0	white	not hispanic or latino
+TCGA-55-8206	value	56	0		888	lung	Stage IA	t1b	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8208	value	73	0		674	lung	Stage IA	t1b	n0	m0	female	2012		no	100	lung adenocarcinoma- not otherwise specified (nos)	50		r0	white	not hispanic or latino
+TCGA-55-8299	value	61	1	469		lung	Stage IA	t1b	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	20	1971	r0	white	not hispanic or latino
+TCGA-55-8301	value	58	0		534	lung	Stage IB	t2a	n0	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	100	1962	r0	white	not hispanic or latino
+TCGA-55-8302	value	54	0		478	lung	Stage IB	t2	n0	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	59	1965	r0	white	
+TCGA-55-8505	value	62	0		440	lung	Stage IIIA	t1a	n2	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8506	value	62	0		11	lung	Stage IIB	t3	n0	mx	female	2012				lung adenocarcinoma- not otherwise specified (nos)		1972	r0	white	not hispanic or latino
+TCGA-55-8507	value	53	0		418	lung	Stage IA	t1a	n0	mx	male	2012		no	40	lung adenocarcinoma- not otherwise specified (nos)	120	1972	r0	white	not hispanic or latino
+TCGA-55-8508	value	60	0		617	lung	Stage IIA	t2a	n1	mx	female	2012		no	60	mucinous (colloid) carcinoma			r0	black or african american	not hispanic or latino
+TCGA-55-8510	value	55	0		539	lung	Stage IB	t2a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8512	value	41	1	607		lung	Stage IV	t1a	n1	m1b	male	2012		no	90	lung bronchioloalveolar carcinoma nonmucinous	19	1989	r0	white	not hispanic or latino
+TCGA-55-8513	value	77	0		791	lung	Stage IIB	t3	n0	mx	female	2012		no	60	mucinous (colloid) carcinoma			r0	white	not hispanic or latino
+TCGA-55-8514	value	70	0		520	lung	Stage IB	t2a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	20	1971	r0	black or african american	not hispanic or latino
+TCGA-55-8614	value	76	0		536	lung	Stage IB	t2a	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-55-8615	value	67	0		446	lung	Stage IIIA	t3	n2	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	67	1966	r0	white	not hispanic or latino
+TCGA-55-8616	value	58	0		48	lung	Stage IB	t2a	n0	m0	female	2012				lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-55-8620	value	60	1	375		lung	Stage IV	t1a	n1	m1b	male	2012		yes	70	lung adenocarcinoma- not otherwise specified (nos)	154	1965	r0	white	not hispanic or latino
+TCGA-55-A48Y	value	69	0		630	lung	Stage IIA	t2b	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	50	1962	r0	white	not hispanic or latino
+TCGA-55-A48Z	value	60	0		651	lung	Stage IIIB	t1a	n3	mx	female	2012		yes	70	lung adenocarcinoma mixed subtype	40	1972	r0	white	not hispanic or latino
+TCGA-55-A490	value	78	1	99		lung	Stage IIA	t2b	n0	mx	male	2012		no	80	lung adenocarcinoma- not otherwise specified (nos)	34	1951	r0	white	not hispanic or latino
+TCGA-55-A493	value	54	0		28	lung	Stage IB	t2a	n0	m0	female	2012				lung adenocarcinoma- not otherwise specified (nos)	53	1977	r0	white	not hispanic or latino
+TCGA-55-A494	value	61	0		481	lung	Stage IB	t2a	n0	mx	female	2012		no	80	lung adenocarcinoma- not otherwise specified (nos)	7	1967	r0	white	not hispanic or latino
+TCGA-55-A4DG	value	71	0		608	lung	Stage IA	t1b	n0	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	100		r0	white	not hispanic or latino
+TCGA-55-A57B	value	80	0		546	lung	Stage IA	t1b	n0	m0	female	2012		no	90	lung adenocarcinoma mixed subtype			r0	black or african american	not hispanic or latino
+TCGA-62-8394	value	65	1	139		lung	Stage IIIB	t4	n2	m0	female	2008		no	100	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-8395	value	80	0		1216	lung	Stage IIB	t3	n0	m0	female	2009		no	100	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-8397	value	70	0		1289	lung	Stage IIB	t3	n0	m0	female	2008		no	90	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-8398	value	55	1	444		lung	Stage IIIA	t2	n2	m0	male	2007		no	100	lung adenocarcinoma mixed subtype	20	1970	r0	white	not hispanic or latino
+TCGA-62-8399	value	62	0		2696	lung	Stage IIIA	t2	n2	m0	male	2006		no	100	lung papillary adenocarcinoma	70		r0	white	not hispanic or latino
+TCGA-62-8402	value	73	1	1498		lung	Stage IIIA	t2	n2	m0	female	2008		no	100	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-A46O	value	65	1	1454		lung	Stage IB	t2	n0	m0	female	2006		no	100	lung adenocarcinoma- not otherwise specified (nos)	48		r0	white	not hispanic or latino
+TCGA-62-A46P	value	65	1	594		lung	Stage IB	t2	n0	m0	male	2006		no	100	lung adenocarcinoma mixed subtype	40		r0	white	not hispanic or latino
+TCGA-62-A46R	value	54	1	1725		lung	Stage IB	t2	n0	m0	female	2006		no	100	lung adenocarcinoma mixed subtype	25		r0	white	not hispanic or latino
+TCGA-62-A46S	value	73	1	1653		lung	Stage IB	t2	n0	m0	male	2007		no	100	lung papillary adenocarcinoma	40		r0	white	not hispanic or latino
+TCGA-62-A46U	value	71	0		2067	lung	Stage IIB	t2	n1	m0	female	2007		no	100	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-A46V	value	78	0		2199	lung	Stage IB	t2	n0	m0	female	2007		no	90	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-A46Y	value	70	1	414		lung	Stage IIIA	t2	n2	m0	female	2008		yes	90	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-62-A470	value	84	1	1194		lung	Stage IB	t2	n0	m0	male	2009		no	100	lung acinar adenocarcinoma	30		r0	white	not hispanic or latino
+TCGA-62-A471	value	64	0		1246	lung	Stage IIB	t2b	n1	m0	male	2010		no	100	lung adenocarcinoma- not otherwise specified (nos)	30		r0	white	not hispanic or latino
+TCGA-62-A472	value	70	0		910	lung	Stage IIB	t3	n0	m0	male	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)	60		r0	white	not hispanic or latino
+TCGA-64-1676	value	58	0		1728	lung	Stage IA	t1a	n0	m0	male	2005		no		lung adenocarcinoma- not otherwise specified (nos)	60		r0	white	not hispanic or latino
+TCGA-64-1678	value	70	0		1189	lung		t2b	n0	m0	female	2006		no		lung adenocarcinoma- not otherwise specified (nos)	20	1970	r0	white	not hispanic or latino
+TCGA-64-1679	value	58	0		2488	lung	Stage IIIA	t1	n2	m0	female	2007		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-64-1680	value	63	0		1126	lung	Stage IV	t2a	n2	m1	male	2007		yes		lung adenocarcinoma mixed subtype	50	1962	r0	white	not hispanic or latino
+TCGA-64-1681	value	61	1	1167		lung	Stage IA	t1	n0	m0	female	2008		no	0	lung adenocarcinoma- not otherwise specified (nos)		1968	r0	white	not hispanic or latino
+TCGA-64-5774	value	60	0		2676	lung	Stage IB	t2	n0	m0	male	2004		no		lung adenocarcinoma- not otherwise specified (nos)	45	1959	r0	white	not hispanic or latino
+TCGA-64-5775	value	71	1	62		lung	Stage IIIA	t4	n0	m0	male	2005		no	0	lung adenocarcinoma- not otherwise specified (nos)	110	1950	r0	white	not hispanic or latino
+TCGA-64-5778	value	60	0		1305	lung	Stage IB	t2	n0	m0	male	2008		no	0	lung bronchioloalveolar carcinoma nonmucinous	68	1966	r0	white	not hispanic or latino
+TCGA-64-5779	value	61	0		864	lung	Stage IIIA	t2	n2	m0	male	2009		yes		lung acinar adenocarcinoma	40	1969	r0	white	not hispanic or latino
+TCGA-64-5781	value	55	0		1559	lung	Stage IB	t2	n0	m0	female	2007		no		lung adenocarcinoma mixed subtype	25	1982	r0	white	not hispanic or latino
+TCGA-64-5815	value	74	0		866	lung	Stage IIB	t2	n1	m0	male	2009		no		lung adenocarcinoma mixed subtype	30		r0	white	not hispanic or latino
+TCGA-67-3770	value	70	0		610	lung	Stage IA	t1	n0	m0	female	2009				lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-67-3771	value	77	0		610	lung	Stage IA	t1	n0	m0	female	2009				lung adenocarcinoma- not otherwise specified (nos)			r0	black or african american	not hispanic or latino
+TCGA-67-3772	value	82	0		573	lung	Stage IB	t2	n0	m0	female	2009				lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-67-3773	value	84	0		427	lung	Stage IB	t2	n0	m0	female	2009				lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-67-3774	value	73	0		385	lung	Stage IB	t2	n0	m0	female	2009				lung adenocarcinoma- not otherwise specified (nos)			rx	white	not hispanic or latino
+TCGA-67-3776	value	57	0		61	lung	Stage IIB	t2	n1	m0	female	2009	579			lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-67-4679	value	69	0		448	lung		t3	n0	m0	male	2009				lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-67-6215	value	52	0		174	lung	Stage IB	t2a	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-67-6216	value	57	0		141	lung	Stage IA	t1a	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-69-7760	value	73	0		202	lung	Stage IIB	t3	n0	m0	male	2011		no		lung adenocarcinoma mixed subtype				white	not hispanic or latino
+TCGA-69-7761	value	84	0		186	lung	Stage IB	t2a	n0	mx	male	2011		no		lung acinar adenocarcinoma	20	1955		white	not hispanic or latino
+TCGA-69-7763	value	69	0		690	lung	Stage IA	t1b	n0	m0	male	2010		no		lung adenocarcinoma mixed subtype	7.5	1959		white	not hispanic or latino
+TCGA-69-7764	value	75	0		414	lung	Stage IA	t1b	n0	m0	male	2010		no		lung adenocarcinoma mixed subtype	30	1977		white	not hispanic or latino
+TCGA-69-7765	value	56	0		165	lung		t4	n0	mx	male	2011		no		lung adenocarcinoma mixed subtype		1981		black or african american	not hispanic or latino
+TCGA-69-7973	value	42	0		230	lung	Stage IB	t2a	n0	m0	female	2011		no		lung adenocarcinoma mixed subtype	25			white	not hispanic or latino
+TCGA-69-7974	value	54	0		184	lung	Stage IIIA	t2a	n2	mx	female	2011		yes	80	lung adenocarcinoma mixed subtype	30	1981		white	not hispanic or latino
+TCGA-69-7978	value	59	0		134	lung	Stage IIB	t2b	n1	mx	male	2011		no		lung adenocarcinoma mixed subtype	80			white	not hispanic or latino
+TCGA-69-7979	value	71	0		408	lung	Stage IB	t2a	n0	mx	female	2011		no		lung acinar adenocarcinoma	28	1955		white	not hispanic or latino
+TCGA-69-7980	value	70	0		411	lung	Stage I	t1b	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	80			white	not hispanic or latino
+TCGA-69-8253	value	59	0		426	lung	Stage IIA	t1a	n1	mx	female	2012		no		lung adenocarcinoma mixed subtype	7.8	1972		black or african american	not hispanic or latino
+TCGA-69-8254	value	85	0		409	lung		t2b			male	2012		no	80	lung adenocarcinoma mixed subtype	40			white	not hispanic or latino
+TCGA-69-8255	value	71	0		129	lung	Stage IA	t1a	n0	m0	male	2011		no		lung solid pattern predominant adenocarcinoma	40	1971		white	hispanic or latino
+TCGA-69-8453	value	77	0		813	lung	Stage IIB	t3	n0	mx	male	2012		no		mucinous (colloid) carcinoma	12			white	not hispanic or latino
+TCGA-69-A59K	value	60	0		591	lung	Stage IIB	t3	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype	25	1999		black or african american	not hispanic or latino
+TCGA-71-6725	value	48	0		256	lung	Stage IB	t2	n0	m0	female	2011		no	60	lung papillary adenocarcinoma			rx	asian	not hispanic or latino
+TCGA-71-8520	value	60	1	210		lung	Stage IB	t2	n0	m0	female	2011		yes	40	lung adenocarcinoma- not otherwise specified (nos)			r0	asian	not hispanic or latino
+TCGA-73-4659	value	66	1	711		lung	Stage IIIA	t2	n2	m0	male	2006		no	0	lung adenocarcinoma- not otherwise specified (nos)	12	1974	r0	white	not hispanic or latino
+TCGA-73-4666	value	52	0		800	lung	Stage IV	t1	n0	m1	female	2009		yes	80	lung adenocarcinoma- not otherwise specified (nos)	10	1982	r0	white	not hispanic or latino
+TCGA-73-4668	value	66	0		467	lung	Stage IIB	t2	n1	m0	female	2009		no	90	lung micropapillary adenocarcinoma	55	1968	r0	american indian or alaska native	not hispanic or latino
+TCGA-73-4670	value	69	0		131	lung	Stage IV	t2	n0	m1	female	2010		no	50	lung adenocarcinoma- not otherwise specified (nos)	30	1979	r0	white	not hispanic or latino
+TCGA-73-4675	value	59	1	922		lung	Stage IIIA	t3	n1	m0	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)	41	1969	rx	white	not hispanic or latino
+TCGA-73-4676	value	45	1	281		lung	Stage IIA	t2a	n1	m0	male	2010		yes	90	lung adenocarcinoma- not otherwise specified (nos)	48	1977	r0	white	not hispanic or latino
+TCGA-73-4677	value	74	1	38		lung		t2a	n0	m0	male	2010		no	80	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-73-7499	value	81	1	1531		lung	Stage IB	t2a	n0	m0	female	2010		no	40	lung adenocarcinoma mixed subtype			r0	white	not hispanic or latino
+TCGA-73-A9RS	value	41	1	340		lung	Stage IIB	t3	n0	m0	male	2013		yes	80	lung adenocarcinoma- not otherwise specified (nos)	11	1990	r0	black or african american	not hispanic or latino
+TCGA-75-5122	value		1			lung	Stage IB	t2	n0	m0	male			no	0	lung adenocarcinoma- not otherwise specified (nos)	20		r0		
+TCGA-75-5125	value		1	2027		lung	Stage IIB	t2	n1	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)	25		r0		
+TCGA-75-5126	value		0			lung	Stage IIIA	t3	n2	m0	female			no		lung papillary adenocarcinoma	40		r2		
+TCGA-75-5146	value		0		2368	lung	Stage IB	t2	n0	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-75-5147	value		0		1333	lung	Stage IB	t2	n0	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-75-6203	value		0			lung	Stage IIIA	t2	n2	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-75-6205	value		1			lung	Stage IB	t2a	n0	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-75-6206	value		0		2590	lung	Stage IB	t2	n0	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)	20		r0		
+TCGA-75-6207	value		1			lung	Stage IIIA	t2	n2	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)	10		r0		
+TCGA-75-6211	value		1			lung	Stage IB	t2	n0	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)	34		r0		
+TCGA-75-6212	value		1	1516		lung	Stage IIB	t2	n1	m0	female			no		lung micropapillary adenocarcinoma			r0		
+TCGA-75-6214	value		1	1115		lung	Stage IIIA	t2	n2	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)	40	1970	r0		
+TCGA-75-7025	value		0		3305	lung	Stage IB	t2	n0	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)		1967	r0		
+TCGA-75-7027	value		0		3059	lung	Stage IB	t2	n0	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)	50	1956	r0		
+TCGA-75-7030	value		0			lung	Stage IIB	t3	n0	m0	male			no		lung adenocarcinoma- not otherwise specified (nos)			r0		
+TCGA-75-7031	value		0			lung	Stage IB	t2	n0	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)	5	1965	r0		
+TCGA-78-7143	value	62	1	4961		lung	Stage IB	t2	n0	m0	female	1992		no		lung bronchioloalveolar carcinoma nonmucinous			r0	white	
+TCGA-78-7145	value	52	1	826		lung	Stage IV	t4	n1	m1	female	2000		no		lung adenocarcinoma- not otherwise specified (nos)	25	1973	r1	white	
+TCGA-78-7146	value	71	1	173		lung	Stage IIIA	t2	n2	m0	female	1999		no		lung adenocarcinoma mixed subtype	6	1988	r0	white	
+TCGA-78-7147	value	67	1	586		lung	Stage IIB	t2	n1	m0	female	2001		no		lung adenocarcinoma- not otherwise specified (nos)	50	1950	r0	white	
+TCGA-78-7148	value	71	1	626		lung	Stage IIB	t2	n1	m0	male	2001		no		lung adenocarcinoma mixed subtype	57	1944	r0	white	
+TCGA-78-7149	value	71	0		3940	lung	Stage IIIB	t4	n0	m0	male	2002		no		lung adenocarcinoma mixed subtype	115	1950	r0	white	
+TCGA-78-7150	value	59	1	666		lung	Stage IIB	t2	n1	m0	male	2002		no		lung adenocarcinoma- not otherwise specified (nos)	37	1963	r0	white	
+TCGA-78-7152	value	65	1	1215		lung	Stage IB	t2	n0	m0	male	2003		no		lung adenocarcinoma mixed subtype	40	1959	r0	white	
+TCGA-78-7153	value	65	0		3635	lung	Stage IB	t2	n0	m0	female	2003		no		lung adenocarcinoma mixed subtype	20	1948	r0	white	
+TCGA-78-7154	value	72	1	593		lung	Stage IIIA	t3	n2	m0	male	2003				lung adenocarcinoma- not otherwise specified (nos)	112.5	1948	r0	white	
+TCGA-78-7155	value	68	1	1171		lung	Stage IB	t2	n0	m0	male	2005				lung adenocarcinoma- not otherwise specified (nos)	48	1957	r0	white	
+TCGA-78-7156	value	62	1	976		lung	Stage IV	t4	n1	m1	male	2006		no		lung adenocarcinoma mixed subtype	84	1961	r0	white	
+TCGA-78-7158	value	59	1	179		lung	Stage IIIB	t4	n2	m0	female	2007		no		lung adenocarcinoma mixed subtype	14	1963	r1	white	
+TCGA-78-7159	value	60	0		1974	lung	Stage IA	t1	nx	m0	female	2008		no		lung adenocarcinoma mixed subtype	21	1965	r0	white	
+TCGA-78-7160	value	61	1	697		lung	Stage IV	t4	n2	m1	male	2008		no		lung adenocarcinoma mixed subtype	43.8	1963	r0	white	
+TCGA-78-7161	value	69	1	291		lung	Stage IIB	t3	n0	m0	female	2011		no		lung adenocarcinoma mixed subtype	27.8	1961	r1	white	
+TCGA-78-7162	value	75	1	3169		lung	Stage IA	t1	n0	m0	male	1991		no		lung adenocarcinoma mixed subtype	12	1940	r0	white	
+TCGA-78-7163	value	60	0		7248	lung	Stage IB	t2	n0	m0	male	1992		no		lung adenocarcinoma- not otherwise specified (nos)	41	1950	r0	white	
+TCGA-78-7167	value	77	1	2681		lung	Stage IV	t2	n0	m1	male	2002		no		lung papillary adenocarcinoma	64	1937	r0	white	
+TCGA-78-7220	value	53	1	807		lung	Stage IIIA	t2	n2	m0	female	2000		yes		lung adenocarcinoma mixed subtype	35	1965	r0	white	
+TCGA-78-7535	value	45	1	949		lung	Stage IB	t2	n0	m0	male	2000		no		lung adenocarcinoma- not otherwise specified (nos)	35	1972	r0	white	
+TCGA-78-7536	value	69	1	244		lung	Stage IIIA	t2	n2	m0	male	2001		yes		lung adenocarcinoma- not otherwise specified (nos)	44	1949	r0	white	
+TCGA-78-7537	value	72	1	1622		lung	Stage IB	t2	n0	m0	male	2002		no		lung adenocarcinoma mixed subtype	20	1944	r0		
+TCGA-78-7539	value	75	0		791	lung	Stage IIA	t2b	n0	m0	female	2011		no		lung adenocarcinoma mixed subtype	2.2	1953	r0	white	
+TCGA-78-7540	value	66	1	1197		lung	Stage IB	t2	n0	m0	female	1999		no		lung bronchioloalveolar carcinoma mucinous			r0	white	
+TCGA-78-7542	value	56	1	321		lung	Stage IB	t2	n0	m0	male	1993				lung adenocarcinoma- not otherwise specified (nos)	60	1952	r0	white	
+TCGA-78-8640	value	59	0		7062	lung	Stage IIA	t1	n1	m0	male	1994		no		lung adenocarcinoma- not otherwise specified (nos)	45	1949	r0		
+TCGA-78-8648	value	58	1	1209		lung	Stage IIB	t3	n0	m0	female	2002		no		lung adenocarcinoma- not otherwise specified (nos)	45	1971	r0		
+TCGA-78-8655	value	77	0		2360	lung	Stage IA	t1	n0	m0	female	2003		no		lung adenocarcinoma mixed subtype	10	1981	r0		
+TCGA-78-8662	value	53	1	3361		lung	Stage IB	t2	n0	m0	female	2000		no		lung adenocarcinoma- not otherwise specified (nos)	45	1964	r0		
+TCGA-80-5608	value		0		2832	lung	Stage IA	t1	n0	m0	female			no		lung adenocarcinoma- not otherwise specified (nos)	26	1972	r0		
+TCGA-83-5908	value	59	0		824	lung	Stage IA	t1	n0	m0	female	2009		no	90	lung adenocarcinoma- not otherwise specified (nos)	69	1962	r0	white	not hispanic or latino
+TCGA-86-6562	value	52	1	376		lung	Stage IIA	t2a	n1	m0	male	2011		no	0	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-6851	value	73	0		179	lung	Stage IIA	t1b	n1	m0	female	2011		no	100	lung adenocarcinoma mixed subtype	52	1959		white	not hispanic or latino
+TCGA-86-7701	value	66	0		947	lung	Stage IV	t2	n0	m1	male	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-7711	value	70	1	1046		lung	Stage IIA	t2a	n1	m0	male	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)	50	1960	r0	white	hispanic or latino
+TCGA-86-7713	value	70	0		1157	lung	Stage IIA	t2b	n0	m0	male	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-7714	value	61	1	625		lung	Stage IIIA	t1b	n2	m0	female	2011		no	0	lung adenocarcinoma mixed subtype	43	1968	r0	black or african american	not hispanic or latino
+TCGA-86-7953	value	69	0		997	lung	Stage IA	t1b	n0	m0	female	2011		no	90	lung adenocarcinoma- not otherwise specified (nos)			rx	white	not hispanic or latino
+TCGA-86-7954	value	68	0		605	lung	Stage IB	t2	n0	m0	female	2011		no	100	lung bronchioloalveolar carcinoma nonmucinous	8	1963	r0	white	not hispanic or latino
+TCGA-86-7955	value	62	0		1072	lung	Stage IB	t2a	n0	m0	male	2011		yes	100	lung adenocarcinoma- not otherwise specified (nos)			rx	white	not hispanic or latino
+TCGA-86-8054	value	61	0		1148	lung	Stage IIB	t2b	n1	m0	male	2011		no	80	lung acinar adenocarcinoma	9	1994	r0	white	not hispanic or latino
+TCGA-86-8055	value	79	1	124		lung	Stage IIA	t2a	n1	m0	male	2011		no	80	lung adenocarcinoma- not otherwise specified (nos)	60	1955	r0	white	not hispanic or latino
+TCGA-86-8056	value	63	0		139	lung	Stage IIIA	t4	n0	m0	female	2011			100	lung adenocarcinoma mixed subtype	36	1963	r0	white	not hispanic or latino
+TCGA-86-8073	value	58	0		740	lung	Stage IB	t2a	n0	m0	male	2011		no	100	lung bronchioloalveolar carcinoma nonmucinous	40	1970	r0	white	not hispanic or latino
+TCGA-86-8074	value	62	0		24	lung	Stage IIA	t1b	n1	m0	female	2011			80	lung adenocarcinoma- not otherwise specified (nos)	40	1970	r0	white	not hispanic or latino
+TCGA-86-8075	value	66	1	694		lung	Stage IB	t2	n0	m0	female	2011		no	90	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-8076	value	42	0		993	lung	Stage IA	t1	n0	m0	male	2011		no	100	lung papillary adenocarcinoma			r0	white	not hispanic or latino
+TCGA-86-8278	value	63	0		944	lung	Stage IIB	t2	n1	m0	female	2011		no	90	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-8279	value	46	0		949	lung	Stage IIA	t2a	n1	m0	male	2011		yes	90	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-8280	value	54	0		701	lung	Stage IIA	t2b	n0	m0	female	2011		no	100	lung bronchioloalveolar carcinoma nonmucinous			r0	white	not hispanic or latino
+TCGA-86-8281	value	75	0		0	lung	Stage IA	t1	nx	m0	male	2011			100	lung adenocarcinoma- not otherwise specified (nos)	30	1955		white	not hispanic or latino
+TCGA-86-8358	value	44	0		653	lung	Stage IB	t2a	n0	m0	male	2012		no	100	lung adenocarcinoma- not otherwise specified (nos)	20	1992	r0	white	not hispanic or latino
+TCGA-86-8359	value	52	1	444		lung	Stage IIIA	t3	n2	m0	male	2012			20	lung adenocarcinoma- not otherwise specified (nos)	36	1982	r0	white	not hispanic or latino
+TCGA-86-8585	value	57	0		353	lung	Stage IB	t2a	n0	m0	male	2012		no		lung solid pattern predominant adenocarcinoma			r0	white	not hispanic or latino
+TCGA-86-8668	value	61	0		423	lung	Stage IA	t1b	n0	m0	female	2012		no	100	lung bronchioloalveolar carcinoma mucinous			r0	white	not hispanic or latino
+TCGA-86-8669	value	64	0		938	lung	Stage IA	t1b	n0	m0	male	2012		no	100	lung adenocarcinoma- not otherwise specified (nos)	47	1965	r0	white	not hispanic or latino
+TCGA-86-8671	value	72	0		839	lung	Stage IIB	t2b	n1	m0	female	2012		no	100	lung papillary adenocarcinoma			r0	white	not hispanic or latino
+TCGA-86-8672	value	59	1	19		lung	Stage IIB	t3	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-8673	value	61	0		862	lung	Stage IB	t2	n0	m0	male	2011		no		lung bronchioloalveolar carcinoma nonmucinous	54	1968	r0	white	not hispanic or latino
+TCGA-86-8674	value	50	0		806	lung	Stage IIA	t2a	n1	m0	male	2012		no		lung papillary adenocarcinoma	37.5	1982	r0	white	not hispanic or latino
+TCGA-86-A456	value	78	0		896	lung	Stage IA	t1a	n0	m0	female	2012		no	80	lung papillary adenocarcinoma		1974	r0	asian	not hispanic or latino
+TCGA-86-A4D0	value	48	1	116		lung	Stage IIA	t2b	n0	m0	male	2012		no	90	lung adenocarcinoma- not otherwise specified (nos)		1983	r0	white	not hispanic or latino
+TCGA-86-A4JF	value	56	1	737		lung	Stage IIB	t3	n0	m0	male	2012		no	20	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-A4P7	value	63	0		415	lung	Stage IB	t2a	n0	m0	female	2012		no	100	lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-86-A4P8	value	59	0		805	lung	Stage IIIA	t1b	n2	mx	female	2012		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-91-6828	value	70	0		323	lung	Stage IA	t1a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-91-6829	value	78	1	1258		lung	Stage IB	t2	n0	mx	male	2001		no	0	lung bronchioloalveolar carcinoma nonmucinous	94.5	1940	r0	white	not hispanic or latino
+TCGA-91-6830	value	65	0		60	lung	Stage IIA	t1	n1	mx	female	2002		no		lung adenocarcinoma- not otherwise specified (nos)	12	1990		white	not hispanic or latino
+TCGA-91-6831	value	66	0		310	lung	Stage IB	t2	n0	mx	male	2001		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-91-6835	value	81	0		79	lung	Stage IA	t1	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	25		r0	white	not hispanic or latino
+TCGA-91-6840	value	59	0		372	lung	Stage IA	t1b	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	50	1971	r0	white	not hispanic or latino
+TCGA-91-6847	value	62	0		842	lung	Stage IB	t2	n0	mx	female	2002		yes		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-91-6848	value	59	0		224	lung	Stage IIIA	t2	n2	mx	male	2009		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-91-6849	value	75	0		35	lung	Stage IIIA	t2	n2	mx	female	2009			90	lung adenocarcinoma- not otherwise specified (nos)	30	1946		black or african american	not hispanic or latino
+TCGA-91-8496	value	63	0		505	lung	Stage IB	t2a	nx	mx	female	2011		no		lung bronchioloalveolar carcinoma nonmucinous				white	not hispanic or latino
+TCGA-91-8497	value	75	1	434		lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-91-8499	value	76	0		36	lung	Stage IA	t1b	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	90	1945		white	not hispanic or latino
+TCGA-91-A4BD	value	78	0		603	lung	Stage IIA	t1b	n1	mx	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)			rx	white	not hispanic or latino
+TCGA-93-7347	value	76	0		683	lung	Stage IA	t1a	n0	mx	female	2011		no	100	lung adenocarcinoma mixed subtype	11	1952	r0	white	not hispanic or latino
+TCGA-93-7348	value	75	0		531	lung	Stage IA	t1a	n0	mx	female	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)	42	1957	r0	white	not hispanic or latino
+TCGA-93-A4JN	value	71	0		718	lung	Stage IV	t2a	n0	m1a	male	2012		no	90	lung acinar adenocarcinoma	40	1971	rx	white	not hispanic or latino
+TCGA-93-A4JO	value	70	1	33		lung	Stage IA	t1a	n0	mx	male	2012		no	90	lung adenocarcinoma mixed subtype	50	1956	rx	white	not hispanic or latino
+TCGA-93-A4JP	value	64	0		578	lung	Stage IV	tx	nx	m1b	male	2012		no		lung papillary adenocarcinoma			rx	asian	not hispanic or latino
+TCGA-95-7039	value	54	0		1272	lung	Stage IIB	t3	n0	mx	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	34			white	not hispanic or latino
+TCGA-95-7567	value	61	0		568	lung	Stage IIB	t2b	n1	m0	male	2011		no	100	lung adenocarcinoma mixed subtype		1970		white	not hispanic or latino
+TCGA-95-7944	value	71	0		377	lung	Stage IA	t1a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	50	1961	r0	white	not hispanic or latino
+TCGA-95-8039	value	72	0		830	lung	Stage IA	t1	n0	mx	male	2012		no		lung acinar adenocarcinoma			rx	white	not hispanic or latino
+TCGA-95-8494	value	67	0		84	lung	Stage IIA	t2a	n1	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)				white	not hispanic or latino
+TCGA-95-A4VP	value	66	0		605	lung	Stage IIIA	t2b	n2	m0	female	2012		no		lung acinar adenocarcinoma	20	1972		white	
+TCGA-97-7546	value	76	0		1285	lung	Stage IA	t1	n0	mx	female	2008		yes		lung acinar adenocarcinoma	25	1963	r0	white	not hispanic or latino
+TCGA-97-7547	value	67	0		1965	lung	Stage IB	t2	n0	mx	female	2007		no		lung papillary adenocarcinoma	30			white	not hispanic or latino
+TCGA-97-7552	value	70	0		1932	lung	Stage IB	t2	n0	mx	male	2007		no		lung bronchioloalveolar carcinoma mucinous	40			white	not hispanic or latino
+TCGA-97-7553	value	58	0		1870	lung	Stage IA	t1	n0	mx	female	2007		no		lung bronchioloalveolar carcinoma nonmucinous	20	1967		white	not hispanic or latino
+TCGA-97-7554	value	83	0		775	lung	Stage IIIA	t2a	n2	m0	female	2010		no		lung papillary adenocarcinoma	30	1945	r0	white	not hispanic or latino
+TCGA-97-7937	value	65	0		564	lung	Stage IB	t2a	n0	mx	male	2011		no		lung micropapillary adenocarcinoma	35			white	not hispanic or latino
+TCGA-97-7938	value	76	1	18		lung	Stage IA	t1a	n0	mx	female	2011		no		lung bronchioloalveolar carcinoma nonmucinous	40		r0	white	not hispanic or latino
+TCGA-97-7941	value	72	0		484	lung	Stage IA	t1b	n0	mx	female	2011		no		lung acinar adenocarcinoma	22.5	1960	r0	white	not hispanic or latino
+TCGA-97-8171	value	81	0		568	lung	Stage IV	t2a	n2	m1a	male	2011		no		lung papillary adenocarcinoma	65	1946		asian	not hispanic or latino
+TCGA-97-8174	value	67	1	164		lung	Stage IIA	t2b	n0	m0	male	2011		no		lung papillary adenocarcinoma	40	1965		white	not hispanic or latino
+TCGA-97-8175	value	55	0		551	lung	Stage IB	t2a	n0	m0	female	2011		no		lung solid pattern predominant adenocarcinoma				white	not hispanic or latino
+TCGA-97-8176	value	63	1	468		lung	Stage IIIA	t3	n1	m0	male	2012		yes		lung acinar adenocarcinoma	40	1971	r0	white	not hispanic or latino
+TCGA-97-8177	value	59	0		499	lung	Stage IB	t2a	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype				white	not hispanic or latino
+TCGA-97-8179	value	72	0		435	lung	Stage IA	t1a	n0	m0	male	2012		no		lung acinar adenocarcinoma	60	1958		white	not hispanic or latino
+TCGA-97-8547	value	78	0		657	lung	Stage IIIA	t2a	n2	mx	female	2012		no		lung adenocarcinoma mixed subtype					
+TCGA-97-8552	value	55	0		626	lung	Stage I	t1a	n0	mx	female	2012		no		lung bronchioloalveolar carcinoma nonmucinous				white	not hispanic or latino
+TCGA-97-A4M0	value	60	0		652	lung	Stage IB	t2a	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype	34	1970		white	not hispanic or latino
+TCGA-97-A4M1	value	52	0		601	lung	Stage IA	t1a	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype	3	1972		white	not hispanic or latino
+TCGA-97-A4M5	value	83	0		634	lung	Stage IA	t1b	n0	m0	male	2012		no		lung adenocarcinoma mixed subtype	6	1952		white	not hispanic or latino
+TCGA-97-A4M6	value	45	0		568	lung	Stage IA	t1a	n0	m0	female	2012		no		lung adenocarcinoma mixed subtype				white	not hispanic or latino
+TCGA-99-7458	value	74	0		747	lung	Stage IIIA	t4	n0	m0	female	2010		no	90	lung bronchioloalveolar carcinoma nonmucinous	52	1958	r0	white	not hispanic or latino
+TCGA-99-8025	value	72	0		1060	lung	Stage IIIA	t3	n2	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	20	1958	r0	black or african american	not hispanic or latino
+TCGA-99-8028	value	50	0		1118	lung	Stage IA	t1a	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	30	1981	r0	black or african american	not hispanic or latino
+TCGA-99-8032	value	61	0		44	lung	Stage IA	t1a	n0	m0	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	90	1966	r0	white	not hispanic or latino
+TCGA-99-8033	value	74	1	656		lung	Stage IV	tx	nx	m1	female	2011		yes		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-99-AA5R	value	70	0		658	lung	Stage IA	t1a	n0	m0	female	2013		no		lung adenocarcinoma- not otherwise specified (nos)	46	1967	r0	black or african american	not hispanic or latino
+TCGA-J2-A4AD	value	61	1	550		lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	120	1970	rx	white	not hispanic or latino
+TCGA-J2-A4AE	value	77	0		1079	lung	Stage IA	t1a	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r0	white	not hispanic or latino
+TCGA-J2-A4AG	value	66	0		988	lung	Stage IA	t1b	n0	mx	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	25	1956	r0	white	not hispanic or latino
+TCGA-L4-A4E5	value	48	0		578	lung	Stage I	t1	n0	m0	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	33	1979	r0	white	not hispanic or latino
+TCGA-L4-A4E6	value	67	0		435	lung	Stage IA	t1	n0	m0	male	2012		no		lung adenocarcinoma- not otherwise specified (nos)	30	1954	r0	white	not hispanic or latino
+TCGA-L9-A50W	value	75	1	442		lung	Stage IIA	t1b	n1	mx	male	2012		no		lung adenocarcinoma mixed subtype	19	1967	r0	black or african american	not hispanic or latino
+TCGA-L9-A5IP	value	40	1	58		lung	Stage IV	t3	n2	m1b	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)			r1	black or african american	not hispanic or latino
+TCGA-L9-A7SV	value	69	0		565	lung	Stage IIA	t2a	n1	m0	male	2013		no		lung adenocarcinoma- not otherwise specified (nos)	93	1959	r0	black or african american	not hispanic or latino
+TCGA-L9-A8F4	value	64	0		476	lung	Stage IB	t2a	n0	mx	female	2013		yes		lung adenocarcinoma- not otherwise specified (nos)	14	1973	r0	black or african american	not hispanic or latino
+TCGA-MN-A4N4	value	57	0		1175	lung	Stage IA	t1b	n0	m0	male	2010		no	100	lung adenocarcinoma- not otherwise specified (nos)		1980	r0	white	not hispanic or latino
+TCGA-MN-A4N5	value	63	0		84	lung	Stage IA	t1a	n0	m0	male	2011		no	100	lung adenocarcinoma- not otherwise specified (nos)		1971	r0	white	not hispanic or latino
+TCGA-MP-A4SV	value	67	1	2620		lung	Stage IB	t2	n0	m0	male	2001		no		lung adenocarcinoma- not otherwise specified (nos)	110	1946	r0		
+TCGA-MP-A4SW	value	53	1	1778		lung	Stage IIB	t2	n1	m0	male	2002		no		lung adenocarcinoma- not otherwise specified (nos)	15	1967	r0	white	
+TCGA-MP-A4SY	value	61	1	1501		lung	Stage IIB	t2	n1	m0	male	2002		no		lung adenocarcinoma- not otherwise specified (nos)	40		r0	white	not hispanic or latino
+TCGA-MP-A4T2	value	71	1	1136		lung	Stage IA	t1	n0	m0	male	2003		no		lung adenocarcinoma- not otherwise specified (nos)	75	1951	r0	white	not hispanic or latino
+TCGA-MP-A4T4	value	68	1	2617		lung	Stage IIB	t2	n1	m0	female	2004		no		lung adenocarcinoma- not otherwise specified (nos)	50	1954	r0	white	
+TCGA-MP-A4T6	value	76	1	1790		lung	Stage IIIA	t1	n2	mx	female	2005		no		lung adenocarcinoma- not otherwise specified (nos)	50		r0	white	not hispanic or latino
+TCGA-MP-A4T7	value	75	1	167		lung	Stage IV	t2	n0	m1	female	2005		no		lung adenocarcinoma- not otherwise specified (nos)	50	1954	r0		
+TCGA-MP-A4T9	value	54	1	1265		lung	Stage IIIA	t2	n2	mx	female	2006		yes		lung adenocarcinoma- not otherwise specified (nos)	24	1980	rx	white	not hispanic or latino
+TCGA-MP-A4TE	value	56	1	896		lung	Stage IIA	t2b	n0	mx	male	2010		no		lung adenocarcinoma- not otherwise specified (nos)	40	1970	rx	white	not hispanic or latino
+TCGA-MP-A4TF	value	58	1	336		lung	Stage IIA	t2b	n0	m0	female	2010		no		lung adenocarcinoma- not otherwise specified (nos)	40	1970	r0	white	not hispanic or latino
+TCGA-MP-A4TH	value	70	0		741	lung	Stage IA	t1a	n0	m0	female	2012		no		lung adenocarcinoma- not otherwise specified (nos)	20	1962	r0	white	not hispanic or latino
+TCGA-MP-A4TI	value	72	1	429		lung	Stage IIA	t2a	n1	m0	male	2010				lung adenocarcinoma- not otherwise specified (nos)	35	1955	r0	white	not hispanic or latino
+TCGA-MP-A4TJ	value	62	1	339		lung	Stage IA	t1	n0	m0	female	2006		no		lung signet ring adenocarcinoma			r0		
+TCGA-MP-A4TK	value	56	1	582		lung	Stage IIB	t2	n1	mx	female	2002		no		lung adenocarcinoma- not otherwise specified (nos)	28	1971	r0		
+TCGA-MP-A5C7	value	76	0		2248	lung	Stage IB	t2	n0	m0	female	2008		no		lung adenocarcinoma- not otherwise specified (nos)	15	1953	r0	white	not hispanic or latino
+TCGA-NJ-A4YF	value	50	0		2161	lung	Stage IA	t1	n0	m0	female	2007		no		lung adenocarcinoma mixed subtype	30			black or african american	not hispanic or latino
+TCGA-NJ-A4YG	value	65	0		2261	lung	Stage IB	t2	n0	m0	male	2008		no		lung adenocarcinoma- not otherwise specified (nos)	104	1955		white	
+TCGA-NJ-A4YI	value	87	1	4		lung	Stage IIIA	t2	n2	m0	female	2009		no		lung papillary adenocarcinoma	3	1936		white	
+TCGA-NJ-A4YP	value	52	0		50	lung	Stage IB	t2a	n0	m0	male	2011		no		lung papillary adenocarcinoma	60			white	not hispanic or latino
+TCGA-NJ-A4YQ	value	69	0		1432	lung	Stage IA	t1b	n0	m0	female	2011		no		lung adenocarcinoma- not otherwise specified (nos)	40		rx	white	not hispanic or latino
+TCGA-NJ-A55A	value	76	0		15	lung	Stage IB	t2	n0	m0	female	2009		no		lung adenocarcinoma- not otherwise specified (nos)	25			white	not hispanic or latino
+TCGA-NJ-A55O	value	56	0		13	lung	Stage IIA	t1b	n1	m0	female	2011		no		mucinous (colloid) carcinoma	30			white	not hispanic or latino
+TCGA-NJ-A55R	value	67	0		603	lung	Stage IA	t1b	n0	mx	male	2011		no		lung adenocarcinoma- not otherwise specified (nos)	5			white	not hispanic or latino
+TCGA-NJ-A7XG	value	49	0		617	lung	Stage IIIA	t4	n1	m0	male	2013		no		lung adenocarcinoma- not otherwise specified (nos)				black or african american	not hispanic or latino
+TCGA-O1-A52J	value	74	1	1798		lung	Stage IA	t1	n0	mx	female	2007		no		lung adenocarcinoma- not otherwise specified (nos)	45	1950		white	not hispanic or latino
+TCGA-S2-AA1A	value	68	0		513	lung	Stage IA	t1b	n0	m0	female	2013		no		lung bronchioloalveolar carcinoma mucinous	95	1957	r0	black or african american	not hispanic or latino

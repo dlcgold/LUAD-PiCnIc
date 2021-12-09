@@ -19,17 +19,29 @@ hypo_analysis <- function(LUAD){
     #     }
     # }
     oncoprint(LUAD_less);
-    alterations = events.selection(as.alterations(LUAD_less),
+    alterations <- events.selection(as.alterations(LUAD_less),
                                    filter.freq = .05);
-    gene.hypotheses = c('KRAS', 'TP53', 'TTN', 'PYR2', 'FLG', 'SPTA1', 'LRP1B');
-    LUAD.clean = events.selection(LUAD_less,
+    gene.hypotheses <- c('KRAS', 'TP53', 'TTN', 'PYR2', 
+                         'FLG', 'SPTA1', 'LRP1B');
+    LUAD.clean <- events.selection(LUAD_less,
                                   filter.in.names = c(as.genes(alterations), 
                                                       gene.hypotheses),
                                   filter.freq = .05);
-    LUAD.clean = annotate.description(LUAD.clean,
+    LUAD.clean <- annotate.description(LUAD.clean,
                                       'Lung cancer data from GDC portal
                                     (selected events)');
     ## TODO understand why events with 0%
+    
+    LUAD.mutex = import.mutex.groups("input/LUAD_mutex.txt");
+    for (w in LUAD.mutex) {
+      LUAD.clean <- hypothesis.add.group(LUAD.clean, 
+                                  FUN = OR,  # formula type is "soft exclusivity" (OR)
+                                  group = w, # the group
+                                  dim.min = length(w) # only 1 group has maximal length  
+      ) 
+    }
+    
+    
     oncoprint(LUAD.clean,
               gene.annot = list(priors = gene.hypotheses),
               sample.id = TRUE);
@@ -66,7 +78,6 @@ hypo_analysis <- function(LUAD){
     #           ann.hits = FALSE);
   
     
-    LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo);
     LUAD <- hypothesis.add.group(LUAD.clean, 
                                  XOR,
                                  group = c('KRAS', 
@@ -74,6 +85,8 @@ hypo_analysis <- function(LUAD){
                                            'ALK',
                                            'ERBB2',
                                            'BRAF'));
+    LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo);
+    
     oncoprint(LUAD.hypo, 
               gene.annot = list(priors = gene.hypotheses), 
               sample.id = TRUE,
@@ -143,8 +156,8 @@ hypo_analysis <- function(LUAD){
              fontsize_col = 6,
              display_numbers = TRUE,
              number_format = "%d");
-    model.boot <<- tronco.kfold.eloss(model.boot);
-    model.boot <<- tronco.kfold.prederr(model.boot, 
+    model.boot <- tronco.kfold.eloss(model.boot);
+    model.boot <- tronco.kfold.prederr(model.boot, 
                                        runs = 2,
                                        cores.ratio = 0);
     model.boot <- tronco.kfold.posterr(model.boot,
@@ -158,8 +171,9 @@ hypo_analysis <- function(LUAD){
                 confidence = c('npb', 'eloss', 'prederr', 'posterr'),
                 height.logic = 0.25,
                 legend.cex = .35,
-                pathways = list(priors= gene.hypotheses),
+                pathways = list(priors = gene.hypotheses),
                 label.edge.size=10);
+    LUAD.model <<- model.boot;
     return(LUAD.hypo);
 }
 

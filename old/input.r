@@ -100,7 +100,7 @@ input_genes_gdc <- function(interactive = TRUE, genes_custom = c()) {
             LUADmut <- GDCquery_Maf(tumor = "LUAD", pipelines = "mutect2");
             LUADmut <- as.data.frame(LUADmut);
             genes <- read.xlsx("input/gene_drivers.xlsx", 
-                               sheetIndex = 1, 
+                               sheetIndex = choice, 
                                header = TRUE);
             LUADclear <- subset(LUADmut, Hugo_Symbol %in% genes$LUAD);
             ## cols_exc <- names(LUADclear) %in% c("Hugo_Symbol", 
@@ -366,7 +366,7 @@ input_gistic <- function(interactive = TRUE, genes_custom = c()) {
             LUADGistic <- as.data.frame(LUADGistic);
             
             LUAD <- import.GISTIC(LUADGistic,
-                                  filter.genes = genes$LUAD);
+                                  trim = FALSE);
             
             save(LUAD, file = "input/luadGisticgdc.rda");
             return(LUAD);
@@ -397,17 +397,39 @@ input_default <- function(){
   # genes <- append(genes, "WRN");
   # genes <- append(genes, "RHOC");
   # genes <- unique(genes);
-  LUAD <- loadRData("input/luadDef.rda");
-  return(LUAD);
+  if(!file.exists("input/luadDef.rda")){
+    LUAD.mutex <- import.mutex.groups("input/LUAD_mutex.txt");
+    file_drivers <- "input/gene_drivers.xlsx";
+    genes <- read.xlsx(file_drivers, 
+                       sheetIndex = 1, 
+                       header = TRUE);
+    genes <- genes$LUAD;
+    for (i in 1:length(LUAD.mutex)){
+      genes <- c(genes, LUAD.mutex[i][[1]]);
+    }
+    genes <- unique(genes);
+    LUADmut <- GDCquery_Maf(tumor = "LUAD", pipelines = "mutect2");
+    LUADmut <- as.data.frame(LUADmut);
+    LUADclear <- subset(LUADmut, Hugo_Symbol %in% genes);
+    LUAD = import.MAF(LUADclear,
+                      merge.mutation.types = FALSE);
+    LUAD <- annotate.description(LUAD, 
+                                 "Lung cancer data from GDC portal");
+    save(LUAD, file = "input/luadDef.rda");
+    return(LUAD);
+  }else{
+    LUAD <- loadRData("input/luadDef.rda");
+    return(LUAD);
+  }
 }
 
 reduce_samples <- function(LUAD, n_samples){
-    uni_samples <- unique(LUAD$Tumor_Sample_Barcode);
-    if(length(uni_samples) < n_samples){
-        n_samples <- length(uni_samples);
-    }
-    
-    samples <- uni_samples[1:n_samples];
+  uni_samples <- unique(LUAD$Tumor_Sample_Barcode);
+  if(length(uni_samples) < n_samples){
+    n_samples <- length(uni_samples);
+  }
+  
+  samples <- uni_samples[1:n_samples];
     LUADreduced <- subset(LUAD, Tumor_Sample_Barcode %in% samples);
     return(LUADreduced);
 }

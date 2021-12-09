@@ -107,3 +107,4 @@ po/*~
 # End of https://www.toptal.com/developers/gitignore/api/emacs,r
 # GDC data
 GDCdata/
+input/*.rda
