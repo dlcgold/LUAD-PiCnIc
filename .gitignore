@@ -108,3 +108,4 @@ po/*~
 # GDC data
 GDCdata/
 input/*.rda
+old/
