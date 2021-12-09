@@ -45,7 +45,7 @@ if(!file.exists("input/luadDef.rda")){
   ## download MAF file from TCGA
   LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
                            pipelines = "mutect2");
-  LUAD.maf <- as.data.frame(LUADmut);
+  LUAD.maf <- as.data.frame(LUAD.maf);
   
   ## select only desired genes
   ## LUADclear <- subset(LUADmut, 
