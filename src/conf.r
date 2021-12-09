@@ -19,4 +19,4 @@ pathways.color = c('firebrick1',
 min_freq <- 0.05;
 
 ## boot iteration, should be around 100
-num_boot_iter <- 3;
+num_boot_iter <- 2;

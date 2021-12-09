@@ -487,8 +487,7 @@ if(plot_verbose){
               pathways.color = pathways.color,  
               disconnected = F,        
               height.logic = .3,       
-              file = "output/model_hypo_selfit.pdf",
-              ... );
+              file = "output/model_hypo_selfit.pdf");
   tronco.plot(LUAD.model.hypo.selpf, 
               #pathways = pathway.list,  
               edge.cex = 1.5,          
@@ -498,8 +497,7 @@ if(plot_verbose){
               pathways.color = pathways.color,  
               disconnected = F,        
               height.logic = .3,       
-              file = "output/model_hypo_selpf.pdf",
-              ... );
+              file = "output/model_hypo_selpf.pdf");
   tronco.plot(LUAD.model.hypo.selsub, 
               #pathways = pathway.list,  
               edge.cex = 1.5,          
@@ -509,8 +507,7 @@ if(plot_verbose){
               pathways.color = pathways.color,  
               disconnected = F,        
               height.logic = .3,       
-              file = "output/model_hypo_selsub.pdf",
-              ... );
+              file = "output/model_hypo_selsub.pdf");
 }
 
 # STATISTICS
@@ -538,8 +535,7 @@ if(plot_verbose){
               pathways.color = pathways.color,  
               disconnected = F,        
               height.logic = .3,       
-              file = "output/model_hypo_boot.pdf",
-              ... );
+              file = "output/model_hypo_boot.pdf");
 }
 
 ## plot of bootstrap scores
