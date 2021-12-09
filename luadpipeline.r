@@ -387,5 +387,5 @@ if(plot_verbose){
             cellheight = 10,
             # gene.annot = pathway.list, 
             gene.annot.color = pathways.color, 
-            sample.id = T)  
+            sample.id = TRUE);
 }
