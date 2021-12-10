@@ -14,9 +14,7 @@ hypo_reload <- maf_reload;
 gistic_reload <- maf_reload;
 intersect_reload <- maf_reload;
 boot_reload <- maf_reload;
-## for now FALSE do to error
-# gistic_reload <- FALSE;
-# intersect_reload <- FALSE;
+kfold_reload <- maf_reload;
 
 ## min frequency
 min_freq <- 0.02;

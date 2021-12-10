@@ -16,28 +16,6 @@ source("src/conf.r")
 # LOAD DATA
 
 ## gene selection
-## TODO hardcode this part with correct pathway
-
-# genes <- xlsx::read.xlsx(file_drivers, 
-#                    sheetIndex = 1, 
-#                    header = TRUE);
-# genes <- genes$LUAD;
-# for (group in LUAD.mutex){
-#   genes <- c(genes, group[[1]]);
-# }
-# genes <- append(genes, "ERBB2");
-# genes <- append(genes, "ALK");
-# genes <- append(genes, "NRAS");
-# genes <- append(genes, "PIK3CA");
-# genes <- append(genes, "CTNNB1");
-# genes <- append(genes, "STK11");
-# genes <- append(genes, "CDKN2A");
-# genes <- append(genes, "APC");
-# genes <- append(genes, "RB1");
-# genes <- append(genes, "NRAS");
-# genes <- append(genes, "WRN");
-# genes <- append(genes, "RHOC");
-# genes <- unique(genes);
 
 ## use pathway as in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4231481/
 ## complete genes
@@ -187,7 +165,6 @@ if(verbose){
 }
 
 ## clinical data
-## TODO test with GCD
 if(clinic_reload){
   data <- getFirehoseData("LUAD");
   clinical <- getData(data, "clinical");
@@ -391,7 +368,6 @@ if(verbose){
 }
 
 ## oncoprint first two group
-## TODO add pathway feature
 if(plot_verbose){
   grid.arrange(
     oncoprint(
@@ -477,7 +453,6 @@ LUAD.select <- annotate.description(LUAD.select,
                                     'LUAD selection');
 
 ## oncoprint the selection
-## TODO fix pathway
 if(plot_verbose){
   oncoprint(LUAD.select, 
             legend.cex = .5,          
@@ -734,6 +709,8 @@ if(verbose){
 ## save model
 save(LUAD.model, 
      file = "input/luadDefModel.rda");
+
+## TODO add some graph regarding pattern
 
 ## last DAG
 if(plot_verbose){
