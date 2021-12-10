@@ -74,8 +74,10 @@ if(maf_reload){
   ## download MAF file from TCGA
   LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
                            pipelines = "mutect2");
-  ## TODO fix errors
-  if(plot_verbose && FALSE){
+  
+  ## cool visualization of data in MAF
+  ## TODO fix errors sometimes
+  if(plot_verbose){
     maftools.input <- LUAD.maf %>% read.maf;
     plotmafSummary(maf = maftools.input, 
                    rmOutlier = TRUE, 
@@ -412,7 +414,7 @@ if(plot_verbose && FALSE){
     oncoprint(
       events.selection(LUAD,
                        filter.in.names = LUAD.mtor),
-      title = paste("LUAD - MEMO exclusivity (knowledge prior)"),
+      title = paste("LUAD - MTOR exclusivity (knowledge prior)"),
       legend.cex = .3,
       font.row = 6,
       ann.hits = FALSE,
@@ -490,12 +492,12 @@ if(hypo_reload){
     for (group in LUAD.mutex) {
       group <- group[group%in% as.genes(LUAD.hypo)];
       if(length(group) >= 2){
-        LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                          FUN = OR,  
+        print(group);
+        LUAD.hypo <- hypothesis.add.group(LUAD.hypo,
+                                          FUN = OR,
                                           group = group,
                                           dim.min = length(group));
       }
-      
     }
   }
   
@@ -538,6 +540,28 @@ if(hypo_reload){
                 pathways.color = pathways.color,  
                 disconnected = F,        
                 height.logic = .3);
+  }
+  
+  ## random test with a set of forced hypotheses
+  gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11');
+  alterations <- events.selection(as.alterations(LUAD.select), 
+                                  filter.freq = min_freq);
+  LUAD.hypo.clean <- events.selection(LUAD.select,
+                                      filter.in.names = c(as.genes(alterations), 
+                                                          gene.hypotheses));
+  LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
+                                          'LUAD forced hypos (selected events)')
+  if(plot_verbose){
+    oncoprint(LUAD.hypo.clean,
+              gene.annot = list(priors = gene.hypotheses), 
+              sample.id = TRUE);
+    oncoprint(LUAD.hypo.clean, 
+              gene.annot = list(priors = gene.hypotheses), 
+              sample.id = TRUE,
+              font.row=10,
+              font.column=5,
+              cellheight=15, 
+              cellwidth=4);
   }
   
   ## save data
@@ -713,6 +737,26 @@ save(LUAD.model,
      file = "input/luadDefModel.rda");
 
 ## TODO add some graph regarding pattern
+## such as
+if(plot_verbose){
+  tronco.pattern.plot(LUAD.model,
+                      group = as.events(LUAD.model, genes=c('KRAS', 
+                                                            'TP53')),
+                      to = c('RB1', 
+                             'Nonsense_Mutation'),
+                      legend.cex=0.8,
+                      label.cex=1.0);
+}
+if(plot_verbose){
+  tronco.pattern.plot(LUAD.model,
+                      group = as.events(LUAD.model, genes=c('KRAS', 
+                                                            'TP53')),
+                      to = c('RB1', 
+                             'Nonsense_Mutation'),
+                      legend.cex=0.8,
+                      label.cex=1.0,
+                      mode = "circos");
+}
 
 ## last DAG
 if(plot_verbose){

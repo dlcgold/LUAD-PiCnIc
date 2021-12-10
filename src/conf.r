@@ -17,7 +17,7 @@ boot_reload <- maf_reload;
 kfold_reload <- maf_reload;
 
 ## min frequency
-min_freq <- 0.05;
+min_freq <- 0.02;
 
 ## boot iteration, should be around 100
 num_boot_iter <- 2
