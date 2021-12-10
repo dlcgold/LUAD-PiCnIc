@@ -74,7 +74,8 @@ if(maf_reload){
   ## download MAF file from TCGA
   LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
                            pipelines = "mutect2");
-  if(plot_verbose){
+  ## TODO fix errors
+  if(plot_verbose && FALSE){
     maftools.input <- LUAD.maf %>% read.maf;
     plotmafSummary(maf = maftools.input, 
                    rmOutlier = TRUE, 
@@ -555,7 +556,7 @@ LUAD.hypo.model.selfit <- as.selective.advantage.relations(LUAD.model);
 
 if(verbose){
   print("advatanges selection fit probabilities");
-  print(LUAD.hypo.model.selfir);
+  print(LUAD.hypo.model.selfit);
 }
 
 ## dataframe with selective advanges, with prima facie, full set of edge
