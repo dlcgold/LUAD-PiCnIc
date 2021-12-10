@@ -613,7 +613,8 @@ if(plot_verbose){
 }
 
 ## plot of bootstrap scores
-if(plot_verbose){
+## TODO fix 
+if(plot_verbose && FALSE){
   ## first non-parametric
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
