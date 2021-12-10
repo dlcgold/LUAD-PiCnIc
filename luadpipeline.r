@@ -50,6 +50,9 @@ REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
 HIME <- c("SETD2");
 RNASPL <- c("RBM10", "U2AF1");
 
+## extracted from maftools
+## understand if they are usefull
+## HFREQ <- c("TTN", "MUC16", "RYR2", "CSMD3", "LRP1B");
 
 ## create pathways
 pathway.genes <- c(P53, RTK, MTOR, OXI, PROG, REMO, HIME, RNASPL);
@@ -464,12 +467,12 @@ if(plot_verbose && FALSE){
 # MODELS
 
 ## select from LUAD with min freq and apriori
-LUAD.select = select(LUAD, 
-                     min_freq, 
-                     unique(             
-                       c(LUAD.mtor,
-                         LUAD.raf,
-                         unlist(LUAD.mutex))));
+LUAD.select <- select(LUAD, 
+                      min_freq, 
+                      unique(             
+                        c(LUAD.mtor,
+                          LUAD.raf,
+                          unlist(LUAD.mutex))));
 LUAD.select <- annotate.description(LUAD.select,
                                     'LUAD selection');
 
@@ -620,6 +623,30 @@ if(verbose){
   print(LUAD.hypo.model.selsub);
 }
 
+## TODO add some graph regarding pattern
+## such as these but working
+if(plot_verbose && FALSE){
+  tronco.pattern.plot(LUAD.model,
+                      group = as.events(LUAD.model, genes=c('CDK4', 
+                                                            'MDM2')),
+                      to = c('NF1', 
+                             'Nonsense_Mutation'),
+                      legend.cex=0.8,
+                      label.cex=1.0);
+}
+if(plot_verbose && FALSE){
+  tronco.pattern.plot(LUAD.model,
+                      group = as.events(LUAD.model, genes=c('KRAS', 
+                                                            'TP53')),
+                      to = c('EGFR', 
+                             'Nonsense_Mutation'),
+                      legend.cex=0.8,
+                      label.cex=1.0,
+                      mode = "circos");
+}
+
+
+
 # STATISTICS
 
 ## non-parametric bootstrap
@@ -655,8 +682,7 @@ if(plot_verbose){
 }
 
 ## plot of bootstrap scores
-## TODO fix 
-if(plot_verbose && FALSE){
+if(plot_verbose){
   ## first non-parametric
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
@@ -753,28 +779,6 @@ if(verbose){
 ## save model
 save(LUAD.model, 
      file = "input/luadDefModel.rda");
-
-## TODO add some graph regarding pattern
-## such as
-if(plot_verbose){
-  tronco.pattern.plot(LUAD.model,
-                      group = as.events(LUAD.model, genes=c('KRAS', 
-                                                            'TP53')),
-                      to = c('RB1', 
-                             'Nonsense_Mutation'),
-                      legend.cex=0.8,
-                      label.cex=1.0);
-}
-if(plot_verbose){
-  tronco.pattern.plot(LUAD.model,
-                      group = as.events(LUAD.model, genes=c('KRAS', 
-                                                            'TP53')),
-                      to = c('RB1', 
-                             'Nonsense_Mutation'),
-                      legend.cex=0.8,
-                      label.cex=1.0,
-                      mode = "circos");
-}
 
 ## last DAG
 if(plot_verbose){
