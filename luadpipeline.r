@@ -8,6 +8,7 @@ library(gridExtra)
 library(vioplot)
 library(openxlsx)
 library(dplyr)
+library(maftools)
 library("xlsx")
 source("src/utils.r")
 source("src/conf.r")
@@ -39,16 +40,27 @@ source("src/conf.r")
 # genes <- unique(genes);
 
 ## use pathway as in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4231481/
+## complete genes
+# P53 <- c("TP53", "ATM", "MDM2");
+# RAS <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
+#          "EGFR", "ERBB2", "MET", "ALK", "RET", "ROS1");
+# MTOR <- c("PTEN", "PIK3CA", "PIK3R1", "STK11", "AKT1", "AMPK",
+#           "TSC1", "TSC2", "MTOR");
+# KEAP1 <- c("KEAP1", "CUL3", "NFE2L2");
+# CDKN2A <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
+# ARID <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
+# SETD2 <- c("SETD2");
+# RBM10 <- c("RBM10", "U2AF1");
+## genes > 1%
 P53 <- c("TP53", "ATM", "MDM2");
-RAS <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
-         "EGFR", "ERBB2", "MET", "ALK", "RET", "ROS1");
-MTOR <- c("PTEN", "PIK3CA", "PIK3R1", "STK11", "AKT1", "AMPK",
-          "TSC1", "TSC2", "MTOR");
-KEAP1 <- c("KEAP1", "CUL3", "NFE2L2");
+RAS <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET");
+MTOR <- c("PTEN", "PIK3CA", "STK11", "TSC1", "TSC2", "MTOR");
+KEAP1 <- c("KEAP1", "NFE2L2");
 CDKN2A <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
 ARID <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
 SETD2 <- c("SETD2");
 RBM10 <- c("RBM10", "U2AF1");
+
 
 ## create pathways
 pathway.genes <- c(P53, RAS, MTOR, KEAP1, CDKN2A, ARID, SETD2, RBM10);
@@ -71,27 +83,30 @@ pathways.color = c('firebrick1',
                    'darkgreen',
                    'darkmagenta', 
                    'darkorange',
-                   'darkkhaki',
+                   'dodgerblue4',
                    'darkorchid1',
                    'darksalmon');
 
 ## import mutex data
 LUAD.mutex <- import.mutex.groups(file.mutex);
 
-## load data if not exist a rda
-if(!file.exists("input/luadDef.rda")){
+## load MAF, reload if required
+if(maf_reload){
   
   ## download MAF file from TCGA
   LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
                            pipelines = "mutect2");
-  LUAD.maf <- as.data.frame(LUAD.maf);
-  
-  ## select only desired genes
-  ## LUADclear <- subset(LUADmut, 
-  ##                     Hugo_Symbol %in% pathway.genes);
+  if(plot_verbose){
+    maftools.input <- LUAD.maf %>% read.maf;
+    plotmafSummary(maf = maftools.input, 
+                   rmOutlier = TRUE, 
+                   addStat = 'median', 
+                   dashboard = TRUE);
+  }
+  LUAD.mafdf <- as.data.frame(LUAD.maf);
   
   ## create TRONCO object
-  LUAD = import.MAF(LUAD.maf,
+  LUAD <- import.MAF(LUAD.mafdf,
                     is.TCGA = TRUE,
                     merge.mutation.types = FALSE,
                     filter.fun = function(x) {
@@ -108,6 +123,13 @@ if(!file.exists("input/luadDef.rda")){
 if(plot_verbose){
   oncoprint(LUAD);
 }
+
+##  oncoprint after deletions
+if(plot_verbose){
+  oncoprint(LUAD);
+}
+
+
 
 ## print some informations about genes
 if(verbose){
@@ -166,10 +188,9 @@ if(verbose){
 
 ## clinical data
 ## TODO test with GCD
-if(!file.exists("input/luadClinical.rda")){
+if(clinic_reload){
   data <- getFirehoseData("LUAD");
   clinical <- getData(data, "clinical");
-  
   df <- as.data.frame(clinical);
   for (i in 1:length(rownames(df))) {
     row.names(df)[i] <- toupper(gsub("\\.", 
@@ -211,124 +232,145 @@ LUAD <- annotate.stages(LUAD,
 if(plot_verbose){
   oncoprint(LUAD);
 }
-## TODO check why not hugosymbol
-if(gistic_check){
-  ## load gistic 
-  ## TODO it doesn't work
-  if(!file.exists("input/luadDefGistic.rda")){
-    LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
-                             pipelines = "mutect2");
-    LUAD.maf <- as.data.frame(LUAD.maf);
-    LUAD.maf <- LUAD.maf[!duplicated(LUAD.maf$Hugo_Symbol), ];
-    LUAD.maf <- LUAD.maf[, c(1,2)];
-    #AnalyseDate <- getFirehoseAnalyzeDates(1);
-    # data <- getFirehoseData("LUAD",
-    #                         #gistic2_Date = lastAnalyseDate, 
-    #                         GISTIC = TRUE);
-    # LUADGistic <- getData(data,
-    #                       type = "GISTIC",
-    #                       platform = "ThresholdedByGene");
-    ## TODO extract from maf Entrez_Gene_Id
-    # id <- c();
-    # for(gene in LUADGistic$Gene.Symbol){
-    #   print(gene);
-    #   id <- c(id, LUAD.maf[LUAD.maf$Hugo_Symbol == gene,][[2]][1])
-    # }
-    # LUADGistic <- as.data.frame(LUADGistic);
-    # LUADGistic$Entrez_Gene_Id <- rep("x", length(LUADGistic$Gene.Symbol));
-    # LUADGistic <-  LUADGistic %>% relocate(Entrez_Gene_Id, 
-    #                                        .before = Locus.ID);
-    # ## POOR PERFORMANCES
-    # for(i in 1:length(LUADGistic$Gene.Symbol)){
-    #   gene <- LUADGistic$Gene.Symbol[i];
-    #   LUADGistic$Entrez_Gene_Id[i] <- LUAD.maf[LUAD.maf$Hugo_Symbol == gene,][[2]][1];
-    # }
-    # LUADGistic <- LUADGistic[!is.na(LUADGistic$Entrez_Gene_Id),];
-    # LUADGistic <- subset(LUADGistic, 
-    #                 select = - c(Locus.ID, 
-    #                              Cytoband));
-    gistic.query <- GDCquery(project = "TCGA-LUAD",
-                             data.category = "Copy Number Variation",
-                             data.type = "Gene Level Copy Number Scores",
-                             access = "open",
-                             sample.type = c("Primary Tumor"));
-    GDCdownload(gistic.query);
-    gistic <- GDCprepare(gistic.query,
-                         add.gistic2.mut = pathway.genes);
-    LUAD.gistic <- as.data.frame(LUAD.gistic);
-    LUADGistic <- import.GISTIC(LUAD.gistic,
-                                trim = FALSE,
-                                filter.genes = pathway.genes
-    );
-    LUADGistic <- annotate.description(LUADGistic,
-                                       label = "LUAD data for driver genes");
-    save(LUADGistic, 
-         file = "input/luadDefGistic.rda");
-    
-  }else{
-    LUADGistic <- loadRData("input/luadDefGistic.rda");
-  }
   
-  ## print types for GISTIC
-  if(verbose){
-    print(as.types(LUADGistic));
-  }
+## load gistic 
+if(gistic_reload){
+  gistic.query <- GDCquery(project = "TCGA-LUAD",
+                           data.category = "Copy Number Variation",
+                           data.type = "Gene Level Copy Number Scores",
+                           access = "open");
+  GDCdownload(gistic.query);
+  gistic <- GDCprepare(gistic.query);
+  gist <- getGistic("LUAD", type = "thresholded");
+  LUAD.gistic <- as.data.frame(gist);
+  LUAD.gistic <- LUAD.gistic[LUAD.gistic$`Gene Symbol` %in% pathway.genes,];
+  LUAD.gistic <- LUAD.gistic[ , ! names(LUAD.gistic) %in% c("Locus ID", 
+                                                            "Cytoband")];
+  LUAD.gistic <- t(LUAD.gistic);
+  colnames(LUAD.gistic) <- lapply(LUAD.gistic[1, ], as.character);
+  LUAD.gistic <- LUAD.gistic[-1,];
+  LUADGistic <- import.GISTIC(LUAD.gistic,
+                              trim = FALSE);
+  LUADGistic <- annotate.description(LUADGistic,
+                                     label = "LUAD GISTIC for driver genes");
+  save(LUADGistic, 
+       file = "input/luadDefGistic.rda");
   
-  ## oncoprint for GISTIC
-  ## TODO wtf
-  # if(plot_verbose){
-  #   oncoprint(LUADGistic);
-  # }
-  
-  ## some changes in LUADGistic
-  LUADGistic <- delete.type(LUADGistic, 
-                            'Heterozygous Loss');
-  LUADGistic <- delete.type(LUADGistic, 
-                            'Low-level Gain');
-  LUADGistic <- rename.type(LUADGistic, 
-                            'Homozygous Loss', 
-                            'Deletion');
-  LUADGistic <- rename.type(LUADGistic, 
-                            'High-level Gain', 
-                            'Amplification');
-  
-  ## stage annnotation in GISTIC
-  LUADGistic <- annotate.stages(LUADGistic, 
-                                clinical.data)
-  
-  ## print informations for cleared GISTIC
-  if(verbose){
-    print(paste("number of LUADGistic samples:", 
-                nsamples(LUADGistic)));    
-    print("LUADGistic samples:");
-    print(as.samples(LUADGistic)); 
-  }
-  
-  ## Difference from MAF and GISTIC
-  if(verbose){
-    print("LUAD MAF and GISTIC check:");
-    print(as.samples(LUAD) %in% as.samples(GISTIC)); 
-  }
-  
-  ## intersect MAF and GISTIC
-  ## TODO if GISTIC not work intersect not work
-  if(!file.exists("input/luadDefInt.rda")){
-    LUADInt <- intersect.datasets(LUADGistic,
-                                  LUAD, 
-                                  intersect.genomes = FALSE);
-    
-    save(LUADInt, 
-         file = "input/luadDefInt.rda");
-    
-  }else{
-    LUADInt <- loadRData("input/luadDefInt.rda");
-  }
-  
+}else{
+  LUADGistic <- loadRData("input/luadDefGistic.rda");
+}
+
+## print types for GISTIC
+if(verbose){
+  print(as.types(LUADGistic));
+}
+
+## oncoprint for GISTIC
+if(plot_verbose){
+  oncoprint(LUADGistic);
+}
+
+## some changes in LUADGistic
+LUADGistic <- delete.type(LUADGistic, 
+                          'Heterozygous Loss');
+LUADGistic <- delete.type(LUADGistic, 
+                          'Low-level Gain');
+LUADGistic <- rename.type(LUADGistic, 
+                          'Homozygous Loss', 
+                          'Deletion');
+LUADGistic <- rename.type(LUADGistic, 
+                          'High-level Gain', 
+                          'Amplification');
+
+## stage annnotation in GISTIC
+LUADGistic <- annotate.stages(LUADGistic, 
+                              clinical.data,
+                              match.TCGA.patients = TRUE);
+
+## clear multiple stages
+LUADGistic <- TCGA.remove.multiple.samples(LUADGistic);
+LUADGistic <- TCGA.shorten.barcodes(LUADGistic);
+LUADGistic <- annotate.stages(LUADGistic, 
+                        clinical.data);
+
+## oncoprint for GISTIC with stages
+if(plot_verbose){
+  oncoprint(LUADGistic);
+}
+
+## print informations for cleared GISTIC
+if(verbose){
+  print(paste("number of LUADGistic samples:", 
+              nsamples(LUADGistic)));    
+  print("LUADGistic samples:");
+  print(as.samples(LUADGistic)); 
+}
+
+## Difference from MAF and GISTIC
+if(verbose){
+  print("LUAD MAF and GISTIC check:");
+  print(as.samples(LUAD) %in% as.samples(LUADGistic)); 
+}
+
+## intersect MAF and GISTIC and save in LUAD object
+if(intersect_reload){
+  LUAD <- intersect.datasets(LUADGistic,
+                             LUAD, 
+                             intersect.genomes = FALSE);
+  LUAD <- trim(LUAD);
+  LUAD <- annotate.stages(LUAD, 
+                          clinical.data);
+  LUAD <- annotate.description(x = LUAD,
+                               label = "LUAD MAF/CNA data for driver genes");
+  save(LUAD, 
+       file = "input/luadDefInt.rda");
   ## oncoprint of intersect
   if(plot_verbose){
-    oncoprint(LUADInt);
+    oncoprint(LUAD);
   }
+  
+}else{
+  LUAD <- loadRData("input/luadDefInt.rda");
 }
+
+## join mutations
+LUAD <- join.types(LUAD,
+                   "Frame_Shift_Del",
+                   "In_Frame_Del",
+                   "Frame_Shift_Ins",
+                   "In_Frame_Ins",
+                   new.type = "Del/Ins_Mutations");
+## remove quasi-useless mutation type mutations
+# LUAD <- delete.type(LUAD,
+#                     type = "In_Frame_Ins");
+# LUAD <- delete.type(LUAD,
+#                     type = "In_Frame_Del");
+# LUAD <- delete.type(LUAD,
+#                     type = "Frame_Shift_Ins");
+# LUAD <- delete.type(LUAD,
+#                     type = "Frame_Shift_Del");
+LUAD <- delete.type(LUAD,
+                    type = "3'UTR");
+LUAD <- delete.type(LUAD,
+                    type = "5'UTR");
+LUAD <- delete.type(LUAD,
+                    type = "Splice_Region");
+LUAD <- delete.type(LUAD,
+                    type = "Splice_Site");
+LUAD <- delete.type(LUAD,
+                    type = "Intron");
+LUAD <- delete.type(LUAD,
+                    type = "Silent");
+
+## select only event with a minfreq
+LUAD <- events.selection(LUAD, 
+                         filter.freq = min_freq);
+
+## oncoprint of intersect with selection
+if(plot_verbose){
+  oncoprint(LUAD);
+}
+
 # SUBTYPING
 
 ## TODO understand if we have cluster (type of tumor like MSI/MSS for CRC)
@@ -384,7 +426,7 @@ if(plot_verbose){
 
 ## apriori knowledge
 ## TODO now quasi-random genes, RAF genes and MTOR genes
-LUAD.raf <- c('KRAS', 'NRAS', 'BRAF');
+LUAD.raf <- c('KRAS', 'EGFR');
 LUAD.mtor <-  c('PIK3CA', 'STK11');
 
 ## TODO plot not work
@@ -510,13 +552,12 @@ if(hypo_reload){
                              nboot = num_boot_iter);
   
   ## DAG of model with hypotheses
-  ## TODO fix pathways
   if(plot_verbose){
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
-                legend.cex = .5,         
-                scale.nodes = .6,        
+                legend.cex = .35, 
+                scale.nodes = .5,        
                 confidence = c('tp', 'pr', 'hg'), 
                 pathways.color = pathways.color,  
                 disconnected = F,        
@@ -539,57 +580,34 @@ if(hypo_reload){
 ## dataframe with selective advanges, with fit probabilities, optimized
 LUAD.hypo.model.selfit <- as.selective.advantage.relations(LUAD.model);
 
+if(verbose){
+  print("advatanges selection fit probabilities");
+  print(LUAD.hypo.model.selfir);
+}
+
 ## dataframe with selective advanges, with prima facie, full set of edge
 LUAD.hypo.model.selpf <- as.selective.advantage.relations(LUAD.model,
                                                           type = "pf");
+
+if(verbose){
+  print("advatanges selection full set");
+  print(LUAD.hypo.model.selpf);
+}
 
 ## dataframe with selective advanges, with a subset of genes
 ## TODO make test with usefull subset of genes
 LUAD.hypo.model.selsub <- as.selective.advantage.relations(LUAD.model,
                                                            events = as.events(LUAD.model, 
                                                                               genes = P53));
-## DAG of the model above
-## TODO fix pathways
-if(plot_verbose){
-  tronco.plot(LUAD.hypo.model.selfit, 
-              pathways = pathway.list,  
-              edge.cex = 1.5,          
-              legend.cex = .5,         
-              scale.nodes = .6,        
-              confidence = c('tp', 'pr', 'hg'), 
-              pathways.color = pathways.color,  
-              disconnected = F,        
-              height.logic = .3,       
-              file = "output/model_hypo_selfit.pdf");
-  tronco.plot(LUAD.hypo.model.selpf, 
-              pathways = pathway.list,  
-              edge.cex = 1.5,          
-              legend.cex = .5,         
-              scale.nodes = .6,        
-              confidence = c('tp', 'pr', 'hg'), 
-              pathways.color = pathways.color,  
-              disconnected = F,        
-              height.logic = .3,       
-              #file = "output/model_hypo_selpf.pdf"
-              );
-  ## TODO make it work
-  # tronco.plot(LUAD.hypo.model.selsub, 
-  #             pathways = pathway.list,  
-  #             edge.cex = 1.5,          
-  #             legend.cex = .5,         
-  #             scale.nodes = .6,        
-  #             confidence = c('tp', 'pr', 'hg'), 
-  #             pathways.color = pathways.color,  
-  #             disconnected = F,        
-  #             height.logic = .3,
-  #             #file = "output/model_hypo_selsub.pdf"
-  #             );
+if(verbose){
+  print("advatanges selection by pathway");
+  print(LUAD.hypo.model.selsub);
 }
 
 # STATISTICS
 
 ## non-parametric bootstrap
-if(!file.exists("input/luadDefBoot.rda")){
+if(boot_reload){
   LUAD.model <- tronco.bootstrap(LUAD.model,
                                  nboot = num_boot_iter,
                                  cores.ratio = .5);
@@ -604,8 +622,8 @@ if(!file.exists("input/luadDefBoot.rda")){
 }else{
   LUAD.model <- loadRData("input/luadDefBoot.rda");
 }
+
 ## DAG of the model above
-## TODO fix pathways
 if(plot_verbose){
   tronco.plot(LUAD.model, 
               pathways = pathway.list,  
@@ -621,7 +639,6 @@ if(plot_verbose){
 }
 
 ## plot of bootstrap scores
-## TODO it doesn't work
 if(plot_verbose){
   ## first non-parametric
   pheatmap(keysToNames(LUAD.model,
@@ -645,7 +662,7 @@ if(plot_verbose){
   ## then parametric ones
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
-                                     conf = 'sb')$npb$capri_bic) * 100,
+                                     conf = 'sb')$sb$capri_bic) * 100,
            main = "non-parametric bootstrap scores for BIC model",
            fontsize_row = 6,
            fontsize_col = 6,
@@ -654,7 +671,7 @@ if(plot_verbose){
   );
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
-                                     conf = 'sb')$npb$capri_aic) * 100,
+                                     conf = 'sb')$sb$capri_aic) * 100,
            main = "non-parametric bootstrap scores for AIC model",
            fontsize_row = 6,
            fontsize_col = 6,
@@ -671,31 +688,22 @@ if(verbose){
 }
 
 ## kfold
-if(!file.exists("input/luadDefKfold.rda")){
+if(kfold_reload){
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.eloss(LUAD.model);
-  kfold_eloss<- as.kfold.eloss(LUAD.model);
+  kfold_eloss <- as.kfold.eloss(LUAD.model);
   
   ## plot for every fold
-  if(plot_verbose){
+  ## TODO make it work
+  if(plot_verbose && FALSE){
     vioplot(LUAD.model$kfold$capri_bic$eloss,
-            LUAD.model$kfold$aic$eloss,
+            LUAD.model$kfold$capri_aic$eloss,
             col = 'red',
             lty = 1, rectCol="gray",
             colMed = 'black',
             names = c('BIC', 'AIC'), 
             pchMed = 15, 
             horizontal = T)
-    title(main = 'Entropy loss \n LUAD tumors');
-    
-    vioplot(LUAD.model$kfold$capri_bic$eloss,
-            LUAD.model$kfold$capri_aic$eloss,
-            col = 'red',
-            lty = 1,
-            rectCol="gray",
-            colMed = 'black',
-            names = c('BIC', 'AIC'),
-            pchMed = 15, horizontal = T)
     title(main = 'Entropy loss \n LUAD tumors');
   }
   
@@ -706,9 +714,10 @@ if(!file.exists("input/luadDefKfold.rda")){
   
   ## k-fold cross validation, posterior classification error for each edge
   LUAD.model <- tronco.kfold.posterr(LUAD.model);
-  kfold_post <- as.kfold.posterr(LUAD.model);ù
+  kfold_post <- as.kfold.posterr(LUAD.model);
   save(LUAD.model, 
        file = "input/luadDefKfold.rda");
+  
 }else{
   LUAD.model <- loadRData("input/luadDefKfold.rda");
 }
@@ -727,6 +736,21 @@ if(verbose){
 ## save model
 save(LUAD.model, 
      file = "input/luadDefModel.rda");
+
+## last DAG
+if(plot_verbose){
+  tronco.plot(LUAD.model, 
+              pathways = pathway.list,  
+              edge.cex = 1.5,          
+              legend.cex = .35,         
+              scale.nodes = .6,        
+              confidence = c('tp', 'pr', 'hg'), 
+              pathways.color = pathways.color,  
+              disconnected = F,        
+              height.logic = .3,       
+              #file = "output/model_hypo_boot.pdf"
+  );
+}
 
 ## excel with all data
 excel.file = "output/LUAD_statistics.xlsx";
