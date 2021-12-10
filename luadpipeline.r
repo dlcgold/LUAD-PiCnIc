@@ -561,9 +561,7 @@ if(hypo_reload){
                 confidence = c('tp', 'pr', 'hg'), 
                 pathways.color = pathways.color,  
                 disconnected = F,        
-                height.logic = .3,       
-                #file = "output/model_hypo.pdf"
-                );
+                height.logic = .3);
   }
   
   ## save data
