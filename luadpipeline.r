@@ -20,39 +20,50 @@ source("src/conf.r")
 ## use pathway as in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4231481/
 ## complete genes
 # P53 <- c("TP53", "ATM", "MDM2");
-# RAS <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
+# RTK <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
 #          "EGFR", "ERBB2", "MET", "ALK", "RET", "ROS1");
 # MTOR <- c("PTEN", "PIK3CA", "PIK3R1", "STK11", "AKT1", "AMPK",
 #           "TSC1", "TSC2", "MTOR");
-# KEAP1 <- c("KEAP1", "CUL3", "NFE2L2");
-# CDKN2A <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
-# ARID <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
-# SETD2 <- c("SETD2");
-# RBM10 <- c("RBM10", "U2AF1");
+# OXI <- c("KEAP1", "CUL3", "NFE2L2");
+# PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
+# REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
+# HIME <- c("SETD2");
+# RNASPL <- c("RBM10", "U2AF1");
+
+
 ## genes > 1%
+## TODO use correct pathway names (search in papers)
+# - P53: proliferation and cell cycle progression
+# - RTK: RTK signalling, proliferation, cell survival, translation
+# - MTOR: mTOR signalling, proliferation, cell survival, translation
+# - OXI: oxidative stress response
+# - PROG: cell cycle progression
+# - REMO: nucleosome remodelling
+# - HIME: histone methylation
+# - RNASPL: RNA splicing/processing
 P53 <- c("TP53", "ATM", "MDM2");
-RAS <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET");
+RTK <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET");
 MTOR <- c("PTEN", "PIK3CA", "STK11", "TSC1", "TSC2", "MTOR");
-KEAP1 <- c("KEAP1", "NFE2L2");
-CDKN2A <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
-ARID <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
-SETD2 <- c("SETD2");
-RBM10 <- c("RBM10", "U2AF1");
+OXI <- c("KEAP1", "NFE2L2");
+PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1");
+REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4");
+HIME <- c("SETD2");
+RNASPL <- c("RBM10", "U2AF1");
 
 
 ## create pathways
-pathway.genes <- c(P53, RAS, MTOR, KEAP1, CDKN2A, ARID, SETD2, RBM10);
+pathway.genes <- c(P53, RTK, MTOR, OXI, PROG, REMO, HIME, RNASPL);
 pathway.genes <- unique(pathway.genes);
-pathway.names <- c("P53", "RAS", "MTOR", "KEAP1", "CDKN2A", "ARID", 
-                   "SETD2", "RBM10")
+pathway.names <- c("P53", "RTK", "MTOR", "OXI", "PROG", "REMO", 
+                   "HIME", "RNASPL")
 pathway.list <- list(P53 = P53,
-                     RAS = RAS,
+                     RTK = RTK,
                      MTOR = MTOR, 
-                     KEAP1 = KEAP1, 
-                     CDKN2A = CDKN2A, 
-                     ARID = ARID, 
-                     SETD2 = SETD2, 
-                     RBM10 = RBM10);
+                     OXI = OXI, 
+                     PROG = PROG, 
+                     REMO = REMO, 
+                     HIME = HIME, 
+                     RNASPL = RNASPL);
 
 ## colors for pathways
 alteration.color = 'dimgray';
@@ -67,6 +78,11 @@ pathways.color = c('firebrick1',
 
 ## import mutex data
 LUAD.mutex <- import.mutex.groups(file.mutex);
+
+## clear mutex with selected genes
+for(i in 1:length(LUAD.mutex)){
+  LUAD.mutex[i][[1]] <- LUAD.mutex[i][[1]][LUAD.mutex[i][[1]] %in% pathway.genes];
+}
 
 ## load MAF, reload if required
 if(maf_reload){
@@ -313,6 +329,8 @@ if(intersect_reload){
   LUAD <- loadRData("input/luadDefInt.rda");
 }
 
+## editing types
+## TODO check if it ha any sense
 ## join mutations
 LUAD <- join.types(LUAD,
                    "Frame_Shift_Del",
