@@ -21,25 +21,25 @@ tabular <- function(obj, M){
 }
 
 reduce_samples <- function(LUAD, n_samples){
-  uni_samples <- unique(LUAD$Tumor_Sample_Barcode);
+  uni_samples <- unique(LUAD$Tumor_Sample_Barcode)
   if(length(uni_samples) < n_samples){
-    n_samples <- length(uni_samples);
+    n_samples <- length(uni_samples)
   }
   
-  samples <- uni_samples[1:n_samples];
-  LUADreduced <- subset(LUAD, Tumor_Sample_Barcode %in% samples);
-  return(LUADreduced);
+  samples <- uni_samples[1:n_samples]
+  LUADreduced <- subset(LUAD, Tumor_Sample_Barcode %in% samples)
+  return(LUADreduced)
 }
 
 select = function(x, min.freq, forced.genes) {
-  x.sel = as.alterations(x);
+  x.sel = as.alterations(x)
   x.sel = events.selection(x.sel, 
                            filter.freq = min.freq, 
-                           filter.in.names = forced.genes);
+                           filter.in.names = forced.genes)
   
 
   x = events.selection(x, 
-                       filter.in.names = as.genes(x.sel));
-  return(x);
+                       filter.in.names = as.genes(x.sel))
+  return(x)
 }
 
