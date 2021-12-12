@@ -127,7 +127,7 @@ if(verbose){
 ## clinical data
 if(clinic_reload){
   data <- getFirehoseData("LUAD")
-  clinical <- getData(data, "clinical")
+  clinical <- RTCGAToolbox::getData(data, "clinical")
   df <- as.data.frame(clinical)
   for (i in 1:length(rownames(df))) {
     row.names(df)[i] <- toupper(gsub("\\.", 
