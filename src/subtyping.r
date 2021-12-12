@@ -4,7 +4,7 @@
 ## and if we can extract them from clinical sheet
 ## maybe from cBIO
 ## luad_cbio <- cbio.query(
-##   pathway.genes = pathway.genes[!is.na(pathway.genes)],
+##   genes = pathway.genes[!is.na(pathway.genes)],
 ##   cbio.study = 'luad_tcga',
 ##   cbio.dataset = 'luad_tcga_3way_complete',
 ##   cbio.profile = 'luad_tcga_mutations')

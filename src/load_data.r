@@ -142,6 +142,25 @@ if(clinic_reload){
                      file = file.clinical,
                      row_names = TRUE)
   
+  smoker <- TCGA.map.clinical.data(file = file.clinical,
+                                   column.samples = 'rn',
+                                   column.map = 'number_pack_years_smoked')
+  
+  smoker$number_pack_years_smoked <- round_any(smoker$number_pack_years_smoked,
+                                                 10,
+                                                 f = ceiling)
+  
+  smoker <- smoker[order(-smoker$number_pack_years_smoked), ,
+                   drop=FALSE]
+  
+  for(i in 1:length(smoker[[1]])){
+    if(!is.na(smoker[[1]][i])){
+      if(as.integer(smoker[[1]][i]) < 100){
+        smoker[[1]][i]<-paste("0", smoker[[1]][i], sel="")
+      }
+    }
+  }
+  
   clinical.data <- TCGA.map.clinical.data(file = file.clinical,
                                           column.samples = 'rn',
                                           column.map = 'pathologic_stage')
@@ -155,9 +174,13 @@ if(verbose){
 }
 
 ## match samples and stages
+LUAD.smoke <- annotate.stages(LUAD, 
+                              smoker, 
+                              match.TCGA.patients = TRUE)
 LUAD <- annotate.stages(LUAD, 
                         clinical.data, 
                         match.TCGA.patients = TRUE)
+
 
 ## clear multiple stages
 LUAD <- TCGA.remove.multiple.samples(LUAD)
@@ -168,6 +191,11 @@ LUAD <- annotate.stages(LUAD,
 ## another brutal oncoprint
 if(plot_verbose){
   oncoprint(LUAD)
+}
+
+## another brutal oncoprint with smoker
+if(plot_verbose){
+  oncoprint(LUAD.smoke)
 }
 
 ## load gistic 
@@ -305,8 +333,39 @@ if(all_mut){
 ## select only event with a minfreq
 LUAD <- events.selection(LUAD, 
                          filter.freq = min_freq)
+LUAD.smoke <- annotate.stages(LUAD, 
+                              smoker, 
+                              match.TCGA.patients = TRUE)
+
 
 ## oncoprint of intersect with selection
 if(plot_verbose){
   oncoprint(LUAD)
 }
+
+## oncoprint of intersect with selection and smoker
+if(plot_verbose){
+  oncoprint(LUAD.smoke)
+}
+
+
+## other fancy plots
+MAF.dataframe <- import.MAF(LUAD.mafdf,
+                            is.TCGA = TRUE,
+                            sep = ';',
+                            to.TRONCO = FALSE,
+                            #merge.mutation.types = TRUE,
+                            filter.fun = function(x) {
+                              return(x['Hugo_Symbol'] %in% pathway.genes)
+                            }) 
+MAF.dataframe <-
+  MAF.dataframe[which(MAF.dataframe$Variant_Classification !=
+                        'Splice_Region'),] 
+
+mut.colors <- brewer.pal('Set3', n = 11)
+names(mut.colors) <- unique(MAF.dataframe$Variant_Classification)
+
+waterfall(MAF.dataframe,
+          mainGrid = T,
+          mainDropMut = T,
+          mainPalette = mut.colors)

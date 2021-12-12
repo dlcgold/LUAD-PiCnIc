@@ -25,7 +25,6 @@ reduce_samples <- function(LUAD, n_samples){
   if(length(uni_samples) < n_samples){
     n_samples <- length(uni_samples)
   }
-  
   samples <- uni_samples[1:n_samples]
   LUADreduced <- subset(LUAD, Tumor_Sample_Barcode %in% samples)
   return(LUADreduced)

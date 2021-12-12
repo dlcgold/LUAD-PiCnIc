@@ -8,8 +8,12 @@ library(gridExtra)
 library(vioplot)
 library(openxlsx)
 library(dplyr)
+library(plyr)
 library(maftools)
+library(RColorBrewer)
+library(GenVisR)
 library("xlsx")
+
 
 print("loading useful functions")
 ## source file with some useful functions
@@ -38,7 +42,7 @@ source("src/group_exclusivity.r")
 
 print("model with hypotheses analysis")
 ## source file with the model reconstruction based on hypotheses
-source("src/model.r")
+source("src/models.r")
 
 ## source file with the statistical analysis
 source("src/statistics.r")

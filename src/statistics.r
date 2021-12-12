@@ -134,19 +134,15 @@ save(LUAD.model,
      file = "input/luadDefModel.rda")
 
 ## last DAG
-if(plot_verbose){
-  tronco.plot(LUAD.model, 
-              pathways = pathway.list,  
-              edge.cex = 1.5,          
-              legend.cex = .35,         
-              scale.nodes = .6,        
-              confidence = c('tp', 'pr', 'hg'), 
-              pathways.color = pathways.color,  
-              disconnected = F,        
-              height.logic = .3,       
-              #file = "output/model_hypo_boot.pdf"
-  )
-}
+tronco.plot(LUAD.model, 
+            pathways = pathway.list,  
+            edge.cex = 1.5,          
+            legend.cex = .35,         
+            scale.nodes = .6,        
+            confidence = c('tp', 'pr', 'hg'), 
+            pathways.color = pathways.color,  
+            disconnected = F,        
+            height.logic = .3)
 
 ## excel with all data
 excel.file = "output/LUAD_statistics.xlsx"
