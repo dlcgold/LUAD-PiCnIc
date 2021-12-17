@@ -25,7 +25,7 @@
 # - HIME: histone methylation
 # - RNASPL: RNA splicing/processing
 P53 <- c("TP53", "ATM", "MDM2")
-RTK <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET")
+MAPK <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET", "MAP2K1")
 MTOR <- c("PTEN", "PIK3CA", "STK11", "TSC1", "TSC2", "MTOR")
 OXI <- c("KEAP1", "NFE2L2")
 PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1")
@@ -38,12 +38,12 @@ RNASPL <- c("RBM10", "U2AF1")
 ## HFREQ <- c("TTN", "MUC16", "RYR2", "CSMD3", "LRP1B")
 
 ## create pathways
-pathway.genes <- c(P53, RTK, MTOR, OXI, PROG, REMO, HIME, RNASPL)
+pathway.genes <- c(P53, MAPK, MTOR, OXI, PROG, REMO, HIME, RNASPL)
 pathway.genes <- unique(pathway.genes)
-pathway.names <- c("P53", "RTK", "MTOR", "OXI", "PROG", "REMO", 
+pathway.names <- c("P53", "MAPK", "MTOR", "OXI", "PROG", "REMO", 
                    "HIME", "RNASPL")
 pathway.list <- list(P53 = P53,
-                     RTK = RTK,
+                     MAPK = MAPK,
                      MTOR = MTOR, 
                      OXI = OXI, 
                      PROG = PROG, 

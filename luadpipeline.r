@@ -12,8 +12,8 @@ library(plyr)
 library(maftools)
 library(RColorBrewer)
 library(GenVisR)
+library(fishplot)
 library("xlsx")
-
 
 print("loading useful functions")
 ## source file with some useful functions

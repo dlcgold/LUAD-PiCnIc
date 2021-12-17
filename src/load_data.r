@@ -23,6 +23,14 @@ if(maf_reload){
                    rmOutlier = TRUE, 
                    addStat = 'median', 
                    dashboard = TRUE)
+    LUAD.maf.genes <- LUAD.maf
+    LUAD.maf.genes <- LUAD.maf.genes[LUAD.maf.genes$Hugo_Symbol %in% pathway.genes,]
+    maftools.input <- LUAD.maf.genes %>% read.maf
+    plotmafSummary(maf = maftools.input, 
+                   rmOutlier = TRUE, 
+                   addStat = 'median', 
+                   dashboard = TRUE)
+    
   }
   LUAD.mafdf <- as.data.frame(LUAD.maf)
   
@@ -171,7 +179,43 @@ if(clinic_reload){
 
 if(verbose){
   print(head(clinical.data))
+  ## frequency of gender
+  print(data.frame(table(clinical$gender)))
+  ## frequency of histolocical type
+  ## TODO check if they could be used for a study on subtypes
+  ## for: acinar(18), ronchioloalveolar-nonmucinous (19), 
+  ## papillary(23), mucinous-colloid (10)
+  ## see page 2 marker paper
+  print(data.frame(table(clinical$histological_type)))
+  ## frequency of ages
+  print(data.frame(table(clinical$years_to_birth)))
 }
+
+## histogram of age distribution and stages, race and ethnicity
+## TODO change colors, lol
+if(plot_verbose){
+  hist(as.numeric(clinical$years_to_birth), 
+       col = c("blue", 
+               "green"),
+       xlab = "Age",
+       main = "Age histogram")
+  barplot(table(clinical$pathologic_stage), 
+       col = c("blue", 
+               "green"),
+       xlab = "Stages",
+       main = "Stages histogram")
+  barplot(table(clinical$race), 
+          col = c("blue", 
+                  "green"),
+          xlab = "Races",
+          main = "Races histogram")
+  barplot(table(clinical$ethnicity), 
+          col = c("blue", 
+                  "green"),
+          xlab = "Ethnicities",
+          main = "Ethnicities histogram")
+}
+
 
 ## match samples and stages
 LUAD.smoke <- annotate.stages(LUAD, 
@@ -196,6 +240,22 @@ if(plot_verbose){
 ## another brutal oncoprint with smoker
 if(plot_verbose){
   oncoprint(LUAD.smoke)
+}
+
+## other clinicl data from cBIO
+luad_cbio <- cbio.query(
+  genes = pathway.genes,
+  cbio.study = 'luad_tcga',
+  cbio.dataset = 'luad_tcga_3way_complete',
+  cbio.profile = 'luad_tcga_mutations')
+clinical_bio <- luad_cbio$clinical
+
+## here nothing useful
+if(verbose){
+  ## frequency of histolocical type
+  print(data.frame(table(clinical_bio$CANCER_TYPE)))
+  ## frequency of histolocical type detailed
+  print(data.frame(table(clinical_bio$CANCER_TYPE_DETAILED)))
 }
 
 ## load gistic 
@@ -246,6 +306,11 @@ LUADGistic <- rename.type(LUADGistic,
 LUADGistic <- rename.type(LUADGistic, 
                           'High-level Gain', 
                           'Amplification')
+
+## oncoprint for reduced GISTIC
+if(plot_verbose){
+  oncoprint(LUADGistic)
+}
 
 ## stage annnotation in GISTIC
 LUADGistic <- annotate.stages(LUADGistic, 

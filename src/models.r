@@ -4,8 +4,8 @@
 LUAD.select <- select(LUAD, 
                       min_freq, 
                       unique(             
-                        c(LUAD.mtor,
-                          LUAD.raf,
+                        c(LUAD.raf,
+                          LUAD.enrich,
                           unlist(LUAD.mutex))))
 LUAD.select <- annotate.description(LUAD.select,
                                     'LUAD selection')
@@ -57,19 +57,25 @@ if(hypo_reload){
   }
   
   
-  ## ADD hypothes for RAF, checking if we have the genes in LUAD.select
+  ## Add hypothes for RAF, checking if we have the genes in LUAD.select
   LUAD.raf.subtype <- LUAD.raf[LUAD.raf%in% as.genes(LUAD.hypo)]
   LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = OR, 
+                                    FUN = XOR, 
                                     group = LUAD.raf.subtype, 
                                     dim.min = length(LUAD.raf.subtype)) 
-  
-  ## then for MTOR group
-  LUAD.mtor.subtype <- LUAD.mtor[LUAD.mtor%in% as.genes(LUAD.hypo)]
+  ## Add hypothes for entich, checking if we have the genes in LUAD.select
+  LUAD.enrich.subtype <- LUAD.enrich[LUAD.enrich%in% as.genes(LUAD.hypo)]
   LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = OR, 
-                                    group = LUAD.mtor.subtype, 
-                                    dim.min = length(LUAD.mtor.subtype))
+                                    FUN = AND, 
+                                    group = LUAD.enrich.subtype, 
+                                    dim.min = length(LUAD.enrich.subtype)) 
+  
+  # ## then for MTOR group
+  # LUAD.mtor.subtype <- LUAD.mtor[LUAD.mtor%in% as.genes(LUAD.hypo)]
+  # LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
+  #                                   FUN = OR, 
+  #                                   group = LUAD.mtor.subtype, 
+  #                                   dim.min = length(LUAD.mtor.subtype))
   
   ## add all the hypotheses related to homologou events
   LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo)
@@ -199,4 +205,17 @@ if(plot_verbose && FALSE){
                         label.cex=1.0,
                         mode = "circos")
   }
+}
+
+## a first brutal plot after capri
+if(plot_verbose){
+  tronco.plot(LUAD.model, 
+              pathways = pathway.list,  
+              edge.cex = 1.5,          
+              legend.cex = .35,         
+              scale.nodes = .6,        
+              confidence = c('tp', 'pr', 'hg'), 
+              pathways.color = pathways.color,  
+              disconnected = F,        
+              height.logic = .3)
 }

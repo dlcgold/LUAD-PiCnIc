@@ -39,41 +39,37 @@ if(plot_verbose){
 }
 
 ## apriori knowledge
-## TODO now quasi-random genes, RAF genes and MTOR genes
+## as in marker paper page 3
 LUAD.raf <- c('KRAS', 'EGFR')
-LUAD.mtor <-  c('PIK3CA', 'STK11')
+LUAD.enrich <- c('PIK3CA', 'RB1')
 
 ## TODO plot not work
-if(plot_verbose && FALSE){
-  grid.arrange(
-    oncoprint(
-      events.selection(LUAD,
-                       filter.in.names = LUAD.mtor),
-      title = paste("LUAD - MTOR exclusivity (knowledge prior)"),
-      legend.cex = .3,
-      font.row = 6,
-      ann.hits = FALSE,
-      cellheight = 10,
-      cellwidth = 3,
-      silent = T,
-      gene.annot = pathway.list,
-      gene.annot.color = pathways.color,
-      gtable = TRUE
-    )$gtable,
-    oncoprint(
-      events.selection(LUAD,
-                       filter.in.names = LUAD.raf), 
-      title = paste("LAUD - RAF KRAS/NRAS/BRAF exclusivity (knowledge prior)"),
-      legend.cex = .3,
-      font.row = 6,
-      ann.hits = FALSE,
-      cellheight = 10,
-      cellwidth = 3,
-      silent = T,
-      gene.annot = pathway.list,
-      gene.annot.color = pathways.color,
-      gtable = TRUE
-    )$gtable,
-    ncol = 1 
-  )
+if(plot_verbose){
+  oncoprint(
+    events.selection(LUAD,
+                     filter.in.names = LUAD.raf), 
+    title = paste("LAUD - RAF KRAS/EGFR exclusivity (knowledge prior)"),
+    legend.cex = .3,
+    font.row = 6,
+    ann.hits = FALSE,
+    cellheight = 10,
+    cellwidth = 3,
+    #silent = T,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    gtable = TRUE)
+  
+  oncoprint(
+    events.selection(LUAD,
+                     filter.in.names = LUAD.enrich), 
+    title = paste("LAUD - ENRICH PIK3CA/RB1 likewise enrich (knowledge prior)"),
+    legend.cex = .3,
+    font.row = 6,
+    ann.hits = FALSE,
+    cellheight = 10,
+    cellwidth = 3,
+    #silent = T,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    gtable = TRUE)
 }
