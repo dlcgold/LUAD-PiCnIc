@@ -406,6 +406,13 @@ LUAD.smoke <- annotate.stages(LUAD,
 ## oncoprint of intersect with selection
 if(plot_verbose){
   oncoprint(LUAD)
+  ## TODO make it visualizable
+  oncoprint(LUAD,
+            legend.cex = .5,          
+            cellwidth = 2,           
+            cellheight = 2,
+            gene.annot = pathway.list, 
+            gene.annot.color = pathways.color)
 }
 
 ## oncoprint of intersect with selection and smoker
