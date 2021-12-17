@@ -86,7 +86,8 @@ if(plot_verbose){
             cellwidth = 3,           
             cellheight = 10,
             gene.annot = pathway.list, 
-            gene.annot.color = pathways.color)
+            gene.annot.color = pathways.color,
+            title = "")
   
   oncoprint(LUAD.nonmucinous)
   oncoprint(LUAD.nonmucinous,
@@ -94,7 +95,8 @@ if(plot_verbose){
             cellwidth = 3,           
             cellheight = 10,
             gene.annot = pathway.list, 
-            gene.annot.color = pathways.color)
+            gene.annot.color = pathways.color,
+            title = "")
   
   oncoprint(LUAD.papillary)
   oncoprint(LUAD.papillary,
@@ -102,7 +104,8 @@ if(plot_verbose){
             cellwidth = 3,           
             cellheight = 10,
             gene.annot = pathway.list, 
-            gene.annot.color = pathways.color)
+            gene.annot.color = pathways.color,
+            title = "")
   
   oncoprint(LUAD.mucinous)
   oncoprint(LUAD.mucinous,
@@ -110,5 +113,6 @@ if(plot_verbose){
             cellwidth = 3,           
             cellheight = 10,
             gene.annot = pathway.list, 
-            gene.annot.color = pathways.color)
+            gene.annot.color = pathways.color,
+            title = "")
 }
