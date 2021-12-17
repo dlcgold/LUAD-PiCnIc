@@ -408,9 +408,10 @@ if(plot_verbose){
   oncoprint(LUAD)
   ## TODO make it visualizable
   oncoprint(LUAD,
-            legend.cex = .5,          
-            cellwidth = 2,           
-            cellheight = 2,
+            legend.cex = .3, 
+            text.cex = 0.8,
+            # cellwidth = 2,           
+            # cellheight = 2,
             gene.annot = pathway.list, 
             gene.annot.color = pathways.color)
 }
