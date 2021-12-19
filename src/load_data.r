@@ -50,7 +50,9 @@ if(maf_reload){
                          return(x['Hugo_Symbol'] %in% pathway.genes)
                        })
     ## change color due to labels
-    LUAD <- change.color(LUAD, "Mutation", "antiquewhite")
+    LUAD <- change.color(LUAD, 
+                         "Mutation", 
+                         "#D3AECC")
   }
   LUAD <- annotate.description(LUAD, 
                                "Lung cancer data from GDC portal")
@@ -164,7 +166,7 @@ if(clinic_reload){
   for(i in 1:length(smoker[[1]])){
     if(!is.na(smoker[[1]][i])){
       if(as.integer(smoker[[1]][i]) < 100){
-        smoker[[1]][i]<-paste("0", smoker[[1]][i], sel="")
+        smoker[[1]][i] <-paste ("0", smoker[[1]][i], sep = '')
       }
     }
   }
@@ -307,6 +309,9 @@ LUADGistic <- rename.type(LUADGistic,
                           'High-level Gain', 
                           'Amplification')
 
+LUADGistic$types['Deletion',] <- '#8FBCBB'
+LUADGistic$types['Amplification',] <- '#81a1c1'
+
 ## oncoprint for reduced GISTIC
 if(plot_verbose){
   oncoprint(LUADGistic)
@@ -352,6 +357,9 @@ if(intersect_reload){
                           clinical.data)
   LUAD <- annotate.description(x = LUAD,
                                label = "LUAD MAF/CNA data for driver genes")
+  
+  LUAD$types['Deletion',] <- '#8FBCBB'
+  LUAD$types['Amplification',] <- '#81a1c1'
   save(LUAD, 
        file = "input/luadDefInt.rda")
   ## oncoprint of intersect

@@ -8,7 +8,7 @@ verbose <- TRUE
 plot_verbose <- TRUE
 
 ## bool for not distinguish mutation
-all_mut <- TRUE
+all_mut <- FALSE
 
 ## bool for data reloading ()
 maf_reload <- TRUE
@@ -20,7 +20,7 @@ boot_reload <- maf_reload
 kfold_reload <- maf_reload
 
 ## min frequency
-min_freq <- 0.05
+min_freq <- 0.03
 
 ## boot iteration, should be around 100
-num_boot_iter <- 10
+num_boot_iter <- 100

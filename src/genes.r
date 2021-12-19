@@ -53,11 +53,11 @@ pathway.list <- list(P53 = P53,
 
 ## colors for pathways
 alteration.color = 'dimgray'
-pathways.color = c('firebrick1', 
+pathways.color = c('darkslategray', 
                    'darkblue', 
                    'darkgreen',
                    'darkmagenta', 
-                   'darkorange',
+                   'firebrick4',
                    'dodgerblue4',
                    'darkorchid1',
-                   'darksalmon')
+                   'darkorange4')

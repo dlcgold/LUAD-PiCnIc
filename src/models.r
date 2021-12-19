@@ -92,6 +92,7 @@ if(hypo_reload){
   
   ## DAG of model with hypotheses
   if(plot_verbose){
+    dev.off()
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
@@ -165,41 +166,42 @@ if(verbose){
 
 ## TODO add some graph regarding pattern
 ## such as these but working
-if(plot_verbose && FALSE){
+## examples for hard exclusivity
+if(plot_verbose){
   if(all_mut){
     tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes=c('CDK4', 
-                                                              'MDM2')),
-                        to = c('NF1', 
+                        group = as.events(LUAD.model, genes=c('TP53', 
+                                                              'ATM')),
+                        to = c('KRAS', 
                                'Nonsense_Mutation'),
                         legend.cex=0.8,
                         label.cex=1.0)
   }else{
     tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes=c('CDK4', 
-                                                              'MDM2')),
-                        to = c('NF1', 
+                        group = as.events(LUAD.model, genes=c('TP53', 
+                                                              'ATM')),
+                        to = c('KRAS', 
                                'Mutation'),
                         legend.cex=0.8,
                         label.cex=1.0)
   }
 }
 
-if(plot_verbose && FALSE){
+if(plot_verbose){
   if(all_mut){
     tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes=c('KRAS', 
-                                                              'TP53')),
-                        to = c('EGFR', 
+                        group = as.events(LUAD.model, genes=c('TP53', 
+                                                              'ATM')),
+                        to = c('KRAS', 
                                'Nonsense_Mutation'),
                         legend.cex=0.8,
                         label.cex=1.0,
                         mode = "circos")
   }else{
     tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes=c('KRAS', 
-                                                              'TP53')),
-                        to = c('EGFR', 
+                        group = as.events(LUAD.model, genes=c('TP53', 
+                                                              'ATM')),
+                        to = c('KRAS', 
                                'Mutation'),
                         legend.cex=0.8,
                         label.cex=1.0,
@@ -209,6 +211,7 @@ if(plot_verbose && FALSE){
 
 ## a first brutal plot after capri
 if(plot_verbose){
+  dev.off()
   tronco.plot(LUAD.model, 
               pathways = pathway.list,  
               edge.cex = 1.5,          

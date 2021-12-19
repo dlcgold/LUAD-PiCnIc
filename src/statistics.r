@@ -20,6 +20,7 @@ if(boot_reload){
 
 ## DAG of the model above
 if(plot_verbose){
+  dev.off()
   tronco.plot(LUAD.model, 
               pathways = pathway.list,  
               edge.cex = 1.5,          
@@ -35,7 +36,7 @@ if(plot_verbose){
 
 ## plot of bootstrap scores
 ## TODO sometimes not work
-if(plot_verbose && FALSE){
+if(plot_verbose){
   ## first non-parametric
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
@@ -91,7 +92,7 @@ if(kfold_reload){
   
   ## plot for every fold
   ## TODO make it work
-  if(plot_verbose && FALSE){
+  if(plot_verbose){
     vioplot(LUAD.model$kfold$capri_bic$eloss,
             LUAD.model$kfold$capri_aic$eloss,
             col = 'red',
@@ -134,6 +135,7 @@ save(LUAD.model,
      file = "input/luadDefModel.rda")
 
 ## last DAG
+dev.off()
 tronco.plot(LUAD.model, 
             pathways = pathway.list,  
             edge.cex = 1.5,          
