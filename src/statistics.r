@@ -146,6 +146,25 @@ tronco.plot(LUAD.model,
             disconnected = F,        
             height.logic = .3)
 
+export.graphml(LUAD.model, 
+               file = "output/LUADgraphml.xml",
+               pathways = pathway.list,  
+               edge.cex = 1.5,          
+               legend.cex = .35,         
+               scale.nodes = .6,        
+               confidence = c('tp', 'pr', 'hg'), 
+               pathways.color = pathways.color,  
+               disconnected = F,        
+               height.logic = .3)
+igraph <- read.graph(file = "output/LUADgraphml.xml", format = "graphml")
+lisg <- as_adj_list(igraph, mode = "out")
+lisge <- as_adj_edge_list(igraph, mode = "out")
+matrix <- as_adjacency_matrix(igraph, sparse = FALSE, attr = "weight")
+#matrix <- as.data.frame(matrix)
+matrix <- matrix[rownames(matrix) %in% pathway.genes,]
+matrix <- matrix[, colnames(matrix) %in% pathway.genes]
+matrix <- matrix[, colnames(matrix) %in% pathway.genes]
+
 ## TODO add fishplot
 ## edit data to obtain something like this:
 

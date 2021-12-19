@@ -13,6 +13,7 @@ library(maftools)
 library(RColorBrewer)
 library(GenVisR)
 library(fishplot)
+library(igraph)
 library("xlsx")
 
 print("loading useful functions")

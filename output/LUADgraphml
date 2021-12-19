@@ -1,0 +1,1401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="g_name" for="graph" attr.name="name" attr.type="string"/>
+  <key id="g_models" for="graph" attr.name="models" attr.type="string"/>
+  <key id="g_informations" for="graph" attr.name="informations" attr.type="string"/>
+  <key id="g_eloss capri_bic" for="graph" attr.name="eloss capri_bic" attr.type="double"/>
+  <key id="g_eloss capri_aic" for="graph" attr.name="eloss capri_aic" attr.type="double"/>
+  <key id="v_name" for="node" attr.name="name" attr.type="string"/>
+  <key id="v_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="v_type" for="node" attr.name="type" attr.type="string"/>
+  <key id="v_fillcolor" for="node" attr.name="fillcolor" attr.type="string"/>
+  <key id="v_fontcolor" for="node" attr.name="fontcolor" attr.type="string"/>
+  <key id="v_bordercolor" for="node" attr.name="bordercolor" attr.type="string"/>
+  <key id="v_shape" for="node" attr.name="shape" attr.type="string"/>
+  <key id="v_width" for="node" attr.name="width" attr.type="double"/>
+  <key id="v_height" for="node" attr.name="height" attr.type="double"/>
+  <key id="v_borderwidth" for="node" attr.name="borderwidth" attr.type="double"/>
+  <key id="v_cases" for="node" attr.name="cases" attr.type="double"/>
+  <key id="v_sum genotypes" for="node" attr.name="sum genotypes" attr.type="double"/>
+  <key id="e_weight" for="edge" attr.name="weight" attr.type="double"/>
+  <key id="e_line" for="edge" attr.name="line" attr.type="string"/>
+  <key id="e_arrow" for="edge" attr.name="arrow" attr.type="string"/>
+  <key id="e_color" for="edge" attr.name="color" attr.type="string"/>
+  <key id="e_edgelabel" for="edge" attr.name="edgelabel" attr.type="string"/>
+  <key id="e_labelcolor" for="edge" attr.name="labelcolor" attr.type="string"/>
+  <key id="e_width" for="edge" attr.name="width" attr.type="double"/>
+  <graph id="G" edgedefault="directed">
+    <data key="g_name">LUAD selection</data>
+    <data key="g_models">CAPRI capri_bic - CAPRI capri_aic</data>
+    <data key="g_informations">Generated with TRONCO v2.26.0</data>
+    <data key="g_eloss capri_bic">18.5375</data>
+    <data key="g_eloss capri_aic">18.4699</data>
+    <node id="n0">
+      <data key="v_name">RB1</data>
+      <data key="v_label">RB1</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n1">
+      <data key="v_name">MTOR</data>
+      <data key="v_label">MTOR</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n2">
+      <data key="v_name">NFE2L2</data>
+      <data key="v_label">NFE2L2</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n3">
+      <data key="v_name">ARID2</data>
+      <data key="v_label">ARID2</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n4">
+      <data key="v_name">MET</data>
+      <data key="v_label">MET</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n5">
+      <data key="v_name">CDKN2A</data>
+      <data key="v_label">CDKN2A</data>
+      <data key="v_type">Deletion</data>
+      <data key="v_fillcolor">#8FBCBB</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n6">
+      <data key="v_name">RIT1</data>
+      <data key="v_label">RIT1</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n7">
+      <data key="v_name">EGFR</data>
+      <data key="v_label">EGFR</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n8">
+      <data key="v_name">MET</data>
+      <data key="v_label">MET</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n9">
+      <data key="v_name">CCND1</data>
+      <data key="v_label">CCND1</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n10">
+      <data key="v_name">KRAS</data>
+      <data key="v_label">KRAS</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n11">
+      <data key="v_name">CDK4</data>
+      <data key="v_label">CDK4</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n12">
+      <data key="v_name">MDM2</data>
+      <data key="v_label">MDM2</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n13">
+      <data key="v_name">CCNE1</data>
+      <data key="v_label">CCNE1</data>
+      <data key="v_type">Amplification</data>
+      <data key="v_fillcolor">#81A1C1</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n14">
+      <data key="v_name">ARID1A</data>
+      <data key="v_label">ARID1A</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n15">
+      <data key="v_name">ALK</data>
+      <data key="v_label">ALK</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n16">
+      <data key="v_name">KRAS</data>
+      <data key="v_label">KRAS</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n17">
+      <data key="v_name">TP53</data>
+      <data key="v_label">TP53</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n18">
+      <data key="v_name">ATM</data>
+      <data key="v_label">ATM</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n19">
+      <data key="v_name">STK11</data>
+      <data key="v_label">STK11</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n20">
+      <data key="v_name">SETD2</data>
+      <data key="v_label">SETD2</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n21">
+      <data key="v_name">PIK3CA</data>
+      <data key="v_label">PIK3CA</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n22">
+      <data key="v_name">ROS1</data>
+      <data key="v_label">ROS1</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n23">
+      <data key="v_name">RBM10</data>
+      <data key="v_label">RBM10</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n24">
+      <data key="v_name">RET</data>
+      <data key="v_label">RET</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n25">
+      <data key="v_name">ARID1B</data>
+      <data key="v_label">ARID1B</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n26">
+      <data key="v_name">SMARCA4</data>
+      <data key="v_label">SMARCA4</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n27">
+      <data key="v_name">NF1</data>
+      <data key="v_label">NF1</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n28">
+      <data key="v_name">KEAP1</data>
+      <data key="v_label">KEAP1</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n29">
+      <data key="v_name">EGFR</data>
+      <data key="v_label">EGFR</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n30">
+      <data key="v_name">CDKN2A</data>
+      <data key="v_label">CDKN2A</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n31">
+      <data key="v_name">BRAF</data>
+      <data key="v_label">BRAF</data>
+      <data key="v_type">Mutation</data>
+      <data key="v_fillcolor">#D3AECC</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">ellipse</data>
+      <data key="v_width">150</data>
+      <data key="v_height">100</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n32">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n33">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n34">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n35">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n36">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n37">
+      <data key="v_name">OR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n38">
+      <data key="v_name">UPAND</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#90EE90</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">Rectangle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n39">
+      <data key="v_name">UPOR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">Rectangle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n40">
+      <data key="v_name">UPOR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">Rectangle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n41">
+      <data key="v_name">UPOR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FFA500</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">Rectangle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n42">
+      <data key="v_name">UPXOR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FF0000</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">Rectangle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <node id="n43">
+      <data key="v_name">XOR</data>
+      <data key="v_label"></data>
+      <data key="v_type"></data>
+      <data key="v_fillcolor">#FF0000</data>
+      <data key="v_fontcolor">#000000</data>
+      <data key="v_bordercolor">#000000</data>
+      <data key="v_shape">circle</data>
+      <data key="v_width">50</data>
+      <data key="v_height">50</data>
+      <data key="v_borderwidth">1</data>
+      <data key="v_cases">0</data>
+      <data key="v_sum genotypes">0</data>
+    </node>
+    <edge source="n1" target="n25">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n1" target="n30">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n3" target="n1">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n3" target="n38">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n5" target="n32">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n5" target="n42">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n7" target="n33">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n10" target="n4">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n10" target="n11">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n10" target="n34">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n11" target="n4">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n11" target="n12">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n11" target="n35">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n12" target="n22">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n12" target="n36">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n13" target="n8">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n14" target="n30">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n15" target="n14">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n15" target="n21">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n15" target="n22">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n16" target="n10">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n16" target="n34">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n0">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n8">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n10">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n13">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n15">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n22">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n26">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n35">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n36">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n39">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n40">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n17" target="n41">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n18" target="n9">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n18" target="n14">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n18" target="n24">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n19" target="n18">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n20" target="n14">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n22" target="n25">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n26" target="n2">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n26" target="n9">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n26" target="n37">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n26" target="n42">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n27" target="n3">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n27" target="n15">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n27" target="n25">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n28" target="n6">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n28" target="n19">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n28" target="n24">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n28" target="n26">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n29" target="n7">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n29" target="n33">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n30" target="n32">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n31" target="n2">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n31" target="n20">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n31" target="n21">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n31" target="n30">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n32" target="n8">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n32" target="n9">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n33" target="n37">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n33" target="n43">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FF0000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n34" target="n6">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n34" target="n18">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n34" target="n19">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n34" target="n43">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FF0000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n35" target="n7">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n35" target="n24">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n35" target="n27">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n36" target="n7">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n37" target="n5">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#000000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n37" target="n25">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n38" target="n0">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#006400</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n38" target="n21">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#006400</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n39" target="n5">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n39" target="n30">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n40" target="n7">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n40" target="n29">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n41" target="n26">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n41" target="n40">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FFA500</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n42" target="n4">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FF0000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n42" target="n8">
+      <data key="e_weight">1</data>
+      <data key="e_line">dash</data>
+      <data key="e_arrow">False</data>
+      <data key="e_color">#FF0000</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+    <edge source="n43" target="n23">
+      <data key="e_weight">1</data>
+      <data key="e_line">solid</data>
+      <data key="e_arrow">True</data>
+      <data key="e_color">#A9A9A9</data>
+      <data key="e_edgelabel"></data>
+      <data key="e_labelcolor">#00008B</data>
+      <data key="e_width">1</data>
+    </edge>
+  </graph>
+</graphml>

@@ -55,9 +55,11 @@ LUAD.mucinous <- trim(samples.selection(LUAD, mucinous_samples))
 LUAD.mucinous <- annotate.description(LUAD.mucinous, 
                                       "LUAD mucinous subtype")
 
+old_events <- nevents(LUAD)
 ## select events for complete analysis with a min freq
 LUAD <- events.selection(LUAD, 
                          filter.freq = min_freq)
+new_events <- nevents(LUAD)
 if(plot_verbose){
   oncoprint(LUAD)
 }
