@@ -43,7 +43,7 @@ if(plot_verbose){
 LUAD.raf <- c('KRAS', 'EGFR')
 LUAD.enrich <- c('PIK3CA', 'RB1')
 
-## TODO plot not work
+## TODO does it make any sense?
 if(plot_verbose){
   oncoprint(
     events.selection(LUAD,

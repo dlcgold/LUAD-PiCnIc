@@ -54,6 +54,23 @@ LUAD.papillary <- annotate.description(LUAD.papillary,
 LUAD.mucinous <- trim(samples.selection(LUAD, mucinous_samples))
 LUAD.mucinous <- annotate.description(LUAD.mucinous, 
                                       "LUAD mucinous subtype")
+
+## select events for complete analysis with a min freq
+LUAD <- events.selection(LUAD, 
+                         filter.freq = min_freq)
+if(plot_verbose){
+  oncoprint(LUAD)
+}
+
+LUAD.acinar <- events.selection(LUAD.acinar, 
+                                filter.freq = min_freq)
+LUAD.nonmucinous <- events.selection(LUAD.nonmucinous, 
+                                     filter.freq = min_freq)
+LUAD.papillary <- events.selection(LUAD.papillary, 
+                                   filter.freq = min_freq)
+LUAD.mucinous <- events.selection(LUAD.mucinous, 
+                                  filter.freq = min_freq)
+
 ## print number of samples and events
 if(verbose){
   print(paste("Acinar subtype has",

@@ -2,16 +2,16 @@
 
 ## use pathway as in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4231481/
 ## complete genes
-# P53 <- c("TP53", "ATM", "MDM2")
-# RTK <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
-#          "EGFR", "ERBB2", "MET", "ALK", "RET", "ROS1")
-# MTOR <- c("PTEN", "PIK3CA", "PIK3R1", "STK11", "AKT1", "AMPK",
-#           "TSC1", "TSC2", "MTOR")
-# OXI <- c("KEAP1", "CUL3", "NFE2L2")
-# PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1")
-# REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4")
-# HIME <- c("SETD2")
-# RNASPL <- c("RBM10", "U2AF1")
+P53 <- c("TP53", "ATM", "MDM2")
+MAPK <- c("KRAS", "NRAS", "HRAS", "RIT1", "NF1", "BRAF", "MAP2K1",
+         "EGFR", "ERBB2", "MET", "ALK", "RET", "ROS1")
+MTOR <- c("PTEN", "PIK3CA", "PIK3R1", "STK11", "AKT1", "AMPK",
+          "TSC1", "TSC2", "MTOR")
+OXI <- c("KEAP1", "CUL3", "NFE2L2")
+PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1")
+REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4")
+HIME <- c("SETD2")
+RNASPL <- c("RBM10", "U2AF1")
 
 
 ## genes > 1%
@@ -24,14 +24,14 @@
 # - REMO: nucleosome remodelling
 # - HIME: histone methylation
 # - RNASPL: RNA splicing/processing
-P53 <- c("TP53", "ATM", "MDM2")
-MAPK <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET", "MAP2K1")
-MTOR <- c("PTEN", "PIK3CA", "STK11", "TSC1", "TSC2", "MTOR")
-OXI <- c("KEAP1", "NFE2L2")
-PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1")
-REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4")
-HIME <- c("SETD2")
-RNASPL <- c("RBM10", "U2AF1")
+# P53 <- c("TP53", "ATM", "MDM2")
+# MAPK <- c("KRAS", "RIT1", "NF1", "BRAF", "EGFR", "ERBB2", "MET", "MAP2K1")
+# MTOR <- c("PTEN", "PIK3CA", "STK11", "TSC1", "TSC2", "AKT1", "AMPK", "MTOR")
+# OXI <- c("KEAP1", "NFE2L2")
+# PROG <- c("CDKN2A", "CCND1", "CDK4", "CCNE1", "RB1")
+# REMO <- c("ARID1A", "ARID1B", "ARID2", "SMARCA4")
+# HIME <- c("SETD2")
+# RNASPL <- c("RBM10", "U2AF1")
 
 ## extracted from maftools
 ## understand if they are usefull

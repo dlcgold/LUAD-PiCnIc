@@ -40,6 +40,18 @@ print("group exclusivity analysis")
 ## source file with the first group exclusivity analysis
 source("src/group_exclusivity.r")
 
+models <- list(LUAD,
+               LUAD.acinar, 
+               LUAD.nonmucinous, 
+               LUAD.papillary, 
+               LUAD.mucinous)
+
+## TODO for every model make models.r and statistics.r
+for(model in models){
+  LUADtest <- model
+  print(nsamples(LUADtest))
+}
+
 print("model with hypotheses analysis")
 ## source file with the model reconstruction based on hypotheses
 source("src/models.r")

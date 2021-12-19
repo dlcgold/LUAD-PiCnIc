@@ -195,23 +195,23 @@ if(verbose){
 ## TODO change colors, lol
 if(plot_verbose){
   hist(as.numeric(clinical$years_to_birth), 
-       col = c("blue", 
-               "green"),
+       col = c("#5e81ac", 
+               "#a3be8c"),
        xlab = "Age",
        main = "Age histogram")
   barplot(table(clinical$pathologic_stage), 
-       col = c("blue", 
-               "green"),
+       col = c("#5e81ac", 
+               "#a3be8c"),
        xlab = "Stages",
        main = "Stages histogram")
   barplot(table(clinical$race), 
-          col = c("blue", 
-                  "green"),
+          col = c("#5e81ac", 
+                  "#a3be8c"),
           xlab = "Races",
           main = "Races histogram")
   barplot(table(clinical$ethnicity), 
-          col = c("blue", 
-                  "green"),
+          col = c("#5e81ac", 
+                  "#a3be8c"),
           xlab = "Ethnicities",
           main = "Ethnicities histogram")
 }
@@ -364,7 +364,7 @@ if(intersect_reload){
 }
 
 ## editing types
-## TODO check if it ha any sense
+## TODO check if it ha any sense (maybe join instead delete)
 ## join mutations
 if(all_mut){
   LUAD <- join.types(LUAD,
@@ -373,15 +373,18 @@ if(all_mut){
                      "Frame_Shift_Ins",
                      "In_Frame_Ins",
                      new.type = "Del/Ins_Mutations")
+  
+  
+  # LUAD <- join.types(LUAD,
+  #                    "3'UTR",
+  #                    "5'UTR",
+  #                    "Splice_Region",
+  #                    "Splice_Site",
+  #                    "Intron",
+  #                    "Silent",
+  #                    new.type = "other_Mutations")
+  # 
   ## remove quasi-useless mutation type mutations
-  # LUAD <- delete.type(LUAD,
-  #                     type = "In_Frame_Ins")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "In_Frame_Del")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "Frame_Shift_Ins")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "Frame_Shift_Del")
   LUAD <- delete.type(LUAD,
                       type = "3'UTR")
   LUAD <- delete.type(LUAD,
@@ -394,10 +397,18 @@ if(all_mut){
                       type = "Intron")
   LUAD <- delete.type(LUAD,
                       type = "Silent")
+  # LUAD <- delete.type(LUAD,
+  #                     type = "In_Frame_Ins")
+  # LUAD <- delete.type(LUAD,
+  #                     type = "In_Frame_Del")
+  # LUAD <- delete.type(LUAD,
+  #                     type = "Frame_Shift_Ins")
+  # LUAD <- delete.type(LUAD,
+  #                     type = "Frame_Shift_Del")
 }
 ## select only event with a minfreq
-LUAD <- events.selection(LUAD, 
-                         filter.freq = min_freq)
+# LUAD <- events.selection(LUAD, 
+#                          filter.freq = min_freq)
 LUAD.smoke <- annotate.stages(LUAD, 
                               smoker, 
                               match.TCGA.patients = TRUE)
@@ -421,6 +432,8 @@ if(plot_verbose){
   oncoprint(LUAD.smoke)
 }
 
+LUAD <- annotate.description(LUAD, 
+                             "LUAD complete MAF/GISTIC")
 
 ## other fancy plots
 MAF.dataframe <- import.MAF(LUAD.mafdf,
