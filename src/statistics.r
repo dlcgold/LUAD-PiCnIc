@@ -20,7 +20,6 @@ if(boot_reload){
 
 ## DAG of the model above
 if(plot_verbose){
-  dev.off()
   tronco.plot(LUAD.model, 
               pathways = pathway.list,  
               edge.cex = 1.5,          
@@ -29,9 +28,9 @@ if(plot_verbose){
               confidence = c('tp', 'pr', 'hg'), 
               pathways.color = pathways.color,  
               disconnected = F,        
-              height.logic = .3,       
-              #file = "output/model_hypo_boot.pdf"
-  )
+              height.logic = .3, 
+              create.new.dev = TRUE)
+              
 }
 
 ## plot of bootstrap scores
@@ -135,7 +134,6 @@ save(LUAD.model,
      file = "input/luadDefModel.rda")
 
 ## last DAG
-dev.off()
 tronco.plot(LUAD.model, 
             pathways = pathway.list,  
             edge.cex = 1.5,          
@@ -144,7 +142,8 @@ tronco.plot(LUAD.model,
             confidence = c('tp', 'pr', 'hg'), 
             pathways.color = pathways.color,  
             disconnected = F,        
-            height.logic = .3)
+            height.logic = .3,
+            create.new.dev = TRUE)
 
 export.graphml(LUAD.model, 
                file = "output/LUADgraphml.xml",

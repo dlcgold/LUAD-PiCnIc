@@ -211,7 +211,6 @@ if(plot_verbose){
 
 ## a first brutal plot after capri
 if(plot_verbose){
-  dev.off()
   tronco.plot(LUAD.model, 
               pathways = pathway.list,  
               edge.cex = 1.5,          
@@ -220,5 +219,6 @@ if(plot_verbose){
               confidence = c('tp', 'pr', 'hg'), 
               pathways.color = pathways.color,  
               disconnected = F,        
-              height.logic = .3)
+              height.logic = .3,
+              create.new.dev = TRUE)
 }
