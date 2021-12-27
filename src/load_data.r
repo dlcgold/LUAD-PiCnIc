@@ -19,6 +19,7 @@ if(maf_reload){
   ## TODO fix errors sometimes
   if(plot_verbose){
     maftools.input <- LUAD.maf %>% read.maf
+    dev.new()
     plotmafSummary(maf = maftools.input, 
                    rmOutlier = TRUE, 
                    addStat = 'median', 
@@ -26,6 +27,7 @@ if(maf_reload){
     LUAD.maf.genes <- LUAD.maf
     LUAD.maf.genes <- LUAD.maf.genes[LUAD.maf.genes$Hugo_Symbol %in% pathway.genes,]
     maftools.input <- LUAD.maf.genes %>% read.maf
+    dev.new()
     plotmafSummary(maf = maftools.input, 
                    rmOutlier = TRUE, 
                    addStat = 'median', 
@@ -63,11 +65,13 @@ if(maf_reload){
 
 ## a first and brutal oncoprint
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD)
 }
 
 ##  oncoprint after deletions
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD)
 }
 
@@ -196,6 +200,7 @@ if(verbose){
 ## histogram of age distribution and stages, race and ethnicity
 ## TODO change colors, lol
 if(plot_verbose){
+  dev.new()
   hist(as.numeric(clinical$years_to_birth), 
        col = c("#5e81ac", 
                "#a3be8c"),
@@ -236,11 +241,13 @@ LUAD <- annotate.stages(LUAD,
 
 ## another brutal oncoprint
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD)
 }
 
 ## another brutal oncoprint with smoker
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD.smoke)
 }
 
@@ -294,6 +301,7 @@ if(verbose){
 
 ## oncoprint for GISTIC
 if(plot_verbose){
+  dev.new()
   oncoprint(LUADGistic)
 }
 
@@ -314,6 +322,7 @@ LUADGistic$types['Amplification',] <- '#81a1c1'
 
 ## oncoprint for reduced GISTIC
 if(plot_verbose){
+  dev.new()
   oncoprint(LUADGistic)
 }
 
@@ -330,6 +339,7 @@ LUADGistic <- annotate.stages(LUADGistic,
 
 ## oncoprint for GISTIC with stages
 if(plot_verbose){
+  dev.new()
   oncoprint(LUADGistic)
 }
 
@@ -364,6 +374,7 @@ save(LUAD,
 
 ## oncoprint of intersect
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD)
 }
 
@@ -420,8 +431,10 @@ LUAD.smoke <- annotate.stages(LUAD,
 
 ## oncoprint of intersect with selection
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD)
   ## TODO make it visualizable
+  dev.new()
   oncoprint(LUAD,
             legend.cex = .3, 
             text.cex = 0.8,
@@ -433,6 +446,7 @@ if(plot_verbose){
 
 ## oncoprint of intersect with selection and smoker
 if(plot_verbose){
+  dev.new()
   oncoprint(LUAD.smoke)
 }
 

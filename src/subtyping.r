@@ -98,8 +98,10 @@ if(verbose){
 }
 
 ## oncoprint of the subtypes
-if(plot_verbose){dev.new()
+if(plot_verbose){
+  dev.new()
   oncoprint(LUAD.acinar)
+  dev.new()
   oncoprint(LUAD.acinar,
             legend.cex = .5,          
             cellwidth = 3,           
@@ -107,8 +109,10 @@ if(plot_verbose){dev.new()
             gene.annot = pathway.list, 
             gene.annot.color = pathways.color,
             title = "")
-  
+  dev.new()
   oncoprint(LUAD.nonmucinous)
+  
+  dev.new()
   oncoprint(LUAD.nonmucinous,
             legend.cex = .5,          
             cellwidth = 3,           
@@ -117,7 +121,9 @@ if(plot_verbose){dev.new()
             gene.annot.color = pathways.color,
             title = "")
   
+  dev.new()
   oncoprint(LUAD.papillary)
+  dev.new()
   oncoprint(LUAD.papillary,
             legend.cex = .5,          
             cellwidth = 3,           
