@@ -46,17 +46,37 @@ models <- list(LUAD,
                LUAD.nonmucinous, 
                LUAD.papillary, 
                LUAD.mucinous)
+labels <- c('',
+            'acinar',
+            'nonmucinous',
+            'papillary',
+            'mucinous')
 
-## TODO for every model make models.r and statistics.r
-for(model in models){
-  LUADtest <- model
-  print(nsamples(LUADtest))
+# model selection
+gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
+gene.sel <- P53
+genes.compare <- c('TP53', 'ATM')
+genes.to <- c('KRAS', mut)
+
+
+
+## mucinous subgroup is too small!
+i <- 1
+for(m in models){
+  if (i<5){
+    print(nsamples(m))
+    model(m, gene.hypotheses, gene.sel, genes.compare, genes.to, labels[i])
+    }
+  i <- i + 1
 }
 
-print("model with hypotheses analysis")
+
+### Models and Statistic included in 'model' function under utils.r
+
+#print("model with hypotheses analysis")
 ## source file with the model reconstruction based on hypotheses
-source("src/models.r")
+#source("src/models.r")
 
 ## source file with the statistical analysis
-source("src/statistics.r")
+#source("src/statistics.r")
 

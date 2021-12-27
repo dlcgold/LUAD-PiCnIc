@@ -348,27 +348,23 @@ if(verbose){
 }
 
 ## intersect MAF and GISTIC and save in LUAD object
-if(intersect_reload){
-  LUAD <- intersect.datasets(LUADGistic,
-                             LUAD, 
-                             intersect.genomes = FALSE)
-  LUAD <- trim(LUAD)
-  LUAD <- annotate.stages(LUAD, 
-                          clinical.data)
-  LUAD <- annotate.description(x = LUAD,
-                               label = "LUAD MAF/CNA data for driver genes")
-  
-  LUAD$types['Deletion',] <- '#8FBCBB'
-  LUAD$types['Amplification',] <- '#81a1c1'
-  save(LUAD, 
-       file = "input/luadDefInt.rda")
-  ## oncoprint of intersect
-  if(plot_verbose){
-    oncoprint(LUAD)
-  }
-  
-}else{
-  LUAD <- loadRData("input/luadDefInt.rda")
+LUAD <- intersect.datasets(LUADGistic,
+                           LUAD, 
+                           intersect.genomes = FALSE)
+LUAD <- trim(LUAD)
+LUAD <- annotate.stages(LUAD, 
+                        clinical.data)
+LUAD <- annotate.description(x = LUAD,
+                             label = "LUAD MAF/CNA data for driver genes")
+
+LUAD$types['Deletion',] <- '#8FBCBB'
+LUAD$types['Amplification',] <- '#81a1c1'
+save(LUAD, 
+     file = "input/luadDefInt.rda")
+
+## oncoprint of intersect
+if(plot_verbose){
+  oncoprint(LUAD)
 }
 
 ## editing types

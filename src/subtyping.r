@@ -60,7 +60,7 @@ old_events <- nevents(LUAD)
 LUAD <- events.selection(LUAD, 
                          filter.freq = min_freq)
 new_events <- nevents(LUAD)
-if(plot_verbose){
+if(plot_verbose){dev.new()
   oncoprint(LUAD)
 }
 
@@ -98,7 +98,7 @@ if(verbose){
 }
 
 ## oncoprint of the subtypes
-if(plot_verbose){
+if(plot_verbose){dev.new()
   oncoprint(LUAD.acinar)
   oncoprint(LUAD.acinar,
             legend.cex = .5,          
@@ -126,12 +126,12 @@ if(plot_verbose){
             gene.annot.color = pathways.color,
             title = "")
   
-  oncoprint(LUAD.mucinous)
-  oncoprint(LUAD.mucinous,
-            legend.cex = .5,          
-            cellwidth = 3,           
-            cellheight = 10,
-            gene.annot = pathway.list, 
-            gene.annot.color = pathways.color,
-            title = "")
+  # oncoprint(LUAD.mucinous)
+  # oncoprint(LUAD.mucinous,
+  #           legend.cex = .5,          
+  #           cellwidth = 3,           
+  #           cellheight = 10,
+  #           gene.annot = pathway.list, 
+  #           gene.annot.color = pathways.color,
+  #           title = "")
 }

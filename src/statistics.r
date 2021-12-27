@@ -1,22 +1,15 @@
 
 # STATISTICS
-
 ## non-parametric bootstrap
-if(boot_reload){
-  LUAD.model <- tronco.bootstrap(LUAD.model,
-                                 nboot = num_boot_iter,
-                                 cores.ratio = .5)
-  
-  ## statistical bootstrap
-  LUAD.model <- tronco.bootstrap(LUAD.model,
-                                 type = "statistical",
-                                 nboot = num_boot_iter,
-                                 cores.ratio = .5)
-  
-  save(LUAD.model, file = "input/luadDefBoot.rda")
-}else{
-  LUAD.model <- loadRData("input/luadDefBoot.rda")
-}
+LUAD.model <- tronco.bootstrap(LUAD.model,
+                               nboot = num_boot_iter,
+                               cores.ratio = .5)
+
+## statistical bootstrap
+LUAD.model <- tronco.bootstrap(LUAD.model,
+                               type = "statistical",
+                               nboot = num_boot_iter,
+                               cores.ratio = .5)
 
 ## DAG of the model above
 if(plot_verbose){
@@ -40,7 +33,7 @@ if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'npb')$npb$capri_bic) * 100,
-           main = "non-parametric bootstrap scores for BIC model",
+           main = paste("non-parametric bootstrap scores for BIC model for", label),
            fontsize_row = 6,
            fontsize_col = 6,
            display_numbers = T,
@@ -49,7 +42,7 @@ if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'npb')$npb$capri_aic) * 100,
-           main = "non-parametric bootstrap scores for AIC model",
+           main = paste("non-parametric bootstrap scores for AIC model for",label),
            fontsize_row = 6,
            fontsize_col = 6,
            display_numbers = T,
@@ -59,7 +52,7 @@ if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'sb')$sb$capri_bic) * 100,
-           main = "non-parametric bootstrap scores for BIC model",
+           main = paste("non-parametric bootstrap scores for BIC model for",label),
            fontsize_row = 6,
            fontsize_col = 6,
            display_numbers = T,
@@ -68,7 +61,7 @@ if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'sb')$sb$capri_aic) * 100,
-           main = "non-parametric bootstrap scores for AIC model",
+           main = paste("non-parametric bootstrap scores for AIC model for",label),
            fontsize_row = 6,
            fontsize_col = 6,
            display_numbers = T,
@@ -84,45 +77,39 @@ if(verbose){
 }
 
 ## kfold
-if(kfold_reload){
-  ## k-fold cross validation, prediction error for each parent set X
-  LUAD.model <- tronco.kfold.eloss(LUAD.model)
-  kfold_eloss <- as.kfold.eloss(LUAD.model)
-  
-  ## plot for every fold
-  ## TODO make it work
-  if(plot_verbose){
-    vioplot(LUAD.model$kfold$capri_bic$eloss,
-            LUAD.model$kfold$capri_aic$eloss,
-            col = 'red',
-            lty = 1, rectCol="gray",
-            colMed = 'black',
-            names = c('BIC', 'AIC'), 
-            pchMed = 15, 
-            horizontal = T)
-    title(main = 'Entropy loss \n LUAD tumors')
-  }
-  
-  ## k-fold cross validation, prediction error for each parent set X
-  LUAD.model <- tronco.kfold.prederr(LUAD.model)
-  kfold_pred <- as.kfold.prederr(LUAD.model)
-  
-  
-  ## k-fold cross validation, posterior classification error for each edge
-  LUAD.model <- tronco.kfold.posterr(LUAD.model)
-  kfold_post <- as.kfold.posterr(LUAD.model)
-  save(LUAD.model, 
-       file = "input/luadDefKfold.rda")
-  
-}else{
-  LUAD.model <- loadRData("input/luadDefKfold.rda")
+## k-fold cross validation, prediction error for each parent set X
+LUAD.model <- tronco.kfold.eloss(LUAD.model)
+kfold_eloss <- as.kfold.eloss(LUAD.model)
+
+## plot for every fold
+## TODO make it work
+if(plot_verbose){
+  vioplot(LUAD.model$kfold$capri_bic$eloss,
+          LUAD.model$kfold$capri_aic$eloss,
+          col = 'red',
+          lty = 1, rectCol="gray",
+          colMed = 'black',
+          names = c('BIC', 'AIC'), 
+          pchMed = 15, 
+          horizontal = T)
+  title(main = 'Entropy loss \n LUAD tumors')
 }
+
+## k-fold cross validation, prediction error for each parent set X
+LUAD.model <- tronco.kfold.prederr(LUAD.model)
+kfold_pred <- as.kfold.prederr(LUAD.model)
+
+
+## k-fold cross validation, posterior classification error for each edge
+LUAD.model <- tronco.kfold.posterr(LUAD.model)
+kfold_post <- as.kfold.posterr(LUAD.model)
 
 ## visualize a table with all edge statistics
 tab_bic <- tabular(LUAD.model, 'capri_bic')
 tab_aic <- tabular(LUAD.model, 'capri_aic')
 
 if(verbose){
+  print(label)
   print("table with all edge statistics using capri_bic")
   print(tab_bic)
   print("table with all edge statistics using capri_aic")
@@ -131,7 +118,8 @@ if(verbose){
 
 ## save model
 save(LUAD.model, 
-     file = "input/luadDefModel.rda")
+     file = paste("output/luadDefModel_", label, ".rda", sep=''))
+
 
 ## last DAG
 tronco.plot(LUAD.model, 
@@ -145,24 +133,25 @@ tronco.plot(LUAD.model,
             height.logic = .3,
             create.new.dev = TRUE)
 
-export.graphml(LUAD.model, 
-               file = "output/LUADgraphml.xml",
-               pathways = pathway.list,  
-               edge.cex = 1.5,          
-               legend.cex = .35,         
-               scale.nodes = .6,        
-               confidence = c('tp', 'pr', 'hg'), 
-               pathways.color = pathways.color,  
-               disconnected = F,        
-               height.logic = .3)
-igraph <- read.graph(file = "output/LUADgraphml.xml", format = "graphml")
-lisg <- as_adj_list(igraph, mode = "out")
-lisge <- as_adj_edge_list(igraph, mode = "out")
-matrix <- as_adjacency_matrix(igraph, sparse = FALSE, attr = "weight")
-#matrix <- as.data.frame(matrix)
-matrix <- matrix[rownames(matrix) %in% pathway.genes,]
-matrix <- matrix[, colnames(matrix) %in% pathway.genes]
-matrix <- matrix[, colnames(matrix) %in% pathway.genes]
+# export.graphml(LUAD.model, 
+#                file = "output/LUADgraphml.xml",
+#                pathways = pathway.list,  
+#                edge.cex = 1.5,          
+#                legend.cex = .35,         
+#                scale.nodes = .6,        
+#                confidence = c('tp', 'pr', 'hg'), 
+#                pathways.color = pathways.color,  
+#                disconnected = F,        
+#                height.logic = .3)
+# 
+# igraph <- read.graph(file = "output/LUADgraphml.xml", format = "graphml")
+# lisg <- as_adj_list(igraph, mode = "out")
+# lisge <- as_adj_edge_list(igraph, mode = "out")
+# matrix <- as_adjacency_matrix(igraph, sparse = FALSE, attr = "weight")
+# #matrix <- as.data.frame(matrix)
+# matrix <- matrix[rownames(matrix) %in% pathway.genes,]
+# matrix <- matrix[, colnames(matrix) %in% pathway.genes]
+# matrix <- matrix[, colnames(matrix) %in% pathway.genes]
 
 ## TODO add fishplot
 ## edit data to obtain something like this:
@@ -196,7 +185,7 @@ matrix <- matrix[, colnames(matrix) %in% pathway.genes]
 #          cex.title=0.5, vlines=c(0,150), 
 #          vlab=c("day 0","day 150"))
 ## excel with all data
-excel.file = "output/LUAD_statistics.xlsx"
+excel.file = paste("output/LUAD_statistics_", label, ".xlsx", sep='')
 
 excel.wbook = createWorkbook()
 

@@ -6,7 +6,7 @@ if(verbose){
 }
 
 ## oncoprint first two group
-if(plot_verbose){
+if(plot_verbose){dev.new()
   grid.arrange(
     oncoprint(
       events.selection(LUAD,
@@ -44,7 +44,7 @@ LUAD.raf <- c('KRAS', 'EGFR')
 LUAD.enrich <- c('PIK3CA', 'RB1')
 
 ## TODO does it make any sense?
-if(plot_verbose){
+if(plot_verbose){dev.new()
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.raf), 
