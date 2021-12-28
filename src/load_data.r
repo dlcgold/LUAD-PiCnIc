@@ -221,6 +221,7 @@ if(plot_verbose){
                   "#a3be8c"),
           xlab = "Races",
           main = "Races histogram")
+}
 if(plot_verbose){
   barplot(table(clinical$ethnicity), 
           col = c("#5e81ac", 
@@ -468,9 +469,7 @@ MAF.dataframe <-
 mut.colors <- brewer.pal('Set3', n = 11)
 names(mut.colors) <- unique(MAF.dataframe$Variant_Classification)
 
-if(plot_verbose){
-  waterfall(MAF.dataframe,
+waterfall(MAF.dataframe,
           mainGrid = T,
           mainDropMut = T,
           mainPalette = mut.colors)
-}

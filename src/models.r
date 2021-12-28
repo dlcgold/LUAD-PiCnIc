@@ -1,3 +1,4 @@
+# model(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, 'all')
 model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
 
   ## select from LUAD with min freq and apriori
@@ -5,7 +6,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                         min_freq, 
                         unique(             
                           c(LUAD.raf,
-                            LUAD.enrich,
+                            LUAD.megsa,
+                            LUAD.megsa2,
                             unlist(LUAD.mutex))))
   LUAD.select <- annotate.description(LUAD.select, paste('LUAD', label, 'selection'))
   
@@ -58,12 +60,20 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                                     FUN = XOR, 
                                     group = LUAD.raf.subtype, 
                                     dim.min = length(LUAD.raf.subtype)) 
-  ## Add hypothes for entich, checking if we have the genes in LUAD.select
-  LUAD.enrich.subtype <- LUAD.enrich[LUAD.enrich%in% as.genes(LUAD.hypo)]
+  
+  ## Add hypothes for megsa, checking if we have the genes in LUAD.select
+  LUAD.megsa.subtype <- LUAD.megsa[LUAD.megsa%in% as.genes(LUAD.hypo)]
   LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = AND, 
-                                    group = LUAD.enrich.subtype, 
-                                    dim.min = length(LUAD.enrich.subtype))
+                                    FUN = OR, 
+                                    group = LUAD.megsa.subtype, 
+                                    dim.min = length(LUAD.megsa.subtype))
+  
+  ## Add hypothes for megsa2, checking if we have the genes in LUAD.select
+  LUAD.megsa2.subtype <- LUAD.megsa2[LUAD.megsa2%in% as.genes(LUAD.hypo)]
+  LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
+                                    FUN = OR, 
+                                    group = LUAD.megsa2.subtype, 
+                                    dim.min = length(LUAD.megsa2.subtype))
   
   ## Add all the hypotheses related to homologou events
   LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo)
@@ -84,7 +94,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
                 legend.cex = .35, 
-                scale.nodes = .5,        
+                scale.nodes = .3,        
                 confidence = c('tp', 'pr', 'hg'), 
                 pathways.color = pathways.color,  
                 disconnected = F,        
@@ -114,8 +124,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
               sample.id = TRUE,
               font.row=10,
               font.column=5,
-              cellheight=15, 
-              cellwidth=4)
+              cellheight=5, 
+              cellwidth=1)
   }
   
   ## save data
@@ -155,26 +165,30 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selsub)
   }
   
-  ## TODO add some graph regarding pattern
-  ## such as these but working
-  ## examples for hard exclusivity
+  # TODO add some graph regarding pattern
+  # such as these but working
+  # examples for hard exclusivity
   # plots for presentation
+
   if(plot_verbose){
-    tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes= genes.compare),
+    tronco.pattern.plot(LUAD.hypo.clean,
+                        group = as.events(LUAD.hypo.clean, genes=genes.compare),
                         to = genes.to,
                         legend.cex=0.8,
-                        label.cex=1.0)
+                        label.cex=1.0,
+                        mode="barplot")
   }
+  par(.pardefault)
+
   if(plot_verbose){
-    tronco.pattern.plot(LUAD.model,
-                        group = as.events(LUAD.model, genes=genes.compare),
+
+    tronco.pattern.plot(LUAD.hypo.clean,
+                        group = as.events(LUAD.hypo.clean, genes=genes.compare),
                         to = genes.to,
                         legend.cex=0.8,
                         label.cex=1.0,
                         mode = "circos")
   }
-  
   ## a first brutal plot after capri
   if(plot_verbose){
     tronco.plot(LUAD.model, 

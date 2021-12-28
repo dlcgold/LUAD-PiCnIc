@@ -3,6 +3,11 @@ library(RTCGAToolbox)
 library(TCGAbiolinks)
 library(readr)
 library(dtutils)
+
+library(devtools)
+library(pheatmap)
+
+
 library(ggplot2)
 library(gridExtra)
 library(vioplot)
@@ -15,6 +20,8 @@ library(GenVisR)
 library(fishplot)
 library(igraph)
 library("xlsx")
+
+.pardefault <- par()
 
 # setwd('~/DCB-project/')
 

@@ -41,7 +41,8 @@ if(plot_verbose){
 ## apriori knowledge
 ## as in marker paper page 3
 LUAD.raf <- c('KRAS', 'EGFR')
-LUAD.enrich <- c('PIK3CA', 'RB1')
+LUAD.megsa <- c('STK11', 'EGFR', 'ERBB2','U2AF1')
+LUAD.megsa2 <- c('KRAS', 'EGFR', 'NF1','BRAF','MET')
 
 ## TODO does it make any sense?
 if(plot_verbose){
@@ -53,22 +54,40 @@ if(plot_verbose){
     font.row = 6,
     ann.hits = FALSE,
     cellheight = 10,
-    cellwidth = 3,
+    cellwidth = 1,
     #silent = T,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
     gtable = TRUE)
 }
+
+
 if(plot_verbose){
   oncoprint(
     events.selection(LUAD,
-                     filter.in.names = LUAD.enrich), 
-    title = paste("LAUD - ENRICH PIK3CA/RB1 likewise enrich (knowledge prior)"),
+                     filter.in.names = LUAD.megsa), 
+    title = paste("LAUD - MEGSA1 (knowledge prior)"),
     legend.cex = .3,
     font.row = 6,
     ann.hits = FALSE,
     cellheight = 10,
-    cellwidth = 3,
+    cellwidth = 1,
+    #silent = T,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    gtable = TRUE)
+}
+
+if(plot_verbose){
+  oncoprint(
+    events.selection(LUAD,
+                     filter.in.names = LUAD.megsa2), 
+    title = paste("LAUD - MEGSA2 (knowledge prior)"),
+    legend.cex = .3,
+    font.row = 6,
+    ann.hits = FALSE,
+    cellheight = 10,
+    cellwidth = 1,
     #silent = T,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
