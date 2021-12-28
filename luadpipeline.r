@@ -78,10 +78,11 @@ genes.to <- c('KRAS', mut)
 ## mucinous subgroup is too small!
 i <- 1
 for(m in models){
-  
   if (labels[i]!=excluded){
-    print(nsamples(m))
-    model(m, gene.hypotheses, gene.sel, genes.compare, genes.to, labels[i])
-    }
+    ##print(nsamples(m))
+    troncomodel <- model(m, gene.hypotheses, gene.sel, genes.compare, 
+                         genes.to, labels[i])
+    statistics(troncomodel, labels[i])
+  }
   i <- i + 1
 }
