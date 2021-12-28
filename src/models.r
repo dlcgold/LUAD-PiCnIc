@@ -116,29 +116,29 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
   
   ## TODO following lines are useless
-  # alterations <- events.selection(as.alterations(LUAD.select), 
-  #                                 filter.freq = min_freq)
-  # LUAD.hypo.clean <- events.selection(LUAD.select,
-  #                                     filter.in.names = c(as.genes(alterations), 
-  #                                                         gene.hypotheses))
-  # LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
-  #                                         paste(
-  #                                           'LUAD forced hypos (selected events)',
-  #                                           label))
-  # if(plot_verbose){
-  #   oncoprint(LUAD.hypo.clean,
-  #             gene.annot = list(priors = gene.hypotheses), 
-  #             sample.id = TRUE)
-  # }
-  # if(plot_verbose){
-  #   oncoprint(LUAD.hypo.clean, 
-  #             gene.annot = list(priors = gene.hypotheses), 
-  #             sample.id = TRUE,
-  #             font.row=10,
-  #             font.column=5,
-  #             cellheight=5, 
-  #             cellwidth=1)
-  # }
+  alterations <- events.selection(as.alterations(LUAD.select),
+                                  filter.freq = min_freq)
+  LUAD.hypo.clean <- events.selection(LUAD.select,
+                                      filter.in.names = c(as.genes(alterations),
+                                                          gene.hypotheses))
+  LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
+                                          paste(
+                                            'LUAD forced hypos (selected events)',
+                                            label))
+  if(plot_verbose){
+    oncoprint(LUAD.hypo.clean,
+              gene.annot = list(priors = gene.hypotheses),
+              sample.id = TRUE)
+  }
+  if(plot_verbose){
+    oncoprint(LUAD.hypo.clean,
+              gene.annot = list(priors = gene.hypotheses),
+              sample.id = TRUE,
+              font.row=10,
+              font.column=5,
+              cellheight=5,
+              cellwidth=1)
+  }
   
   ## save data
   ##save(LUAD.hypo, 
@@ -154,6 +154,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(paste("advatanges selection fit probabilities for", label))
     print(LUAD.hypo.model.selfit)
   }
+  
   
   
   ## dataframe with selective advances, with prima facie, full set of edge
