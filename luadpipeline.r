@@ -50,43 +50,50 @@ source("src/genes.r")
 print("loadind data")
 source("src/load_data.r")
 
-print("subtyping analysis")
 ## source file with the subtyping analysis
+print("subtyping analysis")
 source("src/subtyping.r")
 
-print("group exclusivity analysis")
 ## source file with the first group exclusivity analysis
+print("group exclusivity analysis")
 source("src/group_exclusivity.r")
 
 
-# CONF For Models
+# models list for analysis (the first is dataset without subtype selection)
 models <- list(LUAD,
                LUAD.acinar, 
                LUAD.nonmucinous, 
                LUAD.papillary, 
                LUAD.mucinous)
-labels <- c('',
+
+## labels for every subtype (the first is dataset without subtype selection)
+labels <- c('all',
             'acinar',
             'nonmucinous',
             'papillary',
             'mucinous')
+## mucinous subgroup is too small!
 excluded <- c('mucinous')
 
 
-# model selection
+## model reconstruction parametes
+## TODO they are random at the moment
 gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
 gene.sel <- P53
 genes.compare <- c('TP53', 'ATM')
 genes.to <- c('KRAS', mut)
 
-## mucinous subgroup is too small!
+## make analysis for every subtype
 i <- 1
 for(m in models){
   if (labels[i]!=excluded){
-    ##print(nsamples(m))
+    ## model reconstruction
     troncomodel <- model(m, gene.hypotheses, gene.sel, genes.compare, 
                          genes.to, labels[i])
+    ## statistical analysis
     statistics(troncomodel, labels[i])
   }
   i <- i + 1
 }
+
+print("END")

@@ -5,7 +5,7 @@ if(verbose){
   print(LUAD.mutex)
 }
 
-## oncoprint first two group
+## oncoprint first two group of mutex file
 if(plot_verbose){
   grid.arrange(
     oncoprint(
@@ -39,12 +39,17 @@ if(plot_verbose){
 }
 
 ## apriori knowledge
-## as in marker paper page 3
+## as in marker paper page 3 
+## and as in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4478584/
 LUAD.raf <- c('KRAS', 'EGFR')
+
+## apriori mutual exlusions using MEGSA
+## https://pubmed.ncbi.nlm.nih.gov/26899600/
+## https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002162
 LUAD.megsa <- c('STK11', 'EGFR', 'ERBB2','U2AF1')
 LUAD.megsa2 <- c('KRAS', 'EGFR', 'NF1','BRAF','MET')
 
-## TODO does it make any sense?
+## oncoprint to see the mutual exclusions
 if(plot_verbose){
   oncoprint(
     events.selection(LUAD,

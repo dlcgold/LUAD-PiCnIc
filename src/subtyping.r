@@ -1,16 +1,6 @@
 # SUBTYPING
 
-## TODO understand if we have cluster (type of tumor like MSI/MSS for CRC)
-## and if we can extract them from clinical sheet
-## maybe from cBIO
-# luad_cbio <- cbio.query(
-#   genes = pathway.genes,
-#   cbio.study = 'luad_tcga',
-#   cbio.dataset = 'luad_tcga_3way_complete',
-#   cbio.profile = 'luad_tcga_mutations')
-
 ## reload clinical data
-
 clinical_sub <- read_tsv(file.clinical)
 
 ## names of interesting subtypes
@@ -38,7 +28,7 @@ mucinous_samples <- mucinous_samples[mucinous_samples$rn %in% as.samples(LUAD),]
 mucinous_samples <- mucinous_samples$rn
 
 
-## subset of LUAD tronco object
+## subset of LUAD tronco object for every subtype
 LUAD.acinar <- trim(samples.selection(LUAD, acinar_samples))
 LUAD.acinar <- annotate.description(LUAD.acinar, 
                                     "LUAD acinar subtype")
@@ -56,14 +46,13 @@ LUAD.mucinous <- annotate.description(LUAD.mucinous,
                                       "LUAD mucinous subtype")
 
 old_events <- nevents(LUAD)
-## select events for complete analysis with a min freq
+
+## select events for complete analysis (alla data) with a min freq
 LUAD <- events.selection(LUAD, 
                          filter.freq = min_freq)
 new_events <- nevents(LUAD)
-if(plot_verbose){dev.new()
-  oncoprint(LUAD)
-}
 
+## select events for every subtype and get the corresponding TRONCO objects
 LUAD.acinar <- events.selection(LUAD.acinar, 
                                 filter.freq = min_freq)
 LUAD.nonmucinous <- events.selection(LUAD.nonmucinous, 
