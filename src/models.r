@@ -155,18 +155,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selfit)
   }
   
-  ## DAG of model with selective advantages
-  if(plot_verbose){
-    tronco.plot(LUAD.hypo.model.selfit, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35, 
-                scale.nodes = .3,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
-  }
   
   ## dataframe with selective advances, with prima facie, full set of edge
   LUAD.hypo.model.selpf <- as.selective.advantage.relations(LUAD.model,
@@ -177,18 +165,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selpf)
   }
   
-  ## DAG of model with selective advantages, full set of edge
-  if(plot_verbose){
-    tronco.plot(LUAD.hypo.model.selfpf, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35, 
-                scale.nodes = .3,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
-  }
   
   # intersection
   gene.sel <- gene.sel[gene.sel%in% as.genes(LUAD)]
@@ -202,18 +178,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selsub)
   }
   
-  ## DAG of model with selective advantages, with a subset of genes
-  if(plot_verbose){
-    tronco.plot(LUAD.hypo.model.selsub, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35, 
-                scale.nodes = .3,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
-  }
   
   # TODO add some graph regarding pattern
   # such as these but working
