@@ -1,7 +1,16 @@
-# model(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, 'all')
+#' Function to make model reconstruction for LUAD 
+#'
+#' @param LUAD TRONCO object model
+#' @param gene.hypotheses 
+#' @param gene.sel 
+#' @param genes.compare 
+#' @param genes.to 
+#' @param label label to identify subtype
+#'
+#' @return the model obtained with capri algorithm
 model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
 
-  ## select from LUAD with min freq and apriori
+  ## select from LUAD with min freq, apriori knowledge and mutex genes
   LUAD.select <- select(LUAD, 
                         min_freq, 
                         unique(             
@@ -11,7 +20,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                             unlist(LUAD.mutex))))
   LUAD.select <- annotate.description(LUAD.select, paste('LUAD', label, 'selection'))
   
-  ## oncoprint the selection
+  ## oncoprint of the selection
   if(plot_verbose){
     oncoprint(LUAD.select, 
               legend.cex = .5,          
@@ -25,6 +34,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## consolidate dataset
   del <- consolidate.data(LUAD.select, 
                           print = TRUE)
+  ## remove ambiguous events
   if(length(del[["indistinguishable"]]) > 0){
     for (i in 1:length(del[["indistinguishable"]])) {
       for (j in 1:nrow(del[["indistinguishable"]][[i]])){
@@ -38,8 +48,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   }
   
   ## add hypotheses
-  
   LUAD.hypo <- LUAD.select
+  
   ## first hypotheses from mutex (using only available genes)
   if (!is.null(LUAD.mutex)) {
     for (group in LUAD.mutex) {
@@ -78,12 +88,13 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## Add all the hypotheses related to homologou events
   LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo)
   
-  ## Add annotation
+  ## Edit annotation
   LUAD.hypo <- annotate.description(LUAD.hypo, 
                                     as.description(LUAD.select))
   
   
-  ## First use of CAPRI
+  ## First use of CAPRI, with default parameters 
+  ## except for bootstrap iterations number
   LUAD.model <- tronco.capri(LUAD.hypo, 
                              boot.seed = 42,
                              nboot = num_boot_iter)
@@ -104,29 +115,30 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## random test with a set of forced hypotheses
   ## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
   
-  alterations <- events.selection(as.alterations(LUAD.select), 
-                                  filter.freq = min_freq)
-  LUAD.hypo.clean <- events.selection(LUAD.select,
-                                      filter.in.names = c(as.genes(alterations), 
-                                                          gene.hypotheses))
-  LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
-                                          paste(
-                                            'LUAD forced hypos (selected events)',
-                                            label))
-  if(plot_verbose){
-    oncoprint(LUAD.hypo.clean,
-              gene.annot = list(priors = gene.hypotheses), 
-              sample.id = TRUE)
-  }
-  if(plot_verbose){
-    oncoprint(LUAD.hypo.clean, 
-              gene.annot = list(priors = gene.hypotheses), 
-              sample.id = TRUE,
-              font.row=10,
-              font.column=5,
-              cellheight=5, 
-              cellwidth=1)
-  }
+  ## TODO following lines are useless
+  # alterations <- events.selection(as.alterations(LUAD.select), 
+  #                                 filter.freq = min_freq)
+  # LUAD.hypo.clean <- events.selection(LUAD.select,
+  #                                     filter.in.names = c(as.genes(alterations), 
+  #                                                         gene.hypotheses))
+  # LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
+  #                                         paste(
+  #                                           'LUAD forced hypos (selected events)',
+  #                                           label))
+  # if(plot_verbose){
+  #   oncoprint(LUAD.hypo.clean,
+  #             gene.annot = list(priors = gene.hypotheses), 
+  #             sample.id = TRUE)
+  # }
+  # if(plot_verbose){
+  #   oncoprint(LUAD.hypo.clean, 
+  #             gene.annot = list(priors = gene.hypotheses), 
+  #             sample.id = TRUE,
+  #             font.row=10,
+  #             font.column=5,
+  #             cellheight=5, 
+  #             cellwidth=1)
+  # }
   
   ## save data
   ##save(LUAD.hypo, 
@@ -135,7 +147,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ##     file = "input/luadDefHypoModel.rda")
   
   
-  ## dataframe with selective advanges, with fit probabilities, optimized
+  ## dataframe with selective advantages, with fit probabilities, optimized
   LUAD.hypo.model.selfit <- as.selective.advantage.relations(LUAD.model)
   
   if(verbose){
@@ -143,7 +155,20 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selfit)
   }
   
-  ## dataframe with selective advanges, with prima facie, full set of edge
+  ## DAG of model with selective advantages
+  if(plot_verbose){
+    tronco.plot(LUAD.hypo.model.selfit, 
+                pathways = pathway.list,  
+                edge.cex = 1.5,          
+                legend.cex = .35, 
+                scale.nodes = .3,        
+                confidence = c('tp', 'pr', 'hg'), 
+                pathways.color = pathways.color,  
+                disconnected = F,        
+                height.logic = .3,)
+  }
+  
+  ## dataframe with selective advances, with prima facie, full set of edge
   LUAD.hypo.model.selpf <- as.selective.advantage.relations(LUAD.model,
                                                             type = "pf")
   
@@ -152,8 +177,20 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
     print(LUAD.hypo.model.selpf)
   }
   
+  ## DAG of model with selective advantages, full set of edge
+  if(plot_verbose){
+    tronco.plot(LUAD.hypo.model.selfpf, 
+                pathways = pathway.list,  
+                edge.cex = 1.5,          
+                legend.cex = .35, 
+                scale.nodes = .3,        
+                confidence = c('tp', 'pr', 'hg'), 
+                pathways.color = pathways.color,  
+                disconnected = F,        
+                height.logic = .3,)
+  }
   
-  # interjection
+  # intersection
   gene.sel <- gene.sel[gene.sel%in% as.genes(LUAD)]
   ## dataframe with selective advanges, with a subset of genes
   ## TODO make test with usefull subset of genes
@@ -163,6 +200,19 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   if(verbose){
     print(paste("advatanges selection by for", label))
     print(LUAD.hypo.model.selsub)
+  }
+  
+  ## DAG of model with selective advantages, with a subset of genes
+  if(plot_verbose){
+    tronco.plot(LUAD.hypo.model.selsub, 
+                pathways = pathway.list,  
+                edge.cex = 1.5,          
+                legend.cex = .35, 
+                scale.nodes = .3,        
+                confidence = c('tp', 'pr', 'hg'), 
+                pathways.color = pathways.color,  
+                disconnected = F,        
+                height.logic = .3,)
   }
   
   # TODO add some graph regarding pattern
@@ -189,7 +239,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                         label.cex=1.0,
                         mode = "circos")
   }
-  ## a first brutal plot after capri
+  ## plot of final reconstruction model before statistical analysis
   if(plot_verbose){
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
