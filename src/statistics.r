@@ -21,9 +21,7 @@ if(plot_verbose){
               confidence = c('tp', 'pr', 'hg'), 
               pathways.color = pathways.color,  
               disconnected = F,        
-              height.logic = .3, 
-              create.new.dev = TRUE)
-              
+              height.logic = .3
 }
 
 ## plot of bootstrap scores
@@ -39,6 +37,8 @@ if(plot_verbose){
            display_numbers = T,
            number_format = "%f"
   )
+}
+if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'npb')$npb$capri_aic) * 100,
@@ -48,6 +48,8 @@ if(plot_verbose){
            display_numbers = T,
            number_format = "%f"
   )
+}
+if(plot_verbose){
   ## then parametric ones
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
@@ -58,6 +60,8 @@ if(plot_verbose){
            display_numbers = T,
            number_format = "%f"
   )
+}
+if(plot_verbose){
   pheatmap(keysToNames(LUAD.model,
                        as.confidence(LUAD.model,
                                      conf = 'sb')$sb$capri_aic) * 100,
@@ -122,6 +126,7 @@ save(LUAD.model,
 
 
 ## last DAG
+if(plot_verbose){
 tronco.plot(LUAD.model, 
             pathways = pathway.list,  
             edge.cex = 1.5,          
@@ -130,8 +135,8 @@ tronco.plot(LUAD.model,
             confidence = c('tp', 'pr', 'hg'), 
             pathways.color = pathways.color,  
             disconnected = F,        
-            height.logic = .3,
-            create.new.dev = TRUE)
+            height.logic = .3)
+}
 
 # export.graphml(LUAD.model, 
 #                file = "output/LUADgraphml.xml",

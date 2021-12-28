@@ -7,7 +7,6 @@ if(verbose){
 
 ## oncoprint first two group
 if(plot_verbose){
-  dev.new()
   grid.arrange(
     oncoprint(
       events.selection(LUAD,
@@ -46,7 +45,6 @@ LUAD.enrich <- c('PIK3CA', 'RB1')
 
 ## TODO does it make any sense?
 if(plot_verbose){
-  dev.new()
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.raf), 
@@ -60,8 +58,8 @@ if(plot_verbose){
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
     gtable = TRUE)
-  
-  dev.new()
+}
+if(plot_verbose){
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.enrich), 

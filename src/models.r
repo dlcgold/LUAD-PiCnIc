@@ -11,7 +11,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   
   ## oncoprint the selection
   if(plot_verbose){
-    dev.new()
     oncoprint(LUAD.select, 
               legend.cex = .5,          
               cellwidth = 3,            
@@ -81,7 +80,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   
   ## DAG of model with hypotheses
   if(plot_verbose){
-    dev.new()
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
@@ -106,11 +104,11 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                                             'LUAD forced hypos (selected events)',
                                             label))
   if(plot_verbose){
-    dev.new()
     oncoprint(LUAD.hypo.clean,
               gene.annot = list(priors = gene.hypotheses), 
               sample.id = TRUE)
-    dev.new()
+  }
+  if(plot_verbose){
     oncoprint(LUAD.hypo.clean, 
               gene.annot = list(priors = gene.hypotheses), 
               sample.id = TRUE,
@@ -161,14 +159,14 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## such as these but working
   ## examples for hard exclusivity
   # plots for presentation
-  if(plot_verbose){dev.new()
-    dev.new()
+  if(plot_verbose){
     tronco.pattern.plot(LUAD.model,
                         group = as.events(LUAD.model, genes= genes.compare),
                         to = genes.to,
                         legend.cex=0.8,
                         label.cex=1.0)
-    dev.new()
+  }
+  if(plot_verbose){
     tronco.pattern.plot(LUAD.model,
                         group = as.events(LUAD.model, genes=genes.compare),
                         to = genes.to,
@@ -179,7 +177,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   
   ## a first brutal plot after capri
   if(plot_verbose){
-    dev.new()
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
@@ -207,7 +204,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   
   ## DAG of the model above
   if(plot_verbose){
-    dev.new()
     tronco.plot(LUAD.model, 
                 pathways = pathway.list,  
                 edge.cex = 1.5,          
@@ -223,7 +219,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## plot of bootstrap scores
   ## TODO sometimes not work
   if(plot_verbose){
-    dev.new()
     ## first non-parametric
     pheatmap(keysToNames(LUAD.model,
                          as.confidence(LUAD.model,
@@ -234,7 +229,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
              display_numbers = T,
              number_format = "%f"
     )
-    dev.new()
+  }
+  if(plot_verbose){
     pheatmap(keysToNames(LUAD.model,
                          as.confidence(LUAD.model,
                                        conf = 'npb')$npb$capri_aic) * 100,
@@ -244,8 +240,9 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
              display_numbers = T,
              number_format = "%f"
     )
-    dev.new()
-    ## then parametric ones
+  }
+  if(plot_verbose){
+  ## then parametric ones
     pheatmap(keysToNames(LUAD.model,
                          as.confidence(LUAD.model,
                                        conf = 'sb')$sb$capri_bic) * 100,
@@ -255,7 +252,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
              display_numbers = T,
              number_format = "%f"
     )
-    dev.new()
+  }
+  if(plot_verbose){
     pheatmap(keysToNames(LUAD.model,
                          as.confidence(LUAD.model,
                                        conf = 'sb')$sb$capri_aic) * 100,
@@ -282,7 +280,6 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## plot for every fold
   ## TODO make it work
   if(plot_verbose){
-    dev.new()
     vioplot(LUAD.model$kfold$capri_bic$eloss,
             LUAD.model$kfold$capri_aic$eloss,
             col = 'red',
@@ -321,8 +318,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   
   
   ## last DAG
-  dev.new()
-  tronco.plot(LUAD.model, 
+  if(plot_verbose){
+    tronco.plot(LUAD.model, 
               pathways = pathway.list,  
               edge.cex = 1.5,          
               legend.cex = .35,         
@@ -331,7 +328,7 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
               pathways.color = pathways.color,  
               disconnected = F,        
               height.logic = .3,)
-  
+  }
   # export.graphml(LUAD.model, 
   #                file = "output/LUADgraphml.xml",
   #                pathways = pathway.list,  
