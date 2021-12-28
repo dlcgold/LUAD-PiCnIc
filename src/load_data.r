@@ -1,9 +1,11 @@
 # LOAD DATA
 
-## import mutex data
+## import mutex data with mutual exclusions
+## mutex results are available in the input directory due to complex 
+## execution of the tool
 LUAD.mutex <- import.mutex.groups(file.mutex)
 
-## clear mutex with selected genes
+## clear mutex with genes drivers selected from TCGA
 for(i in 1:length(LUAD.mutex)){
   LUAD.mutex[i][[1]] <- LUAD.mutex[i][[1]][LUAD.mutex[i][[1]] %in% pathway.genes]
 }
@@ -11,12 +13,12 @@ for(i in 1:length(LUAD.mutex)){
 ## load MAF, reload if required
 if(maf_reload){
   
-  ## download MAF file from TCGA
+  ## download MAF file from TCGA using GDC portal by TCGAbiolinks library
   LUAD.maf <- GDCquery_Maf(tumor = "LUAD", 
                            pipelines = "mutect2")
   
-  ## cool visualization of data in MAF
-  ## TODO fix errors sometimes
+  ## cool visualization of MAF file data using maftools
+  ## plot with all genes
   if(plot_verbose){
     maftools.input <- LUAD.maf %>% read.maf
 
@@ -29,17 +31,20 @@ if(maf_reload){
     LUAD.maf.genes <- LUAD.maf.genes[LUAD.maf.genes$Hugo_Symbol %in% pathway.genes,]
     maftools.input <- LUAD.maf.genes %>% read.maf
   }
+  
+  ## plot with selected genes drivers
   if(plot_verbose){
-
     plotmafSummary(maf = maftools.input, 
                    rmOutlier = TRUE, 
                    addStat = 'median', 
                    dashboard = TRUE)
     
   }
+  
+  ## convert MAF in dataframe to use import.MAF of TRONCO library
   LUAD.mafdf <- as.data.frame(LUAD.maf)
   
-  ## create TRONCO object
+  ## create TRONCO object with alla mutations disincted or all grouped together
   if(all_mut){
     LUAD <- import.MAF(LUAD.mafdf,
                        is.TCGA = TRUE,
@@ -67,15 +72,9 @@ if(maf_reload){
 }
 
 ## a first and brutal oncoprint
-# if(plot_verbose){
-#   oncoprint(LUAD)
-# }
-
-##  oncoprint after deletions
 if(plot_verbose){
   oncoprint(LUAD)
 }
-
 
 
 ## print some informations about genes
@@ -139,11 +138,15 @@ if(verbose){
   }
 }
 
-## clinical data
+## download and load clinical data
 if(clinic_reload){
+  ## get clinicla data from TCGA using firehose 
+  ## and convert the result in a dataframe
   data <- getFirehoseData("LUAD")
   clinical <- RTCGAToolbox::getData(data, "clinical")
   df <- as.data.frame(clinical)
+  
+  ## edit the informations in clinical data to be consisted with TRONCO
   for (i in 1:length(rownames(df))) {
     row.names(df)[i] <- toupper(gsub("\\.", 
                                      "-", 
@@ -157,6 +160,7 @@ if(clinic_reload){
                      file = file.clinical,
                      row_names = TRUE)
   
+  ## save smoker informations (number of pack for years) for fancy plots
   smoker <- TCGA.map.clinical.data(file = file.clinical,
                                    column.samples = 'rn',
                                    column.map = 'number_pack_years_smoked')
@@ -176,6 +180,7 @@ if(clinic_reload){
     }
   }
   
+  ## final clinical data after preprocessing
   clinical.data <- TCGA.map.clinical.data(file = file.clinical,
                                           column.samples = 'rn',
                                           column.map = 'pathologic_stage')
@@ -199,7 +204,6 @@ if(verbose){
 }
 
 ## histogram of age distribution and stages, race and ethnicity
-## TODO change colors, lol
 if(plot_verbose){
   hist(as.numeric(clinical$years_to_birth), 
        col = c("#5e81ac", 
@@ -231,7 +235,7 @@ if(plot_verbose){
 }
 
 
-## match samples and stages
+## bind together MAF and clinical data, also for smoker informations
 LUAD.smoke <- annotate.stages(LUAD, 
                               smoker, 
                               match.TCGA.patients = TRUE)
@@ -240,7 +244,7 @@ LUAD <- annotate.stages(LUAD,
                         match.TCGA.patients = TRUE)
 
 
-## clear multiple stages
+## clearing the dataset
 LUAD <- TCGA.remove.multiple.samples(LUAD)
 LUAD <- TCGA.shorten.barcodes(LUAD)
 LUAD <- annotate.stages(LUAD, 
@@ -251,12 +255,13 @@ if(plot_verbose){
   oncoprint(LUAD)
 }
 
-## another brutal oncoprint with smoker
+## another brutal oncoprint for smoker
 if(plot_verbose){
   oncoprint(LUAD.smoke)
 }
 
 ## other clinicl data from cBIO
+## TODO check if there is something interesting here
 luad_cbio <- cbio.query(
   genes = pathway.genes,
   cbio.study = 'luad_tcga',
@@ -272,8 +277,9 @@ if(verbose){
   print(data.frame(table(clinical_bio$CANCER_TYPE_DETAILED)))
 }
 
-## load gistic 
+## load GISTIC file
 if(gistic_reload){
+  ## download gistic file from TCGA, using GDC portal
   gistic.query <- GDCquery(project = "TCGA-LUAD",
                            data.category = "Copy Number Variation",
                            data.type = "Gene Level Copy Number Scores",
@@ -281,6 +287,8 @@ if(gistic_reload){
   GDCdownload(gistic.query)
   gistic <- GDCprepare(gistic.query)
   gist <- getGistic("LUAD", type = "thresholded")
+  
+  ## convert the result to a dataframe for preprocessing and genes drivers filtering
   LUAD.gistic <- as.data.frame(gist)
   LUAD.gistic <- LUAD.gistic[LUAD.gistic$`Gene Symbol` %in% pathway.genes,]
   LUAD.gistic <- LUAD.gistic[ , ! names(LUAD.gistic) %in% c("Locus ID", 
@@ -309,7 +317,8 @@ if(plot_verbose){
   oncoprint(LUADGistic)
 }
 
-## some changes in LUADGistic
+## some changes in LUADGistic as explained in gistic documentation
+## only high-confidence scores in GISTIC
 LUADGistic <- delete.type(LUADGistic, 
                           'Heterozygous Loss')
 LUADGistic <- delete.type(LUADGistic, 
@@ -329,12 +338,12 @@ if(plot_verbose){
   oncoprint(LUADGistic)
 }
 
-## stage annnotation in GISTIC
+## bind GISTIC data with clinical one
 LUADGistic <- annotate.stages(LUADGistic, 
                               clinical.data,
                               match.TCGA.patients = TRUE)
 
-## clear multiple stages
+## clear gistic TRONCO object
 LUADGistic <- TCGA.remove.multiple.samples(LUADGistic)
 LUADGistic <- TCGA.shorten.barcodes(LUADGistic)
 LUADGistic <- annotate.stages(LUADGistic, 
@@ -453,7 +462,7 @@ if(plot_verbose){
 LUAD <- annotate.description(LUAD, 
                              "LUAD complete MAF/GISTIC")
 
-## other fancy plots
+## other fancy plots using maftools
 MAF.dataframe <- import.MAF(LUAD.mafdf,
                             is.TCGA = TRUE,
                             sep = ';',

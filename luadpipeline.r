@@ -1,13 +1,12 @@
+## sourcing every Library used
+## TODO remove useless ones
 library(TRONCO)
 library(RTCGAToolbox)
 library(TCGAbiolinks)
 library(readr)
 library(dtutils)
-
 library(devtools)
 library(pheatmap)
-
-
 library(ggplot2)
 library(gridExtra)
 library(vioplot)
@@ -21,20 +20,25 @@ library(fishplot)
 library(igraph)
 library("xlsx")
 
+## workaround for plots
 .pardefault <- par()
 
 # setwd('~/DCB-project/')
 
-print("loading useful functions")
 ## source file with some useful functions
+print("loading useful functions")
+
+## various functions
 source("src/utils.r")
 
-print("loading model function for hypotheses analysis")
-# source file with the model reconstruction based on hypotheses
+## function for model reconstruction
 source("src/models.r")
 
-print("loading selected configurations")
+## function for statistical analysis
+source("src/statistics.r")
+
 ## source file with the pipeline config
+print("loading selected configurations")
 source("src/conf.r")
 
 print("loading selected genes")
