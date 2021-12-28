@@ -16,9 +16,15 @@ library(fishplot)
 library(igraph)
 library("xlsx")
 
+# setwd('~/DCB-project/')
+
 print("loading useful functions")
 ## source file with some useful functions
 source("src/utils.r")
+
+print("loading model function for hypotheses analysis")
+# source file with the model reconstruction based on hypotheses
+source("src/models.r")
 
 print("loading selected configurations")
 ## source file with the pipeline config
@@ -41,6 +47,8 @@ print("group exclusivity analysis")
 ## source file with the first group exclusivity analysis
 source("src/group_exclusivity.r")
 
+
+# CONF For Models
 models <- list(LUAD,
                LUAD.acinar, 
                LUAD.nonmucinous, 
@@ -51,6 +59,8 @@ labels <- c('',
             'nonmucinous',
             'papillary',
             'mucinous')
+excluded <- c('mucinous')
+
 
 # model selection
 gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
@@ -58,25 +68,13 @@ gene.sel <- P53
 genes.compare <- c('TP53', 'ATM')
 genes.to <- c('KRAS', mut)
 
-
-
 ## mucinous subgroup is too small!
 i <- 1
 for(m in models){
-  if (i<5){
+  
+  if (labels[i]!=excluded){
     print(nsamples(m))
     model(m, gene.hypotheses, gene.sel, genes.compare, genes.to, labels[i])
     }
   i <- i + 1
 }
-
-
-### Models and Statistic included in 'model' function under utils.r
-
-#print("model with hypotheses analysis")
-## source file with the model reconstruction based on hypotheses
-#source("src/models.r")
-
-## source file with the statistical analysis
-#source("src/statistics.r")
-
