@@ -1,3 +1,7 @@
+#' Function to make statistical analysis of model LUAD
+#'
+#' @param LUAD.model TRONCO object model
+#' @param label label to identify subtype
 statistics <- function(LUAD.model, label){
   ## STATISTICS
   
@@ -87,7 +91,11 @@ statistics <- function(LUAD.model, label){
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.eloss(LUAD.model)
   kfold_eloss <- as.kfold.eloss(LUAD.model)
-  
+
+  if(verbose){
+    print("kfold loss")
+    print(kfold_eloss)
+  }
   ## plot for every fold
   ## TODO make it work
   if(plot_verbose){
@@ -105,12 +113,20 @@ statistics <- function(LUAD.model, label){
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.prederr(LUAD.model)
   kfold_pred <- as.kfold.prederr(LUAD.model)
-  
+
+  if(verbose){
+    print("kfold prediction")
+    print(kfold_pred)
+  }
   
   ## k-fold cross validation, posterior classification error for each edge
   LUAD.model <- tronco.kfold.posterr(LUAD.model)
   kfold_post <- as.kfold.posterr(LUAD.model)
-  
+
+  if(verbose){
+    print("kfold posterior")
+    print(kfold_post)
+  }
   ## visualize a table with all edge statistics
   tab_bic <- tabular(LUAD.model, 'capri_bic')
   tab_aic <- tabular(LUAD.model, 'capri_aic')
@@ -192,9 +208,9 @@ statistics <- function(LUAD.model, label){
   #          cex.title=0.5, vlines=c(0,150), 
   #          vlab=c("day 0","day 150"))
   ## excel with all data
-  excel.file = paste("output/LUAD_statistics_", label, ".xlsx", sep='')
+  excel.file <- paste0("output/LUAD_statistics_", label, ".xlsx")
   
-  excel.wbook = createWorkbook()
+  excel.wbook <- createWorkbook()
   
   sheet.luad.bic <- createSheet(wb = excel.wbook, 
                                 sheetName="LUAD-bic")

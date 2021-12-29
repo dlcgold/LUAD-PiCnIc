@@ -35,8 +35,8 @@ pathway.list <- list(P53 = P53,
 
 ## colors for pathways in the plots 
 ## (dark colors because they will be used for writing names)
-alteration.color = 'dimgray'
-pathways.color = c('darkslategray', 
+alteration.color <- 'dimgray'
+pathways.color <- c('darkslategray',
                    'darkblue', 
                    'darkgreen',
                    'darkmagenta', 

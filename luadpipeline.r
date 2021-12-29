@@ -73,12 +73,12 @@ labels <- c('all',
             'papillary',
             'mucinous')
 ## mucinous subgroup is too small!
-excluded <- c('mucinous')
-
+## excluded <- c('mucinous')
+excluded <- 'mucinous'
 
 ## model reconstruction parametes
 ## TODO they are random at the moment
-gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
+## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
 gene.sel <- P53
 genes.compare <- c('TP53', 'ATM')
 genes.to <- c('KRAS', mut)
@@ -88,7 +88,7 @@ i <- 1
 for(m in models){
   if (labels[i]!=excluded){
     ## model reconstruction
-    troncomodel <- model(m, gene.hypotheses, gene.sel, genes.compare, 
+    troncomodel <- model(m, gene.sel, genes.compare,
                          genes.to, labels[i])
     ## statistical analysis
     statistics(troncomodel, labels[i])

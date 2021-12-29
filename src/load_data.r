@@ -6,7 +6,7 @@
 LUAD.mutex <- import.mutex.groups(file.mutex)
 
 ## clear mutex with genes drivers selected from TCGA
-for(i in 1:length(LUAD.mutex)){
+for(i in seq_along(LUAD.mutex)){
   LUAD.mutex[i][[1]] <- LUAD.mutex[i][[1]][LUAD.mutex[i][[1]] %in% pathway.genes]
 }
 

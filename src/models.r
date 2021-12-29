@@ -1,14 +1,14 @@
 #' Function to make model reconstruction for LUAD 
 #'
-#' @param LUAD TRONCO object model
-#' @param gene.hypotheses 
+#' @param LUAD TRONCO object dataset
 #' @param gene.sel 
 #' @param genes.compare 
 #' @param genes.to 
 #' @param label label to identify subtype
 #'
 #' @return the model obtained with capri algorithm
-model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
+model <- function(LUAD, gene.sel, genes.compare, genes.to, label){
+  ## model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
 
   ## select from LUAD with min freq, apriori knowledge and mutex genes
   LUAD.select <- select(LUAD, 
@@ -36,8 +36,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
                           print = TRUE)
   ## remove ambiguous events
   if(length(del[["indistinguishable"]]) > 0){
-    for (i in 1:length(del[["indistinguishable"]])) {
-      for (j in 1:nrow(del[["indistinguishable"]][[i]])){
+    for (i in seq_along(del[["indistinguishable"]])) {
+      for (j in seq_len(nrow(del[["indistinguishable"]][[i]]))){
         gene <- del[["indistinguishable"]][[i]][j,][2][[1]]
         type <- del[["indistinguishable"]][[i]][j,][1][[1]]
         LUAD.select <- delete.event(LUAD.select,
@@ -116,30 +116,30 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   ## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
   
   ## TODO following lines are useless
-  alterations <- events.selection(as.alterations(LUAD.select),
-                                  filter.freq = min_freq)
-  LUAD.hypo.clean <- events.selection(LUAD.select,
-                                      filter.in.names = c(as.genes(alterations),
-                                                          gene.hypotheses))
-  LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
-                                          paste(
-                                            'LUAD forced hypos (selected events)',
-                                            label))
-  if(plot_verbose){
-    oncoprint(LUAD.hypo.clean,
-              gene.annot = list(priors = gene.hypotheses),
-              sample.id = TRUE)
-  }
-  if(plot_verbose){
-    oncoprint(LUAD.hypo.clean,
-              gene.annot = list(priors = gene.hypotheses),
-              sample.id = TRUE,
-              font.row=10,
-              font.column=5,
-              cellheight=5,
-              cellwidth=1)
-  }
-  
+  # alterations <- events.selection(as.alterations(LUAD.select),
+  #                                 filter.freq = min_freq)
+  # LUAD.hypo.clean <- events.selection(LUAD.select,
+  #                                     filter.in.names = c(as.genes(alterations),
+  #                                                         gene.hypotheses))
+  # LUAD.hypo.clean <- annotate.description(LUAD.hypo.clean,
+  #                                         paste(
+  #                                           'LUAD forced hypos (selected events)',
+  #                                           label))
+  # if(plot_verbose){
+  #   oncoprint(LUAD.hypo.clean,
+  #             gene.annot = list(priors = gene.hypotheses),
+  #             sample.id = TRUE)
+  # }
+  # if(plot_verbose){
+  #   oncoprint(LUAD.hypo.clean,
+  #             gene.annot = list(priors = gene.hypotheses),
+  #             sample.id = TRUE,
+  #             font.row=10,
+  #             font.column=5,
+  #             cellheight=5,
+  #             cellwidth=1)
+  # }
+
   ## save data
   ##save(LUAD.hypo, 
   ##     file = "input/luadDefHypo.rda")
@@ -186,8 +186,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
   # plots for presentation
 
   if(plot_verbose){
-    tronco.pattern.plot(LUAD.hypo.clean,
-                        group = as.events(LUAD.hypo.clean, genes=genes.compare),
+    tronco.pattern.plot(LUAD.hypo,
+                        group = as.events(LUAD.hypo, genes=genes.compare),
                         to = genes.to,
                         legend.cex=0.8,
                         label.cex=1.0,
@@ -197,8 +197,8 @@ model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, labe
 
   if(plot_verbose){
 
-    tronco.pattern.plot(LUAD.hypo.clean,
-                        group = as.events(LUAD.hypo.clean, genes=genes.compare),
+    tronco.pattern.plot(LUAD.hypo,
+                        group = as.events(LUAD.hypo, genes=genes.compare),
                         to = genes.to,
                         legend.cex=0.8,
                         label.cex=1.0,

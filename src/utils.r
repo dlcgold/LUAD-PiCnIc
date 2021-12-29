@@ -23,9 +23,7 @@ tabular <- function(obj, M){
          as.kfold.posterr(obj,models = M)))
   ## merge reverses first with second column
   tab <- tab[, c(2,1,3:ncol(tab))]
-  tab <- tab[order(tab[, paste(M,
-                               '.NONPAR.BOOT',
-                               sep='')],
+  tab <- tab[order(tab[, paste0(M, '.NONPAR.BOOT')],
                    na.last = TRUE,
                    decreasing = TRUE), ]
   return(tab)
