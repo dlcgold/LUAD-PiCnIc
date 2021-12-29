@@ -1,45 +1,53 @@
-#' Function to make model reconstruction for LUAD 
+#' Function to make model reconstruction for LUAD
 #'
 #' @param LUAD TRONCO object dataset
-#' @param gene.sel 
-#' @param genes.compare 
-#' @param genes.to 
+#' @param gene.sel
+#' @param genes.compare
+#' @param genes.to
 #' @param label label to identify subtype
 #'
 #' @return the model obtained with capri algorithm
-model <- function(LUAD, gene.sel, genes.compare, genes.to, label){
+model <- function(LUAD,
+                  gene.sel,
+                  genes.compare,
+                  genes.to,
+                  label) {
   ## model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
-
+  
   ## select from LUAD with min freq, apriori knowledge and mutex genes
-  LUAD.select <- select(LUAD, 
-                        min_freq, 
-                        unique(             
-                          c(LUAD.raf,
-                            LUAD.megsa,
-                            LUAD.megsa2,
-                            unlist(LUAD.mutex))))
-  LUAD.select <- annotate.description(LUAD.select, paste('LUAD', label, 'selection'))
+  LUAD.select <- select(LUAD,
+                        min_freq,
+                        unique(c(
+                          LUAD.raf,
+                          LUAD.megsa,
+                          LUAD.megsa2,
+                          unlist(LUAD.mutex)
+                        )))
+  LUAD.select <-
+    annotate.description(LUAD.select, paste('LUAD', label, 'selection'))
   
   ## oncoprint of the selection
-  if(plot_verbose){
-    oncoprint(LUAD.select, 
-              legend.cex = .5,          
-              cellwidth = 3,            
-              cellheight = 10,
-              gene.annot = pathway.list, 
-              gene.annot.color = pathways.color, 
-              sample.id = TRUE)
+  if (plot_verbose) {
+    oncoprint(
+      LUAD.select,
+      legend.cex = .5,
+      cellwidth = 3,
+      cellheight = 10,
+      gene.annot = pathway.list,
+      gene.annot.color = pathways.color,
+      sample.id = TRUE
+    )
   }
   
   ## consolidate dataset
-  del <- consolidate.data(LUAD.select, 
+  del <- consolidate.data(LUAD.select,
                           print = TRUE)
   ## remove ambiguous events
-  if(length(del[["indistinguishable"]]) > 0){
+  if (length(del[["indistinguishable"]]) > 0) {
     for (i in seq_along(del[["indistinguishable"]])) {
-      for (j in seq_len(nrow(del[["indistinguishable"]][[i]]))){
-        gene <- del[["indistinguishable"]][[i]][j,][2][[1]]
-        type <- del[["indistinguishable"]][[i]][j,][1][[1]]
+      for (j in seq_len(nrow(del[["indistinguishable"]][[i]]))) {
+        gene <- del[["indistinguishable"]][[i]][j, ][2][[1]]
+        type <- del[["indistinguishable"]][[i]][j, ][1][[1]]
         LUAD.select <- delete.event(LUAD.select,
                                     gene = as.character(gene),
                                     type = as.character(type))
@@ -53,63 +61,75 @@ model <- function(LUAD, gene.sel, genes.compare, genes.to, label){
   ## first hypotheses from mutex (using only available genes)
   if (!is.null(LUAD.mutex)) {
     for (group in LUAD.mutex) {
-      group <- group[group%in% as.genes(LUAD.hypo)]
-      if(length(group) >= 2){
+      group <- group[group %in% as.genes(LUAD.hypo)]
+      if (length(group) >= 2) {
         print(group)
-        LUAD.hypo <- hypothesis.add.group(LUAD.hypo,
-                                          FUN = OR,
-                                          group = group,
-                                          dim.min = length(group))
+        LUAD.hypo <- hypothesis.add.group(
+          LUAD.hypo,
+          FUN = OR,
+          group = group,
+          dim.min = length(group)
+        )
       }
     }
   }
   
   ## Add hypothes for RAF, checking if we have the genes in LUAD.select
-  LUAD.raf.subtype <- LUAD.raf[LUAD.raf%in% as.genes(LUAD.hypo)]
-  LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = XOR, 
-                                    group = LUAD.raf.subtype, 
-                                    dim.min = length(LUAD.raf.subtype)) 
+  LUAD.raf.subtype <- LUAD.raf[LUAD.raf %in% as.genes(LUAD.hypo)]
+  LUAD.hypo <- hypothesis.add.group(
+    LUAD.hypo,
+    FUN = XOR,
+    group = LUAD.raf.subtype,
+    dim.min = length(LUAD.raf.subtype)
+  )
   
   ## Add hypothes for megsa, checking if we have the genes in LUAD.select
-  LUAD.megsa.subtype <- LUAD.megsa[LUAD.megsa%in% as.genes(LUAD.hypo)]
-  LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = OR, 
-                                    group = LUAD.megsa.subtype, 
-                                    dim.min = length(LUAD.megsa.subtype))
+  LUAD.megsa.subtype <-
+    LUAD.megsa[LUAD.megsa %in% as.genes(LUAD.hypo)]
+  LUAD.hypo <- hypothesis.add.group(
+    LUAD.hypo,
+    FUN = OR,
+    group = LUAD.megsa.subtype,
+    dim.min = length(LUAD.megsa.subtype)
+  )
   
   ## Add hypothes for megsa2, checking if we have the genes in LUAD.select
-  LUAD.megsa2.subtype <- LUAD.megsa2[LUAD.megsa2%in% as.genes(LUAD.hypo)]
-  LUAD.hypo <- hypothesis.add.group(LUAD.hypo, 
-                                    FUN = OR, 
-                                    group = LUAD.megsa2.subtype, 
-                                    dim.min = length(LUAD.megsa2.subtype))
+  LUAD.megsa2.subtype <-
+    LUAD.megsa2[LUAD.megsa2 %in% as.genes(LUAD.hypo)]
+  LUAD.hypo <- hypothesis.add.group(
+    LUAD.hypo,
+    FUN = OR,
+    group = LUAD.megsa2.subtype,
+    dim.min = length(LUAD.megsa2.subtype)
+  )
   
   ## Add all the hypotheses related to homologou events
   LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo)
   
   ## Edit annotation
-  LUAD.hypo <- annotate.description(LUAD.hypo, 
+  LUAD.hypo <- annotate.description(LUAD.hypo,
                                     as.description(LUAD.select))
   
   
-  ## First use of CAPRI, with default parameters 
+  ## First use of CAPRI, with default parameters
   ## except for bootstrap iterations number
-  LUAD.model <- tronco.capri(LUAD.hypo, 
+  LUAD.model <- tronco.capri(LUAD.hypo,
                              boot.seed = 42,
                              nboot = num_boot_iter)
   
   ## DAG of model with hypotheses
-  if(plot_verbose){
-    tronco.plot(LUAD.model, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35, 
-                scale.nodes = .3,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
+  if (plot_verbose) {
+    tronco.plot(
+      LUAD.model,
+      pathways = pathway.list,
+      edge.cex = 1.5,
+      legend.cex = .35,
+      scale.nodes = .3,
+      confidence = c('tp', 'pr', 'hg'),
+      pathways.color = pathways.color,
+      disconnected = F,
+      height.logic = .3,
+    )
   }
   
   ## random test with a set of forced hypotheses
@@ -139,18 +159,19 @@ model <- function(LUAD, gene.sel, genes.compare, genes.to, label){
   #             cellheight=5,
   #             cellwidth=1)
   # }
-
+  
   ## save data
-  ##save(LUAD.hypo, 
+  ##save(LUAD.hypo,
   ##     file = "input/luadDefHypo.rda")
-  ##save(LUAD.model, 
+  ##save(LUAD.model,
   ##     file = "input/luadDefHypoModel.rda")
   
   
   ## dataframe with selective advantages, with fit probabilities, optimized
-  LUAD.hypo.model.selfit <- as.selective.advantage.relations(LUAD.model)
+  LUAD.hypo.model.selfit <-
+    as.selective.advantage.relations(LUAD.model)
   
-  if(verbose){
+  if (verbose) {
     print(paste("advatanges selection fit probabilities for", label))
     print(LUAD.hypo.model.selfit)
   }
@@ -158,63 +179,73 @@ model <- function(LUAD, gene.sel, genes.compare, genes.to, label){
   
   
   ## dataframe with selective advances, with prima facie, full set of edge
-  LUAD.hypo.model.selpf <- as.selective.advantage.relations(LUAD.model,
-                                                            type = "pf")
+  LUAD.hypo.model.selpf <-
+    as.selective.advantage.relations(LUAD.model,
+                                     type = "pf")
   
-  if(verbose){
+  if (verbose) {
     print(paste("advatanges selection full set for", label))
     print(LUAD.hypo.model.selpf)
   }
   
-  
-  # intersection
-  gene.sel <- gene.sel[gene.sel%in% as.genes(LUAD)]
-  ## dataframe with selective advanges, with a subset of genes
-  ## TODO make test with usefull subset of genes
-  LUAD.hypo.model.selsub <- as.selective.advantage.relations(LUAD.model,
-                                                             events = as.events(LUAD.model, 
-                                                                                genes = gene.sel))
-  if(verbose){
-    print(paste("advatanges selection by for", label))
-    print(LUAD.hypo.model.selsub)
-  }
-  
-  
-  # TODO add some graph regarding pattern
-  # such as these but working
-  # examples for hard exclusivity
-  # plots for presentation
-
-  if(plot_verbose){
-    tronco.pattern.plot(LUAD.hypo,
-                        group = as.events(LUAD.hypo, genes=genes.compare),
-                        to = genes.to,
-                        legend.cex=0.8,
-                        label.cex=1.0,
-                        mode="barplot")
-  }
-  par(.pardefault)
-
-  if(plot_verbose){
-
-    tronco.pattern.plot(LUAD.hypo,
-                        group = as.events(LUAD.hypo, genes=genes.compare),
-                        to = genes.to,
-                        legend.cex=0.8,
-                        label.cex=1.0,
-                        mode = "circos")
-  }
-  ## plot of final reconstruction model before statistical analysis
-  if(plot_verbose){
-    tronco.plot(LUAD.model, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35,         
-                scale.nodes = .6,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
+  if (label == 'all') {
+    # intersection
+    gene.sel <- gene.sel[gene.sel %in% as.genes(LUAD)]
+    ## dataframe with selective advanges, with a subset of genes
+    ## TODO make test with usefull subset of genes
+    LUAD.hypo.model.selsub <-
+      as.selective.advantage.relations(LUAD.model,
+                                       events = as.events(LUAD.model,
+                                                          genes = gene.sel))
+    if (verbose) {
+      print(paste("advatanges selection by for", label))
+      print(LUAD.hypo.model.selsub)
+    }
+    
+    
+    # TODO add some graph regarding pattern
+    # such as these but working
+    # examples for hard exclusivity
+    # plots for presentation
+    
+    if (plot_verbose) {
+      tronco.pattern.plot(
+        LUAD.hypo,
+        group = as.events(LUAD.hypo, genes = genes.compare),
+        to = genes.to,
+        legend.cex = 0.8,
+        label.cex = 1.0,
+        mode = "barplot"
+      )
+    }
+    par(.pardefault)
+    
+    if (plot_verbose) {
+      tronco.pattern.plot(
+        LUAD.hypo,
+        group = as.events(LUAD.hypo, genes = genes.compare),
+        to = genes.to,
+        legend.cex = 0.8,
+        label.cex = 1.0,
+        mode = "circos"
+      )
+    }
+    ## plot of final reconstruction model before statistical analysis
+    if (plot_verbose) {
+      tronco.plot(
+        LUAD.model,
+        pathways = pathway.list,
+        edge.cex = 1.5,
+        legend.cex = .35,
+        scale.nodes = .6,
+        confidence = c('tp', 'pr', 'hg'),
+        pathways.color = pathways.color,
+        disconnected = F,
+        height.logic
+        = .3,
+      )
+    }
+    
   }
   return(LUAD.model)
   

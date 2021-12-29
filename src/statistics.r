@@ -2,7 +2,7 @@
 #'
 #' @param LUAD.model TRONCO object model
 #' @param label label to identify subtype
-statistics <- function(LUAD.model, label){
+statistics <- function(LUAD.model, label) {
   ## STATISTICS
   
   # STATISTICS
@@ -18,72 +18,91 @@ statistics <- function(LUAD.model, label){
                                  cores.ratio = .5)
   
   ## DAG of the model above
-  if(plot_verbose){
-    tronco.plot(LUAD.model, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .5,         
-                scale.nodes = .6,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
+  if (plot_verbose) {
+    par(.pardefault)
+    tronco.plot(
+      LUAD.model,
+      pathways = pathway.list,
+      edge.cex = 1.5,
+      legend.cex = .5,
+      scale.nodes = .6,
+      confidence = c('tp', 'pr', 'hg'),
+      pathways.color = pathways.color,
+      disconnected = F,
+      height.logic = .3,
+    )
     
   }
   
   ## plot of bootstrap scores
   ## TODO sometimes not work
-  if(plot_verbose){
+  if (plot_verbose) {
+    par(.pardefault)
     ## first non-parametric
-    pheatmap(keysToNames(LUAD.model,
-                         as.confidence(LUAD.model,
-                                       conf = 'npb')$npb$capri_bic) * 100,
-             main = paste("non-parametric bootstrap scores for BIC model for", label),
-             fontsize_row = 6,
-             fontsize_col = 6,
-             display_numbers = T,
-             number_format = "%f"
+    pheatmap(
+      keysToNames(
+        LUAD.model,
+        as.confidence(LUAD.model,
+                      conf = 'npb')$npb$capri_bic
+      ) * 100,
+      main = paste("non-parametric bootstrap scores for BIC model for", label),
+      fontsize_row = 6,
+      fontsize_col = 6,
+      display_numbers = T,
+      number_format = "%f"
     )
   }
-  if(plot_verbose){
-    pheatmap(keysToNames(LUAD.model,
-                         as.confidence(LUAD.model,
-                                       conf = 'npb')$npb$capri_aic) * 100,
-             main = paste("non-parametric bootstrap scores for AIC model for",label),
-             fontsize_row = 6,
-             fontsize_col = 6,
-             display_numbers = T,
-             number_format = "%f"
+  if (plot_verbose) {
+    par(.pardefault)
+    pheatmap(
+      keysToNames(
+        LUAD.model,
+        as.confidence(LUAD.model,
+                      conf = 'npb')$npb$capri_aic
+      ) * 100,
+      main = paste("non-parametric bootstrap scores for AIC model for", label),
+      fontsize_row = 6,
+      fontsize_col = 6,
+      display_numbers = T,
+      number_format = "%f"
     )
   }
-  if(plot_verbose){
+  if (plot_verbose) {
     ## then parametric ones
-    pheatmap(keysToNames(LUAD.model,
-                         as.confidence(LUAD.model,
-                                       conf = 'sb')$sb$capri_bic) * 100,
-             main = paste("non-parametric bootstrap scores for BIC model for",label),
-             fontsize_row = 6,
-             fontsize_col = 6,
-             display_numbers = T,
-             number_format = "%f"
+    par(.pardefault)
+    pheatmap(
+      keysToNames(
+        LUAD.model,
+        as.confidence(LUAD.model,
+                      conf = 'sb')$sb$capri_bic
+      ) * 100,
+      main = paste("non-parametric bootstrap scores for BIC model for", label),
+      fontsize_row = 6,
+      fontsize_col = 6,
+      display_numbers = T,
+      number_format = "%f"
     )
   }
-  if(plot_verbose){
-    pheatmap(keysToNames(LUAD.model,
-                         as.confidence(LUAD.model,
-                                       conf = 'sb')$sb$capri_aic) * 100,
-             main = paste("non-parametric bootstrap scores for AIC model for",label),
-             fontsize_row = 6,
-             fontsize_col = 6,
-             display_numbers = T,
-             number_format = "%f"
+  if (plot_verbose) {
+    par(.pardefault)
+    pheatmap(
+      keysToNames(
+        LUAD.model,
+        as.confidence(LUAD.model,
+                      conf = 'sb')$sb$capri_aic
+      ) * 100,
+      main = paste("non-parametric bootstrap scores for AIC model for", label),
+      fontsize_row = 6,
+      fontsize_col = 6,
+      display_numbers = T,
+      number_format = "%f"
     )
   }
   
   ## table with bootstrap scores
   boot_tab <- as.bootstrap.scores(LUAD.model)
   
-  if(verbose){
+  if (verbose) {
     print(boot_tab)
   }
   
@@ -91,30 +110,33 @@ statistics <- function(LUAD.model, label){
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.eloss(LUAD.model)
   kfold_eloss <- as.kfold.eloss(LUAD.model)
-
-  if(verbose){
+  
+  if (verbose) {
     print("kfold loss")
     print(kfold_eloss)
   }
   ## plot for every fold
   ## TODO make it work
-  if(plot_verbose){
-    vioplot(LUAD.model$kfold$capri_bic$eloss,
-            LUAD.model$kfold$capri_aic$eloss,
-            col = 'red',
-            lty = 1, rectCol="gray",
-            colMed = 'black',
-            names = c('BIC', 'AIC'), 
-            pchMed = 15, 
-            horizontal = T)
+  if (plot_verbose) {
+    vioplot(
+      LUAD.model$kfold$capri_bic$eloss,
+      LUAD.model$kfold$capri_aic$eloss,
+      col = 'red',
+      lty = 1,
+      rectCol = "gray",
+      colMed = 'black',
+      names = c('BIC', 'AIC'),
+      pchMed = 15,
+      horizontal = T
+    )
     title(main = paste('Entropy loss \n LUAD tumors -', label))
   }
   
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.prederr(LUAD.model)
   kfold_pred <- as.kfold.prederr(LUAD.model)
-
-  if(verbose){
+  
+  if (verbose) {
     print("kfold prediction")
     print(kfold_pred)
   }
@@ -122,8 +144,8 @@ statistics <- function(LUAD.model, label){
   ## k-fold cross validation, posterior classification error for each edge
   LUAD.model <- tronco.kfold.posterr(LUAD.model)
   kfold_post <- as.kfold.posterr(LUAD.model)
-
-  if(verbose){
+  
+  if (verbose) {
     print("kfold posterior")
     print(kfold_post)
   }
@@ -131,7 +153,7 @@ statistics <- function(LUAD.model, label){
   tab_bic <- tabular(LUAD.model, 'capri_bic')
   tab_aic <- tabular(LUAD.model, 'capri_aic')
   
-  if(verbose){
+  if (verbose) {
     print(label)
     print("table with all edge statistics using capri_bic")
     print(tab_bic)
@@ -140,33 +162,35 @@ statistics <- function(LUAD.model, label){
   }
   
   ## save model
-  save(LUAD.model, 
-       file = paste("output/luadDefModel_", label, ".rda", sep=''))
+  save(LUAD.model,
+       file = paste("output/luadDefModel_", label, ".rda", sep = ''))
   
   
   ## last DAG
-  if(plot_verbose){
-    tronco.plot(LUAD.model, 
-                pathways = pathway.list,  
-                edge.cex = 1.5,          
-                legend.cex = .35,         
-                scale.nodes = .6,        
-                confidence = c('tp', 'pr', 'hg'), 
-                pathways.color = pathways.color,  
-                disconnected = F,        
-                height.logic = .3,)
+  if (plot_verbose) {
+    tronco.plot(
+      LUAD.model,
+      pathways = pathway.list,
+      edge.cex = 1.5,
+      legend.cex = .35,
+      scale.nodes = .6,
+      confidence = c('tp', 'pr', 'hg'),
+      pathways.color = pathways.color,
+      disconnected = F,
+      height.logic = .3,
+    )
   }
-  # export.graphml(LUAD.model, 
+  # export.graphml(LUAD.model,
   #                file = "output/LUADgraphml.xml",
-  #                pathways = pathway.list,  
-  #                edge.cex = 1.5,          
-  #                legend.cex = .35,         
-  #                scale.nodes = .6,        
-  #                confidence = c('tp', 'pr', 'hg'), 
-  #                pathways.color = pathways.color,  
-  #                disconnected = F,        
+  #                pathways = pathway.list,
+  #                edge.cex = 1.5,
+  #                legend.cex = .35,
+  #                scale.nodes = .6,
+  #                confidence = c('tp', 'pr', 'hg'),
+  #                pathways.color = pathways.color,
+  #                disconnected = F,
   #                height.logic = .3)
-  # 
+  #
   # igraph <- read.graph(file = "output/LUADgraphml.xml", format = "graphml")
   # lisg <- as_adj_list(igraph, mode = "out")
   # lisge <- as_adj_edge_list(igraph, mode = "out")
@@ -182,7 +206,7 @@ statistics <- function(LUAD.model, label){
   #provide a list of timepoints to plot
   #You may need to add interpolated points to end up with the desired
   #visualization. Example here was actually sampled at days 0 and 150
-  # timepoints=c(0,30,75,150) 
+  # timepoints=c(0,30,75,150)
   #provide a matrix with the fraction of each population
   #present at each timepoint
   # frac.table = matrix(
@@ -205,30 +229,34 @@ statistics <- function(LUAD.model, label){
   #draw the plot, using the splining method (recommended)
   #and providing both timepoints to label and a plot title
   # fishPlot(fish,shape="spline",title.btm="Sample1",
-  #          cex.title=0.5, vlines=c(0,150), 
+  #          cex.title=0.5, vlines=c(0,150),
   #          vlab=c("day 0","day 150"))
   ## excel with all data
   excel.file <- paste0("output/LUAD_statistics_", label, ".xlsx")
   
   excel.wbook <- createWorkbook()
   
-  sheet.luad.bic <- createSheet(wb = excel.wbook, 
-                                sheetName="LUAD-bic")
-  sheet.luad.aic <- createSheet(wb = excel.wbook, 
-                                sheetName="LUAD-aic")
+  sheet.luad.bic <- createSheet(wb = excel.wbook,
+                                sheetName = "LUAD-bic")
+  sheet.luad.aic <- createSheet(wb = excel.wbook,
+                                sheetName = "LUAD-aic")
   
-  addDataFrame(x = tabular(LUAD.model, 
-                           'capri_bic'),
-               sheet = sheet.luad.bic,
-               showNA = T,
-               characterNA = 'NA')
-  addDataFrame(x = tabular(LUAD.model, 
-                           'capri_aic'),
-               sheet = sheet.luad.aic,
-               showNA = T,
-               characterNA = 'NA')
+  addDataFrame(
+    x = tabular(LUAD.model,
+                'capri_bic'),
+    sheet = sheet.luad.bic,
+    showNA = T,
+    characterNA = 'NA'
+  )
+  addDataFrame(
+    x = tabular(LUAD.model,
+                'capri_aic'),
+    sheet = sheet.luad.aic,
+    showNA = T,
+    characterNA = 'NA'
+  )
   
-  saveWorkbook(excel.wbook, 
+  saveWorkbook(excel.wbook,
                excel.file)
   
 }
