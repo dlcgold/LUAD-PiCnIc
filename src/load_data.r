@@ -74,7 +74,7 @@ if (maf_reload) {
                          "#D3AECC")
   }
   LUAD <- annotate.description(LUAD,
-                               "Lung cancer data from GDC portal")
+                               "LUAD somatic mutations from GDC portal")
   save(LUAD, file = "input/luadDef.rda")
 } else{
   LUAD <- loadRData("input/luadDef.rda")
@@ -256,6 +256,9 @@ if (plot_verbose) {
 LUAD.smoke <- annotate.stages(LUAD,
                               smoker,
                               match.TCGA.patients = TRUE)
+LUAD.smoke <- annotate.description(LUAD.smoke,
+                             "LUAD smoke trick")
+
 LUAD <- annotate.stages(LUAD,
                         clinical.data,
                         match.TCGA.patients = TRUE)
@@ -321,7 +324,7 @@ if (gistic_reload) {
   LUADGistic <- import.GISTIC(LUAD.gistic,
                               trim = FALSE)
   LUADGistic <- annotate.description(LUADGistic,
-                                     label = "LUAD GISTIC for driver genes")
+                                     label = "LUAD CNA data from GDC portal")
   save(LUADGistic,
        file = "input/luadDefGistic.rda")
   
@@ -398,7 +401,7 @@ LUAD <- trim(LUAD)
 LUAD <- annotate.stages(LUAD,
                         clinical.data)
 LUAD <- annotate.description(x = LUAD,
-                             label = "LUAD MAF/CNA data for driver genes")
+                             label = "LUAD somatic mutations and CNA from GCD portal")
 
 LUAD$types['Deletion', ] <- '#8FBCBB'
 LUAD$types['Amplification', ] <- '#81a1c1'
@@ -486,7 +489,7 @@ if (plot_verbose) {
 }
 
 LUAD <- annotate.description(LUAD,
-                             "LUAD complete MAF/GISTIC")
+                             "LUAD somatic mutations and CNA from GCD portal, final")
 
 ## other fancy plots using maftools
 MAF.dataframe <- import.MAF(

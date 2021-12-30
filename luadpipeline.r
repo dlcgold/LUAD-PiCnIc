@@ -58,7 +58,7 @@ gistic_reload <- maf_reload
 min_freq <- 0.03
 
 ## bootstrap iteration, should be around 100
-num_boot_iter <- 5
+num_boot_iter <- 10
 
 ## workaround for plots
 .pardefault <- par()
@@ -126,12 +126,6 @@ labels <- c(label.all, label.tru, label.pi, label.pp)
   # 'mucinous',
 ## mucinous subgroup is too small!
 
-## model reconstruction parametes
-## TODO they are random at the moment
-## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
-
-
-
 ## make analysis for every subtype
 i <- 1
 for (m in models) {
@@ -163,3 +157,4 @@ for (pw in pathway.list) {
   # browseURL(as.character(getPathwayInfo(my.wpids[1])[2]))
   print("-------------------------------------------------------------")
 }
+
