@@ -123,6 +123,7 @@ model <- function(LUAD,
                              boot.seed = 42,
                              nboot = num_boot_iter)
   
+  ## FIRST TRONCO.PLOT
   ## DAG of model with hypotheses
   if (plot_verbose) {
     tronco.plot(
@@ -195,7 +196,7 @@ model <- function(LUAD,
   }
   
   ## There are not hardexclusivity subgroups. Trust The Data, full stop!
-  
+  ## 
   ## plot of final reconstruction model before statistical analysis
   if (plot_verbose) {
     tronco.plot(

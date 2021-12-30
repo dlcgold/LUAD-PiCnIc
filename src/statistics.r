@@ -30,6 +30,7 @@ statistics <- function(LUAD.model, label) {
       pathways.color = pathways.color,
       disconnected = F,
       height.logic = .3,
+      title = paste(label, "- first bootstrap")
     )
     
   }
