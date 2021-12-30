@@ -114,12 +114,6 @@ labels <- c(
   # 'mucinous',
 ## mucinous subgroup is too small!
 
-## model reconstruction parametes
-## TODO they are random at the moment
-## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
-
-
-
 ## make analysis for every subtype
 i <- 1
 for (m in models) {
@@ -151,3 +145,4 @@ for (pw in pathway.list) {
   # browseURL(as.character(getPathwayInfo(my.wpids[1])[2]))
   print("-------------------------------------------------------------")
 }
+
