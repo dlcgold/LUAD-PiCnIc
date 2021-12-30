@@ -55,7 +55,7 @@ num_boot_iter <- 5
 
 ## workaround for plots
 .pardefault <- par()
-
+par(.pardefault)
 ## setwd('~/DCB-project/')
 ### END CONF
 
@@ -104,7 +104,7 @@ models <- list(LUAD,
 
 ## labels for every subtype (the first is dataset without subtype selection)
 labels <- c(
-  'all',
+  'all subtypes',
   'terminal respiratory unit (TRU, branchoid)',
   'proximal inflammatory (PI, squamoid)',
   'proximal proliferative (PP, magnoid)')
@@ -117,17 +117,16 @@ labels <- c(
 ## model reconstruction parametes
 ## TODO they are random at the moment
 ## gene.hypotheses <- c('KRAS', 'BRAF', 'ATM', 'STK11')
-gene.sel <- P53
-genes.compare <- c('TP53', 'ATM')
-genes.to <- c('KRAS', mut)
+
 
 
 ## make analysis for every subtype
 i <- 1
 for (m in models) {
+  ## MODELS CONF
+
   ## model reconstruction
-  troncomodel <- model(m, gene.sel, genes.compare,
-                       genes.to, labels[i])
+  troncomodel <- model(m, labels[i])
   ## statistical analysis
   statistics(troncomodel, labels[i])
   i <- i + 1

@@ -14,8 +14,8 @@ if (plot_verbose) {
       title = paste("LUAD - Mutex group 1"),
       legend.cex = .3,
       font.row = 6,
-      ann.hits = FALSE,
       cellheight = 10,
+      ann.hits = FALSE,
       silent = TRUE,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
@@ -101,3 +101,5 @@ if (plot_verbose) {
     gtable = TRUE
   )
 }
+
+par(.pardefault)

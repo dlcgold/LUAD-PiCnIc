@@ -1,16 +1,10 @@
 #' Function to make model reconstruction for LUAD
 #'
 #' @param LUAD TRONCO object dataset
-#' @param gene.sel
-#' @param genes.compare
-#' @param genes.to
 #' @param label label to identify subtype
 #'
 #' @return the model obtained with capri algorithm
 model <- function(LUAD,
-                  gene.sel,
-                  genes.compare,
-                  genes.to,
                   label) {
   ## model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
   
@@ -30,9 +24,9 @@ model <- function(LUAD,
   if (plot_verbose) {
     oncoprint(
       LUAD.select,
-      legend.cex = .5,
-      cellwidth = 3,
-      cellheight = 10,
+      # legend.cex = .5,
+      # cellwidth = 3,
+      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       sample.id = TRUE
@@ -46,8 +40,8 @@ model <- function(LUAD,
   if (length(del[["indistinguishable"]]) > 0) {
     for (i in seq_along(del[["indistinguishable"]])) {
       for (j in seq_len(nrow(del[["indistinguishable"]][[i]]))) {
-        gene <- del[["indistinguishable"]][[i]][j, ][2][[1]]
-        type <- del[["indistinguishable"]][[i]][j, ][1][[1]]
+        gene <- del[["indistinguishable"]][[i]][j,][2][[1]]
+        type <- del[["indistinguishable"]][[i]][j,][1][[1]]
         LUAD.select <- delete.event(LUAD.select,
                                     gene = as.character(gene),
                                     type = as.character(type))
@@ -103,7 +97,19 @@ model <- function(LUAD,
     dim.min = length(LUAD.megsa2.subtype)
   )
   
-  ## Add all the hypotheses related to homologou events
+  ## Added co-mutation(NF1, TP53) hypotesis as in marker paper
+  if (label == 'proximal proliferative (PP, magnoid)') {
+    LUAD.hypo <-
+      hypothesis.add(LUAD.hypo, 'KRAS and STK11', AND('KRAS', 'STK11'))
+  }
+  
+  ## Added co-mutation(NF1, TP53) hypotesis as in marker paper
+  if (label == 'proximal inflammatory (PI, squamoid)') {
+    LUAD.hypo <-
+      hypothesis.add(LUAD.hypo, 'NF1 and TP53', AND('NF1', 'TP53'))
+  }
+  
+  ## Add all the hypotheses related to homologous events
   LUAD.hypo <- hypothesis.add.homologous(LUAD.hypo)
   
   ## Edit annotation
@@ -188,65 +194,24 @@ model <- function(LUAD,
     print(LUAD.hypo.model.selpf)
   }
   
-  if (label == 'all') {
-    # intersection
-    gene.sel <- gene.sel[gene.sel %in% as.genes(LUAD)]
-    ## dataframe with selective advanges, with a subset of genes
-    ## TODO make test with usefull subset of genes
-    LUAD.hypo.model.selsub <-
-      as.selective.advantage.relations(LUAD.model,
-                                       events = as.events(LUAD.model,
-                                                          genes = gene.sel))
-    if (verbose) {
-      print(paste("advatanges selection by for", label))
-      print(LUAD.hypo.model.selsub)
-    }
-    
-    
-    # TODO add some graph regarding pattern
-    # such as these but working
-    # examples for hard exclusivity
-    # plots for presentation
-    
-    if (plot_verbose) {
-      tronco.pattern.plot(
-        LUAD.hypo,
-        group = as.events(LUAD.hypo, genes = genes.compare),
-        to = genes.to,
-        legend.cex = 0.8,
-        label.cex = 1.0,
-        mode = "barplot"
-      )
-    }
-    par(.pardefault)
-    
-    if (plot_verbose) {
-      tronco.pattern.plot(
-        LUAD.hypo,
-        group = as.events(LUAD.hypo, genes = genes.compare),
-        to = genes.to,
-        legend.cex = 0.8,
-        label.cex = 1.0,
-        mode = "circos"
-      )
-    }
-    ## plot of final reconstruction model before statistical analysis
-    if (plot_verbose) {
-      tronco.plot(
-        LUAD.model,
-        pathways = pathway.list,
-        edge.cex = 1.5,
-        legend.cex = .35,
-        scale.nodes = .6,
-        confidence = c('tp', 'pr', 'hg'),
-        pathways.color = pathways.color,
-        disconnected = F,
-        height.logic
-        = .3,
-      )
-    }
-    
+  ## There are not hardexclusivity subgroups. Trust The Data, full stop!
+  
+  ## plot of final reconstruction model before statistical analysis
+  if (plot_verbose) {
+    tronco.plot(
+      LUAD.model,
+      pathways = pathway.list,
+      edge.cex = 1.5,
+      legend.cex = .35,
+      scale.nodes = .6,
+      confidence = c('tp', 'pr', 'hg'),
+      pathways.color = pathways.color,
+      disconnected = F,
+      height.logic = .3,
+    )
   }
+  
+  
   return(LUAD.model)
   
 }

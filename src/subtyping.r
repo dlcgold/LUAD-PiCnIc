@@ -221,9 +221,9 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.acinar,
-      legend.cex = .5,
-      cellwidth = 3,
-      cellheight = 10,
+      # legend.cex = .5,
+      # cellwidth = 3,
+      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""
@@ -235,9 +235,9 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.nonmucinous,
-      legend.cex = .5,
-      cellwidth = 3,
-      cellheight = 10,
+      # legend.cex = .5,
+      # cellwidth = 3,
+      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""
@@ -250,9 +250,9 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.papillary,
-      legend.cex = .5,
-      cellwidth = 3,
-      cellheight = 10,
+      # legend.cex = .5,
+      # cellwidth = 3,
+      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""

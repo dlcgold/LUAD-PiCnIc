@@ -177,7 +177,7 @@ statistics <- function(LUAD.model, label) {
       confidence = c('tp', 'pr', 'hg'),
       pathways.color = pathways.color,
       disconnected = F,
-      height.logic = .3,
+      # height.logic = .3,
     )
   }
   # export.graphml(LUAD.model,
