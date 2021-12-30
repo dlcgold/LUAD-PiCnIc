@@ -256,6 +256,9 @@ if (plot_verbose) {
 LUAD.smoke <- annotate.stages(LUAD,
                               smoker,
                               match.TCGA.patients = TRUE)
+LUAD.smoke <- annotate.description(LUAD.smoke,
+                             "LUAD smoke trick")
+
 LUAD <- annotate.stages(LUAD,
                         clinical.data,
                         match.TCGA.patients = TRUE)
