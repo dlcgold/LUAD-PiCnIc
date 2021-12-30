@@ -20,6 +20,7 @@ LUAD.PI <- trim(samples.selection(LUAD, subtypes.PI$patient))
 LUAD.PI <- annotate.description(LUAD.PI,
                                 "LUAD PI subtype")
 
+
 if (histological_verbose) {
   ### Histologic Types
   ## reload clinical data
@@ -115,10 +116,8 @@ if (verbose) {
     "events"
   ))}
 
+## TODO CHECK ANNOTATE
 ## oncoprint of the subtypes
-if (plot_verbose) {
-  oncoprint(LUAD.TRU)
-}
 if (plot_verbose) {
   oncoprint(
     LUAD.TRU,
@@ -127,14 +126,11 @@ if (plot_verbose) {
     # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
-    title = ""
   )
 }
 
 ## oncoprint of the subtypes
-if (plot_verbose) {
-  oncoprint(LUAD.PP)
-}
+
 if (plot_verbose) {
   oncoprint(
     LUAD.PP,
@@ -143,13 +139,9 @@ if (plot_verbose) {
     # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
-    title = ""
   )
 }
-## oncoprint of the subtypes
-if (plot_verbose) {
-  oncoprint(LUAD.PI)
-}
+
 if (plot_verbose) {
   oncoprint(
     LUAD.PI,
@@ -158,7 +150,6 @@ if (plot_verbose) {
     # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
-    title = ""
   )
 }
 

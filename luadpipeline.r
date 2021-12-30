@@ -21,6 +21,13 @@ library(igraph)
 library("xlsx")
 library(rWikiPathways)
 
+### DEPENDECIES TREE
+library("cranly")
+cran_db <- clean_CRAN_db()
+package_network <- build_network(cran_db, perspective = "package")
+
+
+
 ### PIPELINE CONFIGURATION
 ## files (mutex, clinical, genes drivers from IMCDriver)
 file.mutex <- "input/LUAD_mutex.txt"
@@ -102,12 +109,17 @@ models <- list(LUAD,
 # LUAD.papillary,
 # LUAD.mucinous,
 
+
+label.all <- 'all subtypes'
+label.tru <- 'terminal respiratory unit (TRU, branchoid)'
+label.pp <- 'proximal proliferative (PP, magnoid)'
+label.pi <- 'proximal inflammatory (PI, squamoid)'
+
 ## labels for every subtype (the first is dataset without subtype selection)
-labels <- c(
-  'all subtypes',
-  'terminal respiratory unit (TRU, branchoid)',
-  'proximal inflammatory (PI, squamoid)',
-  'proximal proliferative (PP, magnoid)')
+labels <- c(label.all, label.tru, label.pi, label.pp)
+  # 'terminal respiratory unit (TRU, branchoid)',
+  # 'proximal inflammatory (PI, squamoid)',
+  # 'proximal proliferative (PP, magnoid)')
   # 'acinar',
   # 'nonmucinous',
   # 'papillary',
