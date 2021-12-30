@@ -1,135 +1,270 @@
 # SUBTYPING
 
-## reload clinical data
-clinical_sub <- read_tsv(file.clinical)
+### Molecular Subtypes
+subtypes <- TCGAquery_subtype(tumor = "luad")
 
-## names of interesting subtypes
-acinar <- "lung acinar adenocarcinoma"
-nonmucinous <- "lung bronchioloalveolar carcinoma nonmucinous"
-papillary <- "lung papillary adenocarcinoma"
-mucinous <- "mucinous (colloid) carcinoma"
+subtypes.TRU <- subtypes[subtypes$expression_subtype %in% c("TRU"), ]
+subtypes.PP <-
+  subtypes[subtypes$expression_subtype %in% c("prox.-prolif."), ]
+subtypes.PI <-
+  subtypes[subtypes$expression_subtype %in% c("prox.-inflam"), ]
 
-## detect samples
-acinar_samples <- clinical_sub[clinical_sub$histological_type == acinar, ]
-acinar_samples <- acinar_samples[acinar_samples$rn %in% as.samples(LUAD),]
-acinar_samples <- acinar_samples$rn
+LUAD.TRU <- trim(samples.selection(LUAD, subtypes.TRU$patient))
+LUAD.TRU <- annotate.description(LUAD.TRU,
+                                 "LUAD TRU subtype")
 
-nonmucinous_samples <- clinical_sub[clinical_sub$histological_type == nonmucinous, ]
-nonmucinous_samples <- nonmucinous_samples[nonmucinous_samples$rn %in% as.samples(LUAD),]
-nonmucinous_samples <- nonmucinous_samples$rn
+LUAD.PP <- trim(samples.selection(LUAD, subtypes.PP$patient))
+LUAD.PP <- annotate.description(LUAD.PP,
+                                "LUAD PP subtype")
+LUAD.PI <- trim(samples.selection(LUAD, subtypes.PI$patient))
+LUAD.PI <- annotate.description(LUAD.PI,
+                                "LUAD PI subtype")
 
-## detect samples
-papillary_samples <- clinical_sub[clinical_sub$histological_type == papillary, ]
-papillary_samples <- papillary_samples[papillary_samples$rn %in% as.samples(LUAD),]
-papillary_samples <- papillary_samples$rn
-
-mucinous_samples <- clinical_sub[clinical_sub$histological_type == mucinous, ]
-mucinous_samples <- mucinous_samples[mucinous_samples$rn %in% as.samples(LUAD),]
-mucinous_samples <- mucinous_samples$rn
-
-
-## subset of LUAD tronco object for every subtype
-LUAD.acinar <- trim(samples.selection(LUAD, acinar_samples))
-LUAD.acinar <- annotate.description(LUAD.acinar, 
-                                    "LUAD acinar subtype")
-
-LUAD.nonmucinous <- trim(samples.selection(LUAD, nonmucinous_samples))
-LUAD.nonmucinous <- annotate.description(LUAD.nonmucinous, 
-                                         "LUAD nonmucinous subtype")
-
-LUAD.papillary <- trim(samples.selection(LUAD, papillary_samples))
-LUAD.papillary <- annotate.description(LUAD.papillary, 
-                                       "LUAD papillary subtype")
-
-LUAD.mucinous <- trim(samples.selection(LUAD, mucinous_samples))
-LUAD.mucinous <- annotate.description(LUAD.mucinous, 
-                                      "LUAD mucinous subtype")
+if (histological_verbose) {
+  ### Histologic Types
+  ## reload clinical data
+  clinical_sub <- read_tsv(file.clinical)
+  
+  ## names of interesting subtypes
+  acinar <- "lung acinar adenocarcinoma"
+  nonmucinous <- "lung bronchioloalveolar carcinoma nonmucinous"
+  papillary <- "lung papillary adenocarcinoma"
+  mucinous <- "mucinous (colloid) carcinoma"
+  
+  ## detect samples
+  acinar_samples <-
+    clinical_sub[clinical_sub$histological_type == acinar, ]
+  acinar_samples <-
+    acinar_samples[acinar_samples$rn %in% as.samples(LUAD),]
+  acinar_samples <- acinar_samples$rn
+  
+  nonmucinous_samples <-
+    clinical_sub[clinical_sub$histological_type == nonmucinous, ]
+  nonmucinous_samples <-
+    nonmucinous_samples[nonmucinous_samples$rn %in% as.samples(LUAD),]
+  nonmucinous_samples <- nonmucinous_samples$rn
+  
+  ## detect samples
+  papillary_samples <-
+    clinical_sub[clinical_sub$histological_type == papillary, ]
+  papillary_samples <-
+    papillary_samples[papillary_samples$rn %in% as.samples(LUAD),]
+  papillary_samples <- papillary_samples$rn
+  
+  mucinous_samples <-
+    clinical_sub[clinical_sub$histological_type == mucinous, ]
+  mucinous_samples <-
+    mucinous_samples[mucinous_samples$rn %in% as.samples(LUAD),]
+  mucinous_samples <- mucinous_samples$rn
+  
+  
+  ## subset of LUAD tronco object for every subtype
+  LUAD.acinar <- trim(samples.selection(LUAD, acinar_samples))
+  LUAD.acinar <- annotate.description(LUAD.acinar,
+                                      "LUAD acinar subtype")
+  
+  LUAD.nonmucinous <-
+    trim(samples.selection(LUAD, nonmucinous_samples))
+  LUAD.nonmucinous <- annotate.description(LUAD.nonmucinous,
+                                           "LUAD nonmucinous subtype")
+  
+  LUAD.papillary <- trim(samples.selection(LUAD, papillary_samples))
+  LUAD.papillary <- annotate.description(LUAD.papillary,
+                                         "LUAD papillary subtype")
+  
+  LUAD.mucinous <- trim(samples.selection(LUAD, mucinous_samples))
+  LUAD.mucinous <- annotate.description(LUAD.mucinous,
+                                        "LUAD mucinous subtype")
+  
+}
 
 old_events <- nevents(LUAD)
 
 ## select events for complete analysis (alla data) with a min freq
-LUAD <- events.selection(LUAD, 
+LUAD <- events.selection(LUAD,
                          filter.freq = min_freq)
 new_events <- nevents(LUAD)
 
-## select events for every subtype and get the corresponding TRONCO objects
-LUAD.acinar <- events.selection(LUAD.acinar, 
-                                filter.freq = min_freq)
-LUAD.nonmucinous <- events.selection(LUAD.nonmucinous, 
-                                     filter.freq = min_freq)
-LUAD.papillary <- events.selection(LUAD.papillary, 
-                                   filter.freq = min_freq)
-LUAD.mucinous <- events.selection(LUAD.mucinous, 
-                                  filter.freq = min_freq)
+LUAD.TRU <- events.selection(LUAD.TRU,
+                             filter.freq = min_freq)
+LUAD.PP <- events.selection(LUAD.PP,
+                            filter.freq = min_freq)
+LUAD.PI <- events.selection(LUAD.PI,
+                            filter.freq = min_freq)
 
-## print number of samples and events
-if(verbose){
-  print(paste("Acinar subtype has",
-              nsamples(LUAD.acinar), 
-              "events and", 
-              nevents(LUAD.acinar), 
-              "events"))
-  print(paste("Nonmucinous subtype has",
-              nsamples(LUAD.nonmucinous), 
-              "events and", 
-              nevents(LUAD.nonmucinous), 
-              "events"))
-  print(paste("Papillary subtype has",
-              nsamples(LUAD.papillary), 
-              "events and", 
-              nevents(LUAD.papillary), 
-              "events"))
-  print(paste("Mucinous subtype has",
-              nsamples(LUAD.mucinous), 
-              "events and", 
-              nevents(LUAD.mucinous), 
-              "events"))
+if (verbose) {
+  print(paste(
+    "TRU subtype has",
+    nsamples(LUAD.TRU),
+    "samples and",
+    nevents(LUAD.TRU),
+    "events"
+  ))
+  print(paste(
+    "PP subtype has",
+    nsamples(LUAD.PP),
+    "samples and",
+    nevents(LUAD.PP),
+    "events"
+  ))
+  print(paste(
+    "PI subtype has",
+    nsamples(LUAD.PI),
+    "samples and",
+    nevents(LUAD.PI),
+    "events"
+  ))}
+
+## oncoprint of the subtypes
+if (plot_verbose) {
+  oncoprint(LUAD.TRU)
+}
+if (plot_verbose) {
+  oncoprint(
+    LUAD.TRU,
+    # legend.cex = .5,
+    # cellwidth = 3,
+    # cellheight = 10,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    title = ""
+  )
 }
 
 ## oncoprint of the subtypes
-if(plot_verbose){
-  oncoprint(LUAD.acinar)
+if (plot_verbose) {
+  oncoprint(LUAD.PP)
 }
-if(plot_verbose){
-  oncoprint(LUAD.acinar,
-            legend.cex = .5,          
-            cellwidth = 3,           
-            cellheight = 10,
-            gene.annot = pathway.list, 
-            gene.annot.color = pathways.color,
-            title = "")
+if (plot_verbose) {
+  oncoprint(
+    LUAD.PP,
+    # legend.cex = .5,
+    # cellwidth = 3,
+    # cellheight = 10,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    title = ""
+  )
 }
-if(plot_verbose){
-  oncoprint(LUAD.nonmucinous)
+## oncoprint of the subtypes
+if (plot_verbose) {
+  oncoprint(LUAD.PI)
 }
-if(plot_verbose){
-  oncoprint(LUAD.nonmucinous,
-            legend.cex = .5,          
-            cellwidth = 3,           
-            cellheight = 10,
-            gene.annot = pathway.list, 
-            gene.annot.color = pathways.color,
-            title = "")
+if (plot_verbose) {
+  oncoprint(
+    LUAD.PI,
+    # legend.cex = .5,
+    # cellwidth = 3,
+    # cellheight = 10,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+    title = ""
+  )
+}
+
+
+
+
+
+
+
+
+
+
+if (histological_verbose) {
+  ## select events for every subtype and get the corresponding TRONCO objects
+  LUAD.acinar <- events.selection(LUAD.acinar,
+                                  filter.freq = min_freq)
+  LUAD.nonmucinous <- events.selection(LUAD.nonmucinous,
+                                       filter.freq = min_freq)
+  LUAD.papillary <- events.selection(LUAD.papillary,
+                                     filter.freq = min_freq)
+  LUAD.mucinous <- events.selection(LUAD.mucinous,
+                                    filter.freq = min_freq)
   
+  ## print number of samples and events
+  if (verbose) {
+    print(paste(
+      "Acinar subtype has",
+      nsamples(LUAD.acinar),
+      "events and",
+      nevents(LUAD.acinar),
+      "events"
+    ))
+    print(paste(
+      "Nonmucinous subtype has",
+      nsamples(LUAD.nonmucinous),
+      "events and",
+      nevents(LUAD.nonmucinous),
+      "events"
+    ))
+    print(paste(
+      "Papillary subtype has",
+      nsamples(LUAD.papillary),
+      "events and",
+      nevents(LUAD.papillary),
+      "events"
+    ))
+    print(paste(
+      "Mucinous subtype has",
+      nsamples(LUAD.mucinous),
+      "events and",
+      nevents(LUAD.mucinous),
+      "events"
+    ))
   }
-  if(plot_verbose){
-   oncoprint(LUAD.papillary)
-  }
-  if(plot_verbose){
-   oncoprint(LUAD.papillary,
-            legend.cex = .5,          
-            cellwidth = 3,           
-            cellheight = 10,
-            gene.annot = pathway.list, 
-            gene.annot.color = pathways.color,
-            title = "")
   
-  # oncoprint(LUAD.mucinous)
-  # oncoprint(LUAD.mucinous,
-  #           legend.cex = .5,          
-  #           cellwidth = 3,           
-  #           cellheight = 10,
-  #           gene.annot = pathway.list, 
-  #           gene.annot.color = pathways.color,
-  #           title = "")
+  ## oncoprint of the subtypes
+  if (plot_verbose) {
+    oncoprint(LUAD.acinar)
+  }
+  if (plot_verbose) {
+    oncoprint(
+      LUAD.acinar,
+      legend.cex = .5,
+      cellwidth = 3,
+      cellheight = 10,
+      gene.annot = pathway.list,
+      gene.annot.color = pathways.color,
+      title = ""
+    )
+  }
+  if (plot_verbose) {
+    oncoprint(LUAD.nonmucinous)
+  }
+  if (plot_verbose) {
+    oncoprint(
+      LUAD.nonmucinous,
+      legend.cex = .5,
+      cellwidth = 3,
+      cellheight = 10,
+      gene.annot = pathway.list,
+      gene.annot.color = pathways.color,
+      title = ""
+    )
+    
+  }
+  if (plot_verbose) {
+    oncoprint(LUAD.papillary)
+  }
+  if (plot_verbose) {
+    oncoprint(
+      LUAD.papillary,
+      legend.cex = .5,
+      cellwidth = 3,
+      cellheight = 10,
+      gene.annot = pathway.list,
+      gene.annot.color = pathways.color,
+      title = ""
+    )
+    
+    # oncoprint(LUAD.mucinous)
+    # oncoprint(LUAD.mucinous,
+    #           legend.cex = .5,
+    #           cellwidth = 3,
+    #           cellheight = 10,
+    #           gene.annot = pathway.list,
+    #           gene.annot.color = pathways.color,
+    #           title = "")
+  }
 }

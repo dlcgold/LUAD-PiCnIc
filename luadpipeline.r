@@ -31,13 +31,14 @@ file_drivers <- "input/gene_drivers.xlsx"
 ## flags for textual and visual output
 verbose <- TRUE
 plot_verbose <- TRUE
+histological_verbose <- FALSE
 
-## flag for not distinguish mutation 
+## flag for not distinguish mutation
 ## and eventually know how to distinguish mutations
 all_mut <- FALSE
-if(all_mut){
+if (all_mut) {
   mut <- 'Nonsense_Mutation'
-}else{
+} else{
   mut <- 'Mutation'
 }
 
@@ -91,26 +92,27 @@ print("group exclusivity analysis")
 source("src/group_exclusivity.r")
 
 
-
-
-
-
 # models list for analysis (the first is dataset without subtype selection)
 models <- list(LUAD,
-               LUAD.acinar,
-               LUAD.nonmucinous,
-               LUAD.papillary,
-               LUAD.mucinous)
+               LUAD.TRU,
+               LUAD.PI,
+               LUAD.PP)
+# LUAD.acinar,
+# LUAD.nonmucinous,
+# LUAD.papillary,
+# LUAD.mucinous,
 
 ## labels for every subtype (the first is dataset without subtype selection)
-labels <- c('all',
-            'acinar',
-            'nonmucinous',
-            'papillary',
-            'mucinous')
+labels <- c(
+  'all',
+  'terminal respiratory unit (TRU, branchoid)',
+  'proximal inflammatory (PI, squamoid)',
+  'proximal proliferative (PP, magnoid)')
+  # 'acinar',
+  # 'nonmucinous',
+  # 'papillary',
+  # 'mucinous',
 ## mucinous subgroup is too small!
-## excluded <- c('mucinous')
-excluded <- 'mucinous'
 
 ## model reconstruction parametes
 ## TODO they are random at the moment
@@ -120,34 +122,33 @@ genes.compare <- c('TP53', 'ATM')
 genes.to <- c('KRAS', mut)
 
 
-
 ## make analysis for every subtype
 i <- 1
 for (m in models) {
-  if (labels[i] != excluded) {
-    ## model reconstruction
-    troncomodel <- model(m, gene.sel, genes.compare,
-                         genes.to, labels[i])
-    ## statistical analysis
-    statistics(troncomodel, labels[i])
-  }
+  ## model reconstruction
+  troncomodel <- model(m, gene.sel, genes.compare,
+                       genes.to, labels[i])
+  ## statistical analysis
+  statistics(troncomodel, labels[i])
   i <- i + 1
 }
 
 print("END OF PiCnIc")
 
 
-for(pw in pathway.list){
+for (pw in pathway.list) {
   print("pathway")
   print(pw)
-  my.pathways <- findPathwaysByText(paste(pw, collapse = ' '))
-  my.hs.pathways <- my.pathways[my.pathways$species == 'Homo sapiens',]
+  my.pathways <-
+    findPathwaysByText(paste(pw, collapse = ' '))
+  my.hs.pathways <-
+    my.pathways[my.pathways$species == 'Homo sapiens',]
   my.wpids <- my.hs.pathways$id
-  pw.title <- my.hs.pathways[1]$name
+  # pw.title <- my.hs.pathways[1]$name
   print(my.hs.pathways[1]$name)
   print(my.hs.pathways[2]$name)
   print(my.hs.pathways[3]$name)
-  pw.genes <- getXrefList(my.wpids[1],"H")
-  browseURL(as.character(getPathwayInfo(my.wpids[1])[2]))
+  pw.genes <- getXrefList(my.wpids[1], "H")
+  # browseURL(as.character(getPathwayInfo(my.wpids[1])[2]))
   print("-------------------------------------------------------------")
 }
