@@ -102,12 +102,48 @@ model <- function(LUAD,
   if (label == 'proximal proliferative (PP, magnoid)') {
     LUAD.hypo <-
       hypothesis.add(LUAD.hypo, 'KRAS and STK11', AND('KRAS', 'STK11'))
+
+      ## ONCOPRINT
+      if (plot_verbose) {
+        oncoprint(
+          events.selection(LUAD,
+                          filter.in.names = c('KRAS', 'STK11')),
+          title = paste("LUAD PP - KRAS and STK11 (knowledge prior)"),
+          legend.cex = .3,
+          font.row = 6,
+          ann.hits = FALSE,
+          cellheight = 10,
+          cellwidth = 1,
+          #silent = T,
+          gene.annot = pathway.list,
+          gene.annot.color = pathways.color,
+          gtable = TRUE
+        )
+      }
   }
   
   ## Added co-mutation(NF1, TP53) hypotesis as in marker paper
   if (label == 'proximal inflammatory (PI, squamoid)') {
     LUAD.hypo <-
       hypothesis.add(LUAD.hypo, 'NF1 and TP53', AND('NF1', 'TP53'))
+
+      ## ONCOPRINT
+      if (plot_verbose) {
+        oncoprint(
+          events.selection(LUAD,
+                          filter.in.names = c('NF1', 'TP53')),
+          title = paste("LUAD PI - NF1 and TP53 (knowledge prior)"),
+          legend.cex = .3,
+          font.row = 6,
+          ann.hits = FALSE,
+          cellheight = 10,
+          cellwidth = 1,
+          #silent = T,
+          gene.annot = pathway.list,
+          gene.annot.color = pathways.color,
+          gtable = TRUE
+        )
+      }
   }
   
   ## Add all the hypotheses related to homologous events
