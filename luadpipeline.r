@@ -39,6 +39,7 @@ file_drivers <- "input/gene_drivers.xlsx"
 verbose <- TRUE
 plot_verbose <- TRUE
 histological_verbose <- FALSE
+tronco_reload <- FALSE
 
 ## flag for not distinguish mutation
 ## and eventually know how to distinguish mutations
@@ -115,8 +116,14 @@ label.tru <- 'terminal respiratory unit (TRU, branchoid)'
 label.pp <- 'proximal proliferative (PP, magnoid)'
 label.pi <- 'proximal inflammatory (PI, squamoid)'
 
+label.all.short <- 'ALL'
+label.tru.short <- 'TRU'
+label.pp.short <- 'PP'
+label.pi.short <- 'PI'
+
 ## labels for every subtype (the first is dataset without subtype selection)
 labels <- c(label.all, label.tru, label.pi, label.pp)
+labels.short <- c(label.all.short, label.tru.short, label.pi.short, label.pp.short)
   # 'terminal respiratory unit (TRU, branchoid)',
   # 'proximal inflammatory (PI, squamoid)',
   # 'proximal proliferative (PP, magnoid)')
@@ -129,12 +136,11 @@ labels <- c(label.all, label.tru, label.pi, label.pp)
 ## make analysis for every subtype
 i <- 1
 for (m in models) {
-  ## MODELS CONF
 
-  ## model reconstruction
-  troncomodel <- model(m, labels[i])
+  ## model analysis
+  troncomodel <- model(m, labels[i], labels.short[i])
   ## statistical analysis
-  statistics(troncomodel, labels[i])
+  statistics(troncomodel, labels[i], labels.short[i])
   i <- i + 1
 }
 

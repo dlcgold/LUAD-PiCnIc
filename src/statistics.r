@@ -17,6 +17,8 @@ statistics <- function(LUAD.model, label) {
                                  nboot = num_boot_iter,
                                  cores.ratio = .5)
   
+  save(LUAD.model, file=paste("input/model_boostrap", label, ".rda", sep=''))
+  
   ## DAG of the model above
   if (plot_verbose) {
     par(.pardefault)

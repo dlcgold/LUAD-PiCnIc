@@ -5,7 +5,7 @@
 #'
 #' @return the model obtained with capri algorithm
 model <- function(LUAD,
-                  label) {
+                  label, label.short) {
   ## model <- function(LUAD, gene.hypotheses, gene.sel, genes.compare, genes.to, label){
   
   ## select from LUAD with min freq, apriori knowledge and mutex genes
@@ -51,6 +51,7 @@ model <- function(LUAD,
   
   ## add hypotheses
   LUAD.hypo <- LUAD.select
+
   
   ## first hypotheses from mutex (using only available genes)
   if (!is.null(LUAD.mutex)) {
@@ -116,12 +117,18 @@ model <- function(LUAD,
   LUAD.hypo <- annotate.description(LUAD.hypo,
                                     as.description(LUAD.select))
   
+  save(LUAD.hypo, file = paste("input/saved_hypotesis", label.short, ".rda", sep=''))
+  
+  
   
   ## First use of CAPRI, with default parameters
   ## except for bootstrap iterations number
   LUAD.model <- tronco.capri(LUAD.hypo,
                              boot.seed = 42,
                              nboot = num_boot_iter)
+  
+  save(LUAD.model, file = paste("input/saved_model", label.short, ".rda", sep=''))
+  
   
   ## FIRST TRONCO.PLOT
   ## DAG of model with hypotheses
