@@ -106,7 +106,7 @@ model <- function(LUAD,
       ## ONCOPRINT
       if (plot_verbose) {
         oncoprint(
-          events.selection(LUAD,
+          events.selection(LUADtmp,
                           filter.in.names = c('KRAS', 'STK11')),
           title = paste("LUAD PP - KRAS and STK11 (knowledge prior)"),
           legend.cex = .3,

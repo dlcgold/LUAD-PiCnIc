@@ -2,7 +2,7 @@
 #'
 #' @param LUAD.model TRONCO object model
 #' @param label label to identify subtype
-statistics <- function(LUAD.model, label) {
+statistics <- function(LUAD.model, label, label.short) {
   ## STATISTICS
   
   # STATISTICS
@@ -203,37 +203,7 @@ statistics <- function(LUAD.model, label) {
   # matrix <- matrix[, colnames(matrix) %in% pathway.genes]
   # matrix <- matrix[, colnames(matrix) %in% pathway.genes]
   
-  ## TODO add fishplot
-  ## edit data to obtain something like this:
-  
-  #provide a list of timepoints to plot
-  #You may need to add interpolated points to end up with the desired
-  #visualization. Example here was actually sampled at days 0 and 150
-  # timepoints=c(0,30,75,150)
-  #provide a matrix with the fraction of each population
-  #present at each timepoint
-  # frac.table = matrix(
-  #   c(100, 45, 00, 00,
-  #     02, 00, 00, 00,
-  #     02, 00, 02, 01,
-  #     98, 00, 95, 40),
-  #   ncol=length(timepoints))
-  
-  #provide a vector listing each clone's parent
-  #(0 indicates no parent)
-  # parents = c(0,1,1,3)
-  
-  #create a fish object
-  # fish = createFishObject(frac.table,parents,timepoints=timepoints)
-  
-  #calculate the layout of the drawing
-  # fish = layoutClones(fish)
-  
-  #draw the plot, using the splining method (recommended)
-  #and providing both timepoints to label and a plot title
-  # fishPlot(fish,shape="spline",title.btm="Sample1",
-  #          cex.title=0.5, vlines=c(0,150),
-  #          vlab=c("day 0","day 150"))
+ 
   ## excel with all data
   excel.file <- paste0("output/LUAD_statistics_", label, ".xlsx")
   

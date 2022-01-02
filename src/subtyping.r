@@ -122,6 +122,8 @@ LUAD.PP <- annotate.description(LUAD.PP,
                                 "LUAD PP subtype")
 LUAD.PI <- annotate.description(LUAD.PI,
                                 "LUAD PI subtype")
+LUAD <- annotate.description(LUAD,
+                                "LUAD somatic mutations and CNA from GCD portal, final")
 ## oncoprint of the subtypes
 # if (plot_verbose) {
 #   oncoprint(LUAD.TRU)
@@ -169,6 +171,16 @@ if (plot_verbose) {
   )
 }
 
+if (plot_verbose) {
+  oncoprint(
+    LUAD,
+    # legend.cex = .5,
+    # cellwidth = 3,
+    # cellheight = 10,
+    gene.annot = pathway.list,
+    gene.annot.color = pathways.color,
+  )
+}
 
 if (histological_verbose) {
   ## select events for every subtype and get the corresponding TRONCO objects

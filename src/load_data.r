@@ -465,6 +465,9 @@ LUAD.smoke <- annotate.stages(LUAD,
                               smoker,
                               match.TCGA.patients = TRUE)
 
+LUAD.smoke <- annotate.description(LUAD.smoke,
+                                   "Smoke data")
+
 
 ## oncoprint of intersect with selection
 # if(plot_verbose){
