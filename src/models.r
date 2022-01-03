@@ -99,7 +99,7 @@ model <- function(LUAD,
   )
   
   ## Added co-mutation(NF1, TP53) hypotesis as in marker paper
-  if (label == 'proximal proliferative (PP, magnoid)') {
+  if (label.short == 'PP') {
     LUAD.hypo <-
       hypothesis.add(LUAD.hypo, 'KRAS and STK11', AND('KRAS', 'STK11'))
 
@@ -123,7 +123,7 @@ model <- function(LUAD,
   }
   
   ## Added co-mutation(NF1, TP53) hypotesis as in marker paper
-  if (label == 'proximal inflammatory (PI, squamoid)') {
+  if (label.short == 'PI') {
     LUAD.hypo <-
       hypothesis.add(LUAD.hypo, 'NF1 and TP53', AND('NF1', 'TP53'))
 
@@ -241,21 +241,7 @@ model <- function(LUAD,
   ## There are not hardexclusivity subgroups. Trust The Data, full stop!
   ## 
   ## plot of final reconstruction model before statistical analysis
-  if (plot_verbose) {
-    tronco.plot(
-      LUAD.model,
-      pathways = pathway.list,
-      edge.cex = 1.5,
-      legend.cex = .35,
-      scale.nodes = .6,
-      confidence = c('tp', 'pr', 'hg'),
-      pathways.color = pathways.color,
-      disconnected = F,
-      height.logic = .3,
-    )
-  }
-  
-  
+
   return(LUAD.model)
   
 }

@@ -2,7 +2,7 @@
 #'
 #' @param LUAD.model TRONCO object model
 #' @param label label to identify subtype
-statistics <- function(LUAD.model, label) {
+statistics <- function(LUAD.model, label, label.short) {
   ## STATISTICS
   
   # STATISTICS
@@ -17,18 +17,19 @@ statistics <- function(LUAD.model, label) {
                                  nboot = num_boot_iter,
                                  cores.ratio = .5)
   
-  save(LUAD.model, file=paste("input/model_boostrap", label, ".rda", sep=''))
+  save(LUAD.model, file=paste("input/model_boostrap", label.short, ".rda", sep=''))
   
   ## DAG of the model above
+  ## Equal as model tronco.plot
   if (plot_verbose) {
     par(.pardefault)
     tronco.plot(
       LUAD.model,
       pathways = pathway.list,
       edge.cex = 1.5,
-      legend.cex = .5,
+      legend.cex = .35,
       scale.nodes = .6,
-      confidence = c('tp', 'pr', 'hg'),
+      confidence = c('npb', 'sb'),
       pathways.color = pathways.color,
       disconnected = F,
       height.logic = .3,
@@ -166,23 +167,9 @@ statistics <- function(LUAD.model, label) {
   
   ## save model
   save(LUAD.model,
-       file = paste("output/luadDefModel_", label, ".rda", sep = ''))
+       file = paste("output/luadDefModel_", label.short, ".rda", sep = ''))
   
-  
-  ## last DAG
-  if (plot_verbose) {
-    tronco.plot(
-      LUAD.model,
-      pathways = pathway.list,
-      edge.cex = 1.5,
-      legend.cex = .35,
-      scale.nodes = .6,
-      confidence = c('tp', 'pr', 'hg'),
-      pathways.color = pathways.color,
-      disconnected = F,
-      # height.logic = .3,
-    )
-  }
+
   # export.graphml(LUAD.model,
   #                file = "output/LUADgraphml.xml",
   #                pathways = pathway.list,

@@ -21,12 +21,6 @@ library(igraph)
 library("xlsx")
 library(rWikiPathways)
 
-### DEPENDECIES TREE
-library("cranly")
-cran_db <- clean_CRAN_db()
-package_network <- build_network(cran_db, perspective = "package")
-
-
 
 ### PIPELINE CONFIGURATION
 ## files (mutex, clinical, genes drivers from IMCDriver)
@@ -39,7 +33,6 @@ file_drivers <- "input/gene_drivers.xlsx"
 verbose <- TRUE
 plot_verbose <- TRUE
 histological_verbose <- FALSE
-tronco_reload <- FALSE
 
 ## flag for not distinguish mutation
 ## and eventually know how to distinguish mutations
@@ -64,7 +57,7 @@ num_boot_iter <- 10
 ## workaround for plots
 .pardefault <- par()
 par(.pardefault)
-## setwd('~/DCB-project/')
+# setwd('~/code/DCB-project')
 ### END CONF
 
 #source file with some useful functions
