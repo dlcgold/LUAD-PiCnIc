@@ -20,7 +20,17 @@ library(fishplot)
 library(igraph)
 library("xlsx")
 library(rWikiPathways)
+library(fishplot)
 
+<<<<<<< HEAD
+=======
+### DEPENDECIES TREE
+# library("cranly")
+# cran_db <- clean_CRAN_db()
+# package_network <- build_network(cran_db, perspective = "package")
+
+
+>>>>>>> 711313e49b0e01e63f506f84a79c970edb437aca
 
 ### PIPELINE CONFIGURATION
 ## files (mutex, clinical, genes drivers from IMCDriver)
@@ -52,7 +62,7 @@ gistic_reload <- maf_reload
 min_freq <- 0.03
 
 ## bootstrap iteration, should be around 100
-num_boot_iter <- 10
+num_boot_iter <- 100
 
 ## workaround for plots
 .pardefault <- par()
@@ -157,3 +167,103 @@ for (pw in pathway.list) {
   print("-------------------------------------------------------------")
 }
 
+## TODO add fishplot
+#simple example 
+
+## branching
+par(.pardefault)
+timepoints <- c(0,30,75,150)
+frac.table <- matrix(
+  c(40, 10, 0,
+    60, 30, 10,
+    80, 70, 30,
+    100, 90, 70),
+  ncol=length(timepoints))
+parents = c(0,1,2)
+fish <- createFishObject(frac.table,parents,
+                        timepoints = timepoints, 
+                        clone.annots = c("KEAP1", "RIT1", "ATM"),
+                        clone.annots.angle = 30)
+fish <- layoutClones(fish)
+fish <- setCol(fish,
+               col = c("#b48ead","#a3be8c","#8fbcbb"))
+sample.times = c(0, 150)
+fishPlot(fish,
+         shape = "spline",
+         title.btm = "Sample1",
+         cex.title = 1, 
+         vlab = c("day 0","day 150"),
+         bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
+par(.pardefault)
+timepoints <- c(0,30,75,150)
+frac.table <- matrix(
+  c(40, 25,
+    60, 50,
+    80, 75,
+    100, 90),
+  ncol=length(timepoints))
+parents = c(0,1)
+fish <- createFishObject(frac.table,parents,
+                         timepoints = timepoints, 
+                         clone.annots = c("KEAP1", "RIT1"),
+                         clone.annots.angle = 30)
+fish <- layoutClones(fish)
+fish <- setCol(fish,
+               col = c("#b48ead","#5e81ac"))
+
+sample.times = c(0, 150)
+fishPlot(fish,
+         shape = "spline",
+         title.btm = "Sample2",
+         cex.title = 1, 
+         vlab = c("day 0","day 150"),
+         bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
+
+# confluence
+par(.pardefault)
+timepoints <- c(0,30,75,150)
+frac.table <- matrix(
+  c(30, 20, 0,
+    60, 40, 15,
+    80, 80, 50,
+    100, 95, 90),
+  ncol=length(timepoints))
+parents = c(0,1,2)
+fish <- createFishObject(frac.table,parents,
+                         timepoints = timepoints, 
+                         clone.annots = c("TP53", "KEAP1", "ARID2"),
+                         clone.annots.angle = 30)
+fish <- layoutClones(fish)
+fish <- setCol(fish,
+               col = c("#8fbcbb","#a3be8c","#5e81ac"))
+sample.times = c(0, 150)
+fishPlot(fish,
+         shape = "spline",
+         title.btm = "Sample3",
+         cex.title = 1, 
+         vlab = c("day 0","day 150"),
+         bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
+par(.pardefault)
+timepoints <- c(0,30,75,150)
+frac.table <- matrix(
+  c(40, 25,
+    60, 50,
+    80, 75,
+    100, 90),
+  ncol=length(timepoints))
+parents = c(0,1)
+fish <- createFishObject(frac.table,parents,
+                         timepoints = timepoints, 
+                         clone.annots = c("KEAP1", "ARID2"),
+                         clone.annots.angle = 30)
+fish <- layoutClones(fish)
+fish <- setCol(fish,
+               col = c("#b48ead","#5e81ac"))
+
+sample.times = c(0, 150)
+fishPlot(fish,
+         shape = "spline",
+         title.btm = "Sample4",
+         cex.title = 1, 
+         vlab = c("day 0","day 150"),
+         bg.col = c("#ebcb8b", "#d08770", "#bf616a"))

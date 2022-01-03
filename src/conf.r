@@ -27,4 +27,4 @@ gistic_reload <- maf_reload
 min_freq <- 0.03
 
 ## bootstrap iteration, should be around 100
-num_boot_iter <- 5
+num_boot_iter <- 100
