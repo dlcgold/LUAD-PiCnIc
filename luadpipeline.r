@@ -22,16 +22,6 @@ library("xlsx")
 library(rWikiPathways)
 library(fishplot)
 
-<<<<<<< HEAD
-=======
-### DEPENDECIES TREE
-# library("cranly")
-# cran_db <- clean_CRAN_db()
-# package_network <- build_network(cran_db, perspective = "package")
-
-
->>>>>>> 711313e49b0e01e63f506f84a79c970edb437aca
-
 ### PIPELINE CONFIGURATION
 ## files (mutex, clinical, genes drivers from IMCDriver)
 file.mutex <- "input/LUAD_mutex.txt"
