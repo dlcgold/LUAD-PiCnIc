@@ -80,7 +80,7 @@ statistics <- function(LUAD.model, label, label.short) {
         as.confidence(LUAD.model,
                       conf = 'sb')$sb$capri_bic
       ) * 100,
-      main = paste("non-parametric bootstrap scores for BIC model for", label),
+      main = paste("statistical bootstrap scores for BIC model for", label),
       fontsize_row = 6,
       fontsize_col = 6,
       display_numbers = T,
@@ -95,7 +95,7 @@ statistics <- function(LUAD.model, label, label.short) {
         as.confidence(LUAD.model,
                       conf = 'sb')$sb$capri_aic
       ) * 100,
-      main = paste("non-parametric bootstrap scores for AIC model for", label),
+      main = paste("statistical bootstrap scores for AIC model for", label),
       fontsize_row = 6,
       fontsize_col = 6,
       display_numbers = T,
