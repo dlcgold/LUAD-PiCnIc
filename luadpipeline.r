@@ -169,7 +169,7 @@ frac.table <- matrix(
     80, 70, 30,
     100, 90, 70),
   ncol=length(timepoints))
-parents = c(0,1,2)
+parents <- c(0, 1, 2)
 fish <- createFishObject(frac.table,parents,
                         timepoints = timepoints, 
                         clone.annots = c("KEAP1", "RIT1", "ATM"),
@@ -177,7 +177,7 @@ fish <- createFishObject(frac.table,parents,
 fish <- layoutClones(fish)
 fish <- setCol(fish,
                col = c("#b48ead","#a3be8c","#8fbcbb"))
-sample.times = c(0, 150)
+sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample1",
@@ -192,7 +192,7 @@ frac.table <- matrix(
     80, 75,
     100, 90),
   ncol=length(timepoints))
-parents = c(0,1)
+parents <- c(0, 1)
 fish <- createFishObject(frac.table,parents,
                          timepoints = timepoints, 
                          clone.annots = c("KEAP1", "RIT1"),
@@ -201,7 +201,7 @@ fish <- layoutClones(fish)
 fish <- setCol(fish,
                col = c("#b48ead","#5e81ac"))
 
-sample.times = c(0, 150)
+sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample2",
@@ -218,7 +218,7 @@ frac.table <- matrix(
     80, 80, 50,
     100, 95, 90),
   ncol=length(timepoints))
-parents = c(0,1,2)
+parents <- c(0, 1, 2)
 fish <- createFishObject(frac.table,parents,
                          timepoints = timepoints, 
                          clone.annots = c("TP53", "KEAP1", "ARID2"),
@@ -226,7 +226,7 @@ fish <- createFishObject(frac.table,parents,
 fish <- layoutClones(fish)
 fish <- setCol(fish,
                col = c("#8fbcbb","#a3be8c","#5e81ac"))
-sample.times = c(0, 150)
+sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample3",
@@ -241,7 +241,7 @@ frac.table <- matrix(
     80, 75,
     100, 90),
   ncol=length(timepoints))
-parents = c(0,1)
+parents <- c(0, 1)
 fish <- createFishObject(frac.table,parents,
                          timepoints = timepoints, 
                          clone.annots = c("KEAP1", "ARID2"),
@@ -250,7 +250,7 @@ fish <- layoutClones(fish)
 fish <- setCol(fish,
                col = c("#b48ead","#5e81ac"))
 
-sample.times = c(0, 150)
+sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample4",
