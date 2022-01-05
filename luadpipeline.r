@@ -142,7 +142,7 @@ for (m in models) {
                 edge.cex = 1.5,
                 legend.cex = .7,
                 scale.nodes = .6,
-                confidence = c('tp', 'pr', 'hg', 'npb', 'sb'), # Display p-values 
+                confidence = c('tp', 'pr', 'hg', 'sb', 'npb'), # Display p-values 
                 pathways.color = pathways.color,
                 label.edge.size = 9,
                 disconnected = F, 
