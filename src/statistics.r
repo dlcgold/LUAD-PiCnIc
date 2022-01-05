@@ -2,6 +2,8 @@
 #'
 #' @param LUAD.model TRONCO object model
 #' @param label label to identify subtype
+#' 
+#' @return LUAD.model TRONCO object model
 statistics <- function(LUAD.model, label, label.short) {
   ## STATISTICS
   
@@ -218,5 +220,7 @@ statistics <- function(LUAD.model, label, label.short) {
   
   saveWorkbook(excel.wbook,
                excel.file)
+  
+  return(LUAD.model)
   
 }

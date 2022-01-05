@@ -133,7 +133,21 @@ for (m in models) {
   ## model analysis
   troncomodel <- model(m, labels[i], labels.short[i])
   ## statistical analysis
-  statistics(troncomodel, labels[i], labels.short[i])
+  finalmodel <- statistics(troncomodel, labels[i], labels.short[i])
+  
+  if(plot.verbose)
+    tronco.plot(finalmodel, 
+                pathways = pathway.list, 
+                fontsize = 15,
+                edge.cex = 1.5,
+                legend.cex = .7,
+                scale.nodes = .6,
+                confidence = c('tp', 'pr', 'hg', 'npb', 'sb'), # Display p-values 
+                pathways.color = pathways.color,
+                label.edge.size = 9,
+                disconnected = F, 
+                height.logic = .3,
+                title = paste("Final Model -", labels[i]))
   i <- i + 1
 }
 
