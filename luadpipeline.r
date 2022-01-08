@@ -72,8 +72,8 @@ source("src/models.r")
 source("src/statistics.r")
 
 ## source file with the pipeline config
-print("loading selected configurations")
-source("src/conf.r")
+## print("loading selected configurations")
+## source("src/conf.r")
 
 print("loading selected genes")
 ## source file with the input genes and the pathways config
