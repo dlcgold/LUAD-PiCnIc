@@ -3,26 +3,17 @@
 ### Molecular Subtypes
 subtypes <- TCGAquery_subtype(tumor = "luad")
 
-subtypes.TRU <- subtypes[subtypes$expression_subtype %in% c("TRU"),]
-subtypes.PP <-
-  subtypes[subtypes$expression_subtype %in% c("prox.-prolif."),]
-subtypes.PI <-
-  subtypes[subtypes$expression_subtype %in% c("prox.-inflam"),]
+subtypes.TRU <- subtypes[subtypes$expression_subtype %in% "TRU",]
+subtypes.PP <- subtypes[subtypes$expression_subtype %in% "prox.-prolif.",]
+subtypes.PI <- subtypes[subtypes$expression_subtype %in% "prox.-inflam",]
 
 LUAD.TRU <- trim(samples.selection(LUAD, subtypes.TRU$patient))
-# LUAD.TRU <- annotate.description(LUAD.TRU,
-#                                  "LUAD TRU subtype")
-
 LUAD.PP <- trim(samples.selection(LUAD, subtypes.PP$patient))
-# LUAD.PP <- annotate.description(LUAD.PP,
-#                                 "LUAD PP subtype")
 LUAD.PI <- trim(samples.selection(LUAD, subtypes.PI$patient))
-# LUAD.PI <- annotate.description(LUAD.PI,
-#                                 "LUAD PI subtype")
 
 
 if (histological_verbose) {
-  ### Histologic Types
+  ## Histologic Types
   ## reload clinical data
   clinical_sub <- read_tsv(file.clinical)
 
@@ -93,6 +84,7 @@ LUAD.PP <- events.selection(LUAD.PP,
 LUAD.PI <- events.selection(LUAD.PI,
                             filter.freq = min_freq)
 
+## some prints about molecular subtypes
 if (verbose) {
   print(paste(
     "TRU subtype has",
@@ -114,7 +106,7 @@ if (verbose) {
     "samples and",
     nevents(LUAD.PI),
     "events"
-  ))}
+  )) }
 
 LUAD.TRU <- annotate.description(LUAD.TRU,
                                  "LUAD TRU subtype")
@@ -123,11 +115,8 @@ LUAD.PP <- annotate.description(LUAD.PP,
 LUAD.PI <- annotate.description(LUAD.PI,
                                 "LUAD PI subtype")
 LUAD <- annotate.description(LUAD,
-                                "LUAD somatic mutations and CNA from GCD portal, final")
-## oncoprint of the subtypes
-# if (plot_verbose) {
-#   oncoprint(LUAD.TRU)
-# }
+                             "LUAD somatic mutations and CNA from GCD portal, final")
+
 
 if (plot_verbose) {
   oncoprint(
@@ -142,9 +131,6 @@ if (plot_verbose) {
 
 
 ## oncoprint of the subtypes
-# if (plot_verbose) {
-#   oncoprint(LUAD.PP)
-# }
 if (plot_verbose) {
   oncoprint(
     LUAD.PP,
@@ -156,10 +142,6 @@ if (plot_verbose) {
   )
 }
 
-## oncoprint of the subtypes
-# if (plot_verbose) {
-#   oncoprint(LUAD.PI)
-# }
 if (plot_verbose) {
   oncoprint(
     LUAD.PI,

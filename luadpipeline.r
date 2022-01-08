@@ -40,7 +40,7 @@ histological_verbose <- FALSE
 all_mut <- FALSE
 if (all_mut) {
   mut <- 'Nonsense_Mutation'
-} else{
+} else {
   mut <- 'Mutation'
 }
 
@@ -75,8 +75,8 @@ source("src/models.r")
 source("src/statistics.r")
 
 ## source file with the pipeline config
-print("loading selected configurations")
-source("src/conf.r")
+## print("loading selected configurations")
+## source("src/conf.r")
 
 print("loading selected genes")
 ## source file with the input genes and the pathways config
@@ -96,16 +96,11 @@ print("group exclusivity analysis")
 source("src/group_exclusivity.r")
 
 
-# models list for analysis (the first is dataset without subtype selection)
+## models list for analysis (the first is dataset without subtype selection)
 models <- list(LUAD,
                LUAD.TRU,
                LUAD.PI,
                LUAD.PP)
-# LUAD.acinar,
-# LUAD.nonmucinous,
-# LUAD.papillary,
-# LUAD.mucinous,
-
 
 label.all <- 'all subtypes'
 label.tru <- 'terminal respiratory unit (TRU, branchoid)'
@@ -118,16 +113,15 @@ label.pp.short <- 'PP'
 label.pi.short <- 'PI'
 
 ## labels for every subtype (the first is dataset without subtype selection)
-labels <- c(label.all, label.tru, label.pi, label.pp)
-labels.short <- c(label.all.short, label.tru.short, label.pi.short, label.pp.short)
-  # 'terminal respiratory unit (TRU, branchoid)',
-  # 'proximal inflammatory (PI, squamoid)',
-  # 'proximal proliferative (PP, magnoid)')
-  # 'acinar',
-  # 'nonmucinous',
-  # 'papillary',
-  # 'mucinous',
-## mucinous subgroup is too small!
+labels <- c(label.all,
+            label.tru,
+            label.pi,
+            label.pp)
+## short labels
+labels.short <- c(label.all.short,
+                  label.tru.short,
+                  label.pi.short,
+                  label.pp.short)
 
 ## make analysis for every subtype
 i <- 1
@@ -152,12 +146,13 @@ for (m in models) {
   #               disconnected = F, 
   #               height.logic = .3,
   #               title = paste("Final Model -", labels[i]))
+
   i <- i + 1
 }
 
 print("END OF PiCnIc")
 
-
+## pathway infomations
 for (pw in pathway.list) {
   print("pathway")
   print(pw)
@@ -166,7 +161,6 @@ for (pw in pathway.list) {
   my.hs.pathways <-
     my.pathways[my.pathways$species == 'Homo sapiens',]
   my.wpids <- my.hs.pathways$id
-  # pw.title <- my.hs.pathways[1]$name
   print(my.hs.pathways[1]$name)
   print(my.hs.pathways[2]$name)
   print(my.hs.pathways[3]$name)
@@ -175,103 +169,130 @@ for (pw in pathway.list) {
   print("-------------------------------------------------------------")
 }
 
-## TODO add fishplot
-#simple example 
+## manually cutared fishplots
 
 ## branching
 par(.pardefault)
-timepoints <- c(0,30,75,150)
+timepoints <- c(0, 30, 75, 150)
 frac.table <- matrix(
   c(40, 10, 0,
     60, 30, 10,
     80, 70, 30,
     100, 90, 70),
-  ncol=length(timepoints))
+  ncol = length(timepoints))
 parents <- c(0, 1, 2)
-fish <- createFishObject(frac.table,parents,
-                        timepoints = timepoints, 
-                        clone.annots = c("KEAP1", "RIT1", "ATM"),
-                        clone.annots.angle = 30)
+fish <- createFishObject(frac.table,
+                         parents,
+                         timepoints = timepoints,
+                         clone.annots = c("KEAP1", "RIT1", "ATM"),
+                         clone.annots.angle = 30)
 fish <- layoutClones(fish)
 fish <- setCol(fish,
-               col = c("#b48ead","#a3be8c","#8fbcbb"))
+               col = c("#b48ead", "#a3be8c", "#8fbcbb"))
 sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample1",
-         cex.title = 1, 
-         vlab = c("day 0","day 150"),
+         cex.title = 1,
+         vlab = c("day 0", "day 150"),
          bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
 par(.pardefault)
-timepoints <- c(0,30,75,150)
+timepoints <- c(0, 30, 75, 150)
 frac.table <- matrix(
   c(40, 25,
     60, 50,
     80, 75,
     100, 90),
-  ncol=length(timepoints))
+  ncol = length(timepoints))
 parents <- c(0, 1)
-fish <- createFishObject(frac.table,parents,
-                         timepoints = timepoints, 
+fish <- createFishObject(frac.table,
+                         parents,
+                         timepoints = timepoints,
                          clone.annots = c("KEAP1", "RIT1"),
                          clone.annots.angle = 30)
 fish <- layoutClones(fish)
 fish <- setCol(fish,
-               col = c("#b48ead","#5e81ac"))
+               col = c("#b48ead", "#5e81ac"))
 
 sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample2",
-         cex.title = 1, 
-         vlab = c("day 0","day 150"),
+         cex.title = 1,
+         vlab = c("day 0", "day 150"),
          bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
 
 # confluence
 par(.pardefault)
-timepoints <- c(0,30,75,150)
+timepoints <- c(0, 30, 75, 150)
 frac.table <- matrix(
   c(30, 20, 0,
     60, 40, 15,
     80, 80, 50,
     100, 95, 90),
-  ncol=length(timepoints))
+  ncol = length(timepoints))
 parents <- c(0, 1, 2)
-fish <- createFishObject(frac.table,parents,
-                         timepoints = timepoints, 
+fish <- createFishObject(frac.table,
+                         parents,
+                         timepoints = timepoints,
                          clone.annots = c("TP53", "KEAP1", "ARID2"),
                          clone.annots.angle = 30)
 fish <- layoutClones(fish)
 fish <- setCol(fish,
-               col = c("#8fbcbb","#a3be8c","#5e81ac"))
+               col = c("#8fbcbb", "#a3be8c", "#5e81ac"))
 sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample3",
-         cex.title = 1, 
-         vlab = c("day 0","day 150"),
+         cex.title = 1,
+         vlab = c("day 0", "day 150"),
          bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
 par(.pardefault)
-timepoints <- c(0,30,75,150)
+timepoints <- c(0, 30, 75, 150)
 frac.table <- matrix(
-  c(40, 25,
-    60, 50,
-    80, 75,
-    100, 90),
-  ncol=length(timepoints))
+  c(40, 25, 25,
+    60, 50, 50,
+    80, 75, 75,
+    100, 90, 90),
+  ncol = length(timepoints))
 parents <- c(0, 1)
-fish <- createFishObject(frac.table,parents,
-                         timepoints = timepoints, 
+fish <- createFishObject(frac.table,
+                         parents,
+                         timepoints = timepoints,
                          clone.annots = c("KEAP1", "ARID2"),
                          clone.annots.angle = 30)
 fish <- layoutClones(fish)
 fish <- setCol(fish,
-               col = c("#b48ead","#5e81ac"))
+               col = c("#b48ead", "#5e81ac"))
 
 sample.times <- c(0, 150)
 fishPlot(fish,
          shape = "spline",
          title.btm = "Sample4",
-         cex.title = 1, 
-         vlab = c("day 0","day 150"),
+         cex.title = 1,
+         vlab = c("day 0", "day 150"),
          bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
+timepoints <- c(0, 30, 75, 150)
+frac.table <- matrix(
+  c(40, 25,
+    60, 50,
+    80, 75,
+    100, 90),
+  ncol = length(timepoints))
+parents <- c(0, 1, 2)
+fish <- createFishObject(frac.table,
+                         parents,
+                         timepoints = timepoints,
+                         clone.annots = c("TP53", "KEAP1", "ARID2"),
+                         clone.annots.angle = 30)
+fish <- layoutClones(fish)
+fish <- setCol(fish,
+               col = c("#8fbcbb", "#a3be8c", "#5e81ac"))
+sample.times <- c(0, 150)
+fishPlot(fish,
+         shape = "spline",
+         title.btm = "Sample3",
+         cex.title = 1,
+         vlab = c("day 0", "day 150"),
+         bg.col = c("#ebcb8b", "#d08770", "#bf616a"))
+par(.pardefault)
