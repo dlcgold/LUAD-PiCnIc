@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: ref.bib
+Warning--I'm ignoring luadmarker's extra "note" field
+--line 32 of file ref.bib
+Warning--I'm ignoring luadmarker's extra "note" field
+--line 33 of file ref.bib
+Warning--I'm ignoring megsa's extra "note" field
+--line 146 of file ref.bib
+Warning--I'm ignoring megsa's extra "note" field
+--line 147 of file ref.bib
+Warning--I'm ignoring wikipw's extra "note" field
+--line 181 of file ref.bib
+Warning--I'm ignoring wikipw's extra "note" field
+--line 182 of file ref.bib
+You've used 20 entries,
+            1791 wiz_defined-function locations,
+            593 strings with 8919 characters,
+and the built_in function-call counts, 5756 in all, are:
+= -- 408
+> -- 466
+< -- 0
++ -- 163
+- -- 143
+* -- 559
+:= -- 993
+add.period$ -- 60
+call.type$ -- 20
+change.case$ -- 19
+chr.to.int$ -- 0
+cite$ -- 20
+duplicate$ -- 174
+empty$ -- 464
+format.name$ -- 143
+if$ -- 1176
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 17
+newline$ -- 102
+num.names$ -- 18
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 68
+stack$ -- 0
+substring$ -- 385
+swap$ -- 21
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 44
+width$ -- 22
+write$ -- 215
+(There were 6 warnings)
