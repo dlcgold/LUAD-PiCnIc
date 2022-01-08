@@ -122,7 +122,6 @@ if (verbose) {
               ntypes(LUAD)))
   print("LUAD alteration types:")
   print(as.types(LUAD))
-  ## TODO add other similar events that can be queried together
   print("alteration types for similar events:")
   print(as.types(LUAD, genes = c('KRAS', '
                                  TP53')))
@@ -135,7 +134,6 @@ if (verbose) {
               nsamples(LUAD)))
   print("LUAD samples:")
   print(as.samples(LUAD))
-  ## TODO add more of these
   if (all_mut) {
     print(which.samples(LUAD,
                         gene = 'KRAS',
@@ -204,10 +202,6 @@ if (verbose) {
   ## frequency of gender
   print(data.frame(table(clinical$gender)))
   ## frequency of histolocical type
-  ## TODO check if they could be used for a study on subtypes
-  ## for: acinar(18), ronchioloalveolar-nonmucinous (19),
-  ## papillary(23), mucinous-colloid (10)
-  ## see page 2 marker paper
   print(data.frame(table(clinical$histological_type)))
   ## frequency of ages
   print(data.frame(table(clinical$years_to_birth)))
@@ -257,7 +251,7 @@ LUAD.smoke <- annotate.stages(LUAD,
                               smoker,
                               match.TCGA.patients = TRUE)
 LUAD.smoke <- annotate.description(LUAD.smoke,
-                             "LUAD smoke trick")
+                                   "LUAD smoke trick")
 
 LUAD <- annotate.stages(LUAD,
                         clinical.data,
@@ -313,13 +307,12 @@ if (gistic_reload) {
   
   ## convert the result to a dataframe for preprocessing and genes drivers filtering
   LUAD.gistic <- as.data.frame(gist)
-  LUAD.gistic <-
-    LUAD.gistic[LUAD.gistic$`Gene Symbol` %in% pathway.genes, ]
-  LUAD.gistic <-
-    LUAD.gistic[,!names(LUAD.gistic) %in% c("Locus ID",
-                                            "Cytoband")]
+  LUAD.gistic <- LUAD.gistic[LUAD.gistic$`Gene Symbol` %in% pathway.genes, ]
+  LUAD.gistic <- LUAD.gistic[,!names(LUAD.gistic) %in% c("Locus ID",
+                                                          "Cytoband")]
   LUAD.gistic <- t(LUAD.gistic)
-  colnames(LUAD.gistic) <- lapply(LUAD.gistic[1,], as.character)
+  colnames(LUAD.gistic) <- lapply(LUAD.gistic[1,],
+                                  as.character)
   LUAD.gistic <- LUAD.gistic[-1, ]
   LUADGistic <- import.GISTIC(LUAD.gistic,
                               trim = FALSE)
@@ -414,7 +407,6 @@ if (plot_verbose) {
 }
 
 ## editing types
-## TODO check if it ha any sense (maybe join instead delete)
 ## join mutations
 if (all_mut) {
   LUAD <- join.types(
@@ -425,17 +417,7 @@ if (all_mut) {
     "In_Frame_Ins",
     new.type = "Del/Ins_Mutations"
   )
-  
-  
-  # LUAD <- join.types(LUAD,
-  #                    "3'UTR",
-  #                    "5'UTR",
-  #                    "Splice_Region",
-  #                    "Splice_Site",
-  #                    "Intron",
-  #                    "Silent",
-  #                    new.type = "other_Mutations")
-  #
+
   ## remove quasi-useless mutation type mutations
   LUAD <- delete.type(LUAD,
                       type = "3'UTR")
@@ -449,18 +431,9 @@ if (all_mut) {
                       type = "Intron")
   LUAD <- delete.type(LUAD,
                       type = "Silent")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "In_Frame_Ins")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "In_Frame_Del")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "Frame_Shift_Ins")
-  # LUAD <- delete.type(LUAD,
-  #                     type = "Frame_Shift_Del")
+
 }
 ## select only event with a minfreq
-# LUAD <- events.selection(LUAD,
-#                          filter.freq = min_freq)
 LUAD.smoke <- annotate.stages(LUAD,
                               smoker,
                               match.TCGA.patients = TRUE)
@@ -470,11 +443,7 @@ LUAD.smoke <- annotate.description(LUAD.smoke,
 
 
 ## oncoprint of intersect with selection
-# if(plot_verbose){
-#   oncoprint(LUAD)
-# }
 if (plot_verbose) {
-  ## TODO make it visualizable
   oncoprint(
     LUAD,
     legend.cex = .3,
