@@ -2,7 +2,7 @@
 ## Lung Adenocarcinoma (_LUAD_) model progression
 
 A cancer progression model from cross-sectional lung adenocarcinoma data, using
-the PiCnIc pipeline.
+the (PiCnIc pipeline)[https://www.pnas.org/content/113/28/E4025.abstract].
 
 ## Prerequisites
 All the prerequisites could be satisfied running `import.r` script
@@ -34,9 +34,9 @@ All the prerequisites could be satisfied running `import.r` script
 In order to execute this script internet connection is required.
 First of all, in _R_ console, set the working directory to this one:
 ```R 
- setwd("~/DCB-project")
+ setwd("~/LUAD-PiCnIc")
  ```
-then simply source `luadpipe.r`, making sure to adjust your configuration in
+then simply source `luadpipeline.r`, making sure to adjust your configuration in
 `src/conf.R` before.
 
 With default bootstrap iterations (100) the script will take several tens of 
