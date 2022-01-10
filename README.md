@@ -2,7 +2,7 @@
 ## Lung Adenocarcinoma (_LUAD_) model progression
 
 A cancer progression model from cross-sectional lung adenocarcinoma data, using
-the (PiCnIc pipeline)[https://www.pnas.org/content/113/28/E4025.abstract].
+the [PiCnIc pipeline](https://www.pnas.org/content/113/28/E4025.abstract).
 
 ## Prerequisites
 All the prerequisites could be satisfied running `import.r` script
