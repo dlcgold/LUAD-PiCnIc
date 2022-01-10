@@ -101,8 +101,7 @@
   \begin{block}{Aim of the project}
     With this project we intend to built a cancer progression
     model from cross-sectional \textit{\textbf{lung adenocarcinoma}} data, using
-    the \textbf{PiCnIc pipeline} \cite{picnic} via the \textbf{R TRONCO library}
-    \cite{troncopaper}.  
+    the \textbf{PiCnIc pipeline} \cite{picnic} via the \textbf{R TRONCO library} \cite{troncopaper}. 
   \end{block}
   \begin{figure}
     \centering
@@ -112,9 +111,10 @@
 \subsection{LUAD}
 \begin{frame}{Lung Cancer}
   \begin{block}{Histological classification of lung cancer \cite{lungimage}}
+    Classification is based on:
     \begin{itemize}
-      \item Lung cancer histological types
-      \item Location of the tumours and cell origins
+      \item Histological type of lung cancer
+      \item Location of the tumors and cell origins
     \end{itemize}       
   \end{block}
   \pause
@@ -164,20 +164,20 @@
     \tiny
     \centering
 
-    \begin{tabular}{|c|c|c|c|c|c|c|}
-      \hline {\color{nordgreen}\textit{\textbf{IMC Driver}}} & \textit{SCS}
-      & \textit{ACtive Driver} & {\color{nordgreen}\textit\textbf{{MutSigCV}}}
-      & \textit{Dawn Rank} & \textit{Driver ML} & \textit{Driver Net} \\
-      \hline
-      \hline TPS3 & SRGAP3 & NUP155 & C12ORF5 & MAPK3 & EGFR & GRIN2B \\
-      \hline LRP1B & PCDHGC5 & LCLAT1 & C16ORF3 & PRKCB & SETD2 & MET \\
-      \hline KRAS & ZNFI17 & NEK10 & C19ORF70 & PRKACB & STK11 & RYR2 \\
-      \hline TRN & MST1R & SIK31 & C8ORF59 & PRKX & TP53 & PIK3CA \\
-      \hline KEAP1 & ZWINT & SOS1 & EGFR & HRAS & RB1 & ADCY8 \\
-      \hline$\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$
-                                                & $\ldots$ \\
-      \hline
-    \end{tabular}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline {\color{nordgreen}\textit{\textbf{IMC Driver}}} & \textit{SCS}
+    & \textit{ACtive Driver} & {\color{nordgreen}\textit\textbf{{MutSigCV}}}
+    & \textit{Dawn Rank} & \textit{Driver ML} & \textit{Driver Net} \\
+    \hline
+    \hline TPS3 & SRGAP3 & NUP155 & C12ORF5 & MAPK3 & EGFR & GRIN2B \\
+    \hline LRP1B & PCDHGC5 & LCLAT1 & C16ORF3 & PRKCB & SETD2 & MET \\
+    \hline KRAS & ZNFI17 & NEK10 & C19ORF70 & PRKACB & STK11 & RYR2 \\
+    \hline TRN & MST1R & SIK31 & C8ORF59 & PRKX & TP53 & PIK3CA \\
+    \hline KEAP1 & ZWINT & SOS1 & EGFR & HRAS & RB1 & ADCY8 \\
+    \hline$\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$ & $\ldots$
+                                              & $\ldots$ \\
+    \hline
+  \end{tabular}
 
   \end{table}
 \end{frame}
@@ -201,9 +201,8 @@
   \end{figure}
 \end{frame}
 \begin{frame}{Genes Drivers and Pathways III}
-  \begin{block}{Pathway details using \textbf{WikiPathways R library}
-      \cite{wikipw} (although some results are not directly related to
-      \textit{LAUD})} 
+  \begin{block}{Pathway details using \textbf{WikiPathways R library} \cite{wikipw}
+      (although some results are not directly related to \textit{LAUD})}
     \begin{table}[H]
       \footnotesize
       \centering
@@ -215,8 +214,8 @@
           \hline
           \textit{P53} & \textit{TP53 ATM MDM2}\\
           \hline
-          \textit{MAPK} & \textit{KRAS NRAS HRAS RIT1 NF1 BRAF MAP2K1}\\
-                                       & \textit{EGFR ERBB2 MET ALK RET ROS1} \\ 
+          \textit{MAPK} & \textit{KRAS   NRAS   HRAS   RIT1 NF1  BRAF MAP2K1}\\
+                                       & \textit{EGFR   ERBB2  MET    ALK    RET    ROS1} \\ 
           \hline
           \textit{MTOR} & \textit{PTEN PIK3CA PIK3R1 STK11 AKT1 AMPK TSC1
                           TSC2 MTOR}  \\
@@ -289,8 +288,8 @@
   \begin{block}{}
     Regarding the data (MAF files, GISTIC files, clinical files and subtypes
     files) we choose to use \textit{GDC portal} and \textit{Firehose}, using the
-    \textbf{TCGAbiolinks R  library} \cite{tcgabiolinks} to automate the
-    download directly into the source code. 
+    \textbf{TCGAbiolinks R  library} \cite{tcgabiolinks} to automate the download
+    directly into the source code.   
   \end{block}
   \begin{figure}
     \centering
@@ -586,8 +585,8 @@
   \end{block}
   \begin{figure}
     \centering
-    \includegraphics[scale = 0.15]{img/megsa1.jpg}
-    \includegraphics[scale = 0.15]{img/megsa2.jpg}  
+    \includegraphics[scale = 0.3]{img/megsa1.png}
+    \includegraphics[scale = 0.3]{img/megsa2.png}  
   \end{figure}
 \end{frame}
 \begin{frame}{Marker Paper Hypotheses I}
@@ -598,7 +597,7 @@
   \end{block}
   \begin{figure}
     \centering
-    \includegraphics[scale = 0.18]{img/oncoprior.jpg}  
+    \includegraphics[scale = 0.4]{img/oncoprior.png}  
   \end{figure}
 \end{frame}
 \begin{frame}{Marker Paper Hypotheses II}
@@ -629,48 +628,34 @@
 \section{Model Reconstruction}
 \begin{frame}{Models Preparation}
   \begin{block}{}
-    Before proceeding with the reconstruction of the cancer progression model
-    with the \textbf{CAPRI algorithm} we cleaned up the data: 
+    Before proceeding with the reconstruction of the cancer progression model with the \textbf{CAPRI algorithm} we cleaned up the data:
     \begin{itemize}
       \item we only kept the genes drivers that are present in the hypotheses
       \item we collapse multiple events per gene in one unique event
-      \item we \textit{consolidate} the \textit{TRONCO} object, deleting
-      indistinguishable events, having alterations which have the same signature
-      across the samples, "programmatically" 
+      \item we \textit{consolidate} the \textit{TRONCO} object, deleting indistinguishable events, having alterations which have the same signature across the samples, "programmatically"
     \end{itemize}
   \end{block}
   \pause
   \begin{block}{}
-    Then we added all the hypotheses using \textit{TRONCO} methods, iterating
-    over the \textit{Mutex object} and adding all the hardcoded hypotheses
-    stated before. Finally we added automatically all the hypotheses related to
-    homologous events, using the homonymous function. 
+    Then we added all the hypotheses using \textit{TRONCO} methods, iterating over the \textit{Mutex object} and adding all the hardcoded hypotheses stated before. Finally we added automatically all the hypotheses related to homologous events, using the homonymous function.
   \end{block}
 \end{frame}
 \begin{frame}{CAPRI I}
   \begin{block}{}
-    \small
-    We executed the \textbf{CAPRI algorithm} \cite{capri} almost with default
-    settings: 
+  \small
+    We executed the \textbf{CAPRI algorithm} \cite{capri} almost with default settings:
     \begin{itemize}
       \item \textbf{regularizers} for the likelihood estimation \cite{picnic}:
       \begin{itemize}
-        \item \textbf{Akaike Information Criterion (\textit{AIC})}, more prone
-        to overfitting but also likely to provide good predictions from data and
-        is better when false negatives are more misleading than positive one 
-        \item \textbf{Bayesian Information Criterion (\textit{BIC})}, more prone
-        to underfitting errors, thus more parsimonious and better in the
-        opposite direction. 
+        \item \textbf{Akaike Information Criterion (\textit{AIC})}, more prone to overfitting but also likely to provide good predictions from data and is better when false negatives are more misleading than positive one
+        \item \textbf{Bayesian Information Criterion (\textit{BIC})}, more prone to underfitting
+        errors, thus more parsimonious and better in the opposite direction.
       \end{itemize}
-      \item \textbf{p-value < 0.05} to accept the valid selective advantage
-      relations 
+      \item \textbf{p-value < 0.05} to accept the valid selective advantage relations
       \item \textbf{heuristic search} is performed with \textit{Hill Climbing}
-      \item \textbf{seed} for bootstrap iterations has been set to 42 -
-      \textit{the Answer to the Ultimate Question of Life, the Universe, and
-        Everything} 
+      \item \textbf{seed} for bootstrap iterations has been set to 42 -  \textit{the Answer to the Ultimate Question of Life, the Universe, and Everything}
     \end{itemize}
-    In addition the \textbf{number of boostrap iterations} is choosen at the
-    begin of the pipeline and for this project we use 100 iterations.\\ 
+    In addition the \textbf{number of boostrap iterations} is choosen at the begin of the pipeline and for this project we use 100 iterations.\\
     The details on the labels of the models will be explored further on.
   \end{block}
 \end{frame}
@@ -679,344 +664,266 @@
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_all.png}
-      \caption{\textit{TRONCO.plot} of the reconstructed model from the data
-        including all subtypes.} 
+      \caption{\textit{TRONCO.plot} of the reconstructed model from the data including all subtypes.}
     \end{figure}
   }
   \only<2>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_tru.png}
-      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of
-        TRU subtype.} 
+      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of TRU subtype.}
     \end{figure}
   }
   \only<3>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_pi.png}
-      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of
-        PI subtype.} 
+      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of PI subtype.}
     \end{figure}
   }
   \only<4>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_pp.png}
-      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of
-        PP subtype.} 
+      \caption{\textit{TRONCO.plot} of the reconstructed model from the data of PP subtype.}
     \end{figure}
   }
 \end{frame}
 \begin{frame}{Evolutionary Trajectories I}
-  \only<1>{
+    \only<1>{
     \begin{block}{Branching trajectory}
-      In this case we have that from one mutation we could have two different
-      and independent mutation in different samples (and eventually other
-      mutations to follow).\\ 
-      In the model we have, for example in PP subtype model, something like
-      this: 
+      In this case we have that from one mutation we could have two different and independent mutation in different samples (and eventually other mutations to follow).\\
+      In the model we have, for example in PP subtype model, something like this:
     \end{block}
     \begin{figure}
-      \centering
-      \includegraphics[scale = 0.65]{img/branch.pdf}
+        \centering
+        \includegraphics[scale = 0.65]{img/branch.pdf}
     \end{figure}
-  }
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.09]{img/branch1.jpg}
-      \includegraphics[scale = 0.09]{img/branch2.jpg}
-      \caption{Manually curated branching trajectories from PP subtype, plotted
-        using \textit{Fishplot library} \cite{fishplot}.} 
-    \end{figure}
-  }
+    }
+    \only<2>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.09]{img/branch1.jpg}
+            \includegraphics[scale = 0.09]{img/branch2.jpg}
+            \caption{Manually curated branching trajectories from PP subtype, plotted using \textit{Fishplot library} \cite{fishplot}.}
+        \end{figure}
+    }
 \end{frame}
 \begin{frame}{Evolutionary Trajectories II}
-  \only<1>{
+    \only<1>{
     \begin{block}{Branching trajectory}
-      In this case we have that from two different mutation paths we converge to
-      the same mutation.\\ 
-      In the model we have, for example in PP subtype model, something like
-      this: 
+      In this case we have that from two different mutation paths we converge to the same mutation.\\
+      In the model we have, for example in PP subtype model, something like this:
     \end{block}
     \begin{figure}
-      \centering
-      \includegraphics[scale = 0.65]{img/confluence.pdf}
+        \centering
+        \includegraphics[scale = 0.65]{img/confluence.pdf}
     \end{figure}
-  }
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.09]{img/confluence1.jpg}
-      \includegraphics[scale = 0.09]{img/confleunce2.jpg}
-      \caption{Manually confluencing trajectories from PP subtype, plotted using
-        \textit{Fishplot library} \cite{fishplot}.} 
-    \end{figure}
-  }
+    }
+    \only<2>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.09]{img/confluence1.jpg}
+            \includegraphics[scale = 0.09]{img/confleunce2.jpg}
+            \caption{Manually confluencing trajectories from PP subtype, plotted using \textit{Fishplot library} \cite{fishplot}.}
+        \end{figure}
+    }
 \end{frame}
 \section{Statistical Analysis}
 \begin{frame}{Post-Reconstruction I}
   \begin{block}{}
     We calculated some scores:
     \begin{itemize}
-      \item \textbf{non-parametric boostrap scores} resampling the dataset,
-      re-running \textit{CAPRI algorithm} and computing the scores based on how
-      many times we re-infer the same edge 
-      \item \textbf{statistical bootstrap scores}, re-running the statistical
-      test for temporal priority and probability raising by initializing a
-      random number generator with different seeds  
+      \item \textbf{non-parametric boostrap scores} resampling the dataset, re-running \textit{CAPRI algorithm} and computing the scores based on how many times we re-infer the same edge
+      \item \textbf{statistical bootstrap scores}, re-running the statistical test for temporal priority and probability raising by initializing a random number generator with different seeds 
     \end{itemize}
   \end{block}
   \pause
   \begin{block}{}
-    As we'll see later, the scores obtained in our analysis seem to validate the
-    goodness of our models. 
+    As we'll see later, the scores obtained in our analysis seem to validate the goodness of our models.
   \end{block}
 \end{frame}
 \begin{frame}{Post-Reconstruction II}
   \begin{figure}
     \centering
     \includegraphics[scale = 0.27]{img/TRU_heat.png}
-    \caption{Example of Non Parametric and Statistical results shown as heatmap
-      for AIC bootstrap scores for TRU subtype model.} 
+    \caption{Example of Non Parametric and Statistical results shown as heatmap for AIC bootstrap scores for TRU subtype model.}
   \end{figure}
 \end{frame}
 \begin{frame}{Post-Reconstruction III}
   \only<1>{
     \begin{block}{Edge labels}
-      \scriptsize
-      Given an event $c$ and an event $e$, at time $t_c$ and $t_e$, with
-      $0<Pr(c),\,Pr(e)<1$: 
+    \scriptsize
+      Given an event $c$ and an event $e$, at time $t_c$ and $t_e$, with $0<Pr(c),\,Pr(e)<1$:
       \begin{itemize}
-        \item \textbf{temporal priority}, \textit{p-value} of temporal priority,
-        $t_c < t_e$, via \textit{Mann-Whitney U testing}
-        \item \textbf{probability raising}, \textit{p-value} of probability
-        raising, $Pr(e|\neg c)<Pr(e|c)$, via \textit{Mann-Whitney U testing} 
-        \item \textbf{hypergeometric test}, is used to underline if there is a
-        difference between samples containing $c \land e$ versus the total
-        population of samples containing $c \lor e$. We would like the overlap
-        (joint probability of $c$ and $e$) to be significant as this supports
-        the presence of a selection trend among $c$ and $e$
+          \item \textbf{temporal priority}, \textit{p-value} of temporal priority, $t_c < t_e$, via \textit{Mann-Whitney U testing}, 
+          \item \textbf{probability raising}, \textit{p-value} of probability raising, $Pr(e|\neg c)<Pr(e|c)$, via \textit{Mann-Whitney U testing}
+          \item \textbf{hypergeometric test}, is used to underline if there is a difference between samples containing $c \land e$ versus the total population of samples containing $c \lor e$. We would like the overlap (joint probability of $c$ and $e$) to be significant as this supports the presence of a selection trend among $c$ and $e$.
       \end{itemize}
       
-      An edge is fully supported if all those three p-values are below a
-      significance threshold set at 0.05. Some edges might have p-value for the
-      \textit{temporal priority} above the threshold, meaning there's still a
-      significant selection trend but with a direction (i.e. the temporal order
-      of $c$ and $e$) not supported by the data \cite{picnic}. 
+      An edge is fully supported if all those three p-values are below a significance threshold set at 0.05. Some edges might have p-value for the \textit{temporal priority} above the threshold, meaning there's still a significant selection trend but with a direction (i.e. the temporal order of $c$ and $e$) not supported by the data \cite{picnic}.
     \end{block}
   }
   \only<2>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.47]{img/LUAD_ALL_boot.png}
-      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed
-        model from the data including all subtypes. Edge size represents
-        non-parametric bootstrap scores.} 
+      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed model from the data including all subtypes. Edge size represents non-parametric bootstrap scores.}
     \end{figure}
   }
   \only<3>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.50]{img/LUAD_TRU_boot.png}
-      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed
-        model from the data of TRU subtype. Edge size represents non-parametric
-        bootstrap scores.} 
+      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed model from the data of TRU subtype. Edge size represents non-parametric bootstrap scores.}
     \end{figure}
   }
   \only<4>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_PI_boot.png}
-      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed
-        model from the data of PI subtype. Edge size represents non-parametric
-        bootstrap scores.} 
+      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed model from the data of PI subtype. Edge size represents non-parametric bootstrap scores.}
     \end{figure}
   }
   \only<5>{
     \begin{figure}
       \centering
       \includegraphics[scale = 0.52]{img/LUAD_PP_boot.png}
-      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed
-        model from the data of PP subtype. Edge size represents non-parametric
-        bootstrap scores.} 
+      \caption{\textit{TRONCO.plot} with bootstrap scores of the reconstructed model from the data of PP subtype. Edge size represents non-parametric bootstrap scores.}
     \end{figure}
   }
 \end{frame}
 \begin{frame}{10-Fold Cross Validation}
   \only<1>{
-    \begin{block}{}
-      Then we perform a \textbf{10-fold cross validation} (with 10 iterations)
-      studying using the methods included in \textit{TRONCO library}: 
-      \begin{itemize}
-        \item the \textbf{entropy-loss} for each model computed, that's the
-        negated expected log-likelihood of the test set for the Bayesian network
-        fitted from the training set 
-        \item the \textbf{prediction error} for each parent set of a certain
-        node 
-        \item the \textbf{posterior classification error} for each edge that
-        connect a node to a child 
-      \end{itemize}
-      These studies have been performed both for \textit{CAPRI AIC models} and
-      \textit{CAPRI BIC models}, producing good results. 
-    \end{block}
+      \begin{block}{}
+        Then we perform a \textbf{10-fold cross validation} (with 10 iterations) studying using the methods included in \textit{TRONCO library}:
+        \begin{itemize}
+          \item the \textbf{entropy-loss} for each model computed, that's the negated expected log-likelihood of the test set for the Bayesian network fitted from the training set
+          \item the \textbf{prediction error} for each parent set of a certain node
+          \item the \textbf{posterior classification error} for each edge that connect a node to a child
+        \end{itemize}
+        These studies have been performed both for \textit{CAPRI AIC models} and \textit{CAPRI BIC models}, producing good results.
+      \end{block}
   }
   \only<2>{
     \begin{figure}
-      \centering
-      \includegraphics[scale = 0.3]{img/stat_table.png}
-      \caption{Example of data extracted from 10-fold cross validation.}
+        \centering
+        \includegraphics[scale = 0.3]{img/stat_table.png}
+        \caption{Example of data extracted from 10-fold cross validation.}
     \end{figure}
   }
 \end{frame}
 \begin{frame}{Entropy Loss}
-  \begin{figure}
-    \centering
-    \includegraphics[scale = 0.215]{img/vioplot_ALL.png}
-    \includegraphics[scale = 0.215]{img/vioplot_TRU.png}
-  \end{figure}
-  \begin{figure}
-    \centering
-    \includegraphics[scale = 0.215]{img/vioplot_PI.png}
-    \includegraphics[scale = 0.215]{img/vioplot_PP.png}
-    \caption{Violin plot, obtained by Vioplot \cite{vioplot}, for entropy loss
-      of all models.} 
-  \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[scale = 0.215]{img/vioplot_ALL.png}
+        \includegraphics[scale = 0.215]{img/vioplot_TRU.png}
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[scale = 0.215]{img/vioplot_PI.png}
+        \includegraphics[scale = 0.215]{img/vioplot_PP.png}
+        \caption{Violin plot, obtained by Vioplot \cite{vioplot}, for entropy loss of all models.}
+    \end{figure}
 \end{frame}
 \begin{frame}{Prediction Error}
-  \only<1>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.38]{img/prederr_aic_PP.png}
-      \caption{Barplot of prediction error of AIC model for PP subtype
-        reconstruction.} 
-    \end{figure}
-  }
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.38]{img/prederr_bic_PP.png}
-      \caption{Barplot of prediction error of BIC model for PP subtype
-        reconstruction.} 
-    \end{figure}
-  }
+    \only<1>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.38]{img/prederr_aic_PP.png}
+            \caption{Barplot of prediction error of AIC model for PP subtype reconstruction.}
+        \end{figure}
+    }
+    \only<2>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.38]{img/prederr_bic_PP.png}
+            \caption{Barplot of prediction error of BIC model for PP subtype reconstruction.}
+        \end{figure}
+    }
 \end{frame}
 \begin{frame}{Posterior Classification}
-  \only<1>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.315]{img/post_aic_PP.png}
-      \includegraphics[scale = 0.315]{img/post_aic_PP2.png}
-      \caption{Posterior classification ($\mu$ and $\sigma$) of AIC model for PP
-        subtype reconstruction.} 
-    \end{figure}
-  }
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.4]{img/post_bic_PP.png}
-      \caption{Posterior classification ($\mu$ and $\sigma$) of BIC model for PP
-        subtype reconstruction.} 
-    \end{figure}
-  }
-  
+    \only<1>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.315]{img/post_aic_PP.png}
+            \includegraphics[scale = 0.315]{img/post_aic_PP2.png}
+            \caption{Posterior classification ($\mu$ and $\sigma$) of AIC model for PP subtype reconstruction.}
+        \end{figure}
+    }
+    \only<2>{
+        \begin{figure}
+            \centering
+            \includegraphics[scale = 0.4]{img/post_bic_PP.png}
+            \caption{Posterior classification ($\mu$ and $\sigma$) of BIC model for PP subtype reconstruction.}
+        \end{figure}
+    }
+    
 \end{frame}
 \section{Result and Discussion}
 \begin{frame}{Result Analysis I}
-  % TODO inserire robe e fingersi oncologi 
-  \begin{block}{}
-    From a broad analysis of the results we can see in each model the presence
-    of mutations for \textit{TP53}, primarily responsible for apoptosis. 
-  \end{block}
-  \pause
-  \begin{block}{}
-    Another recurrent result is \textit{KEAP1} mutation which concerns the
-    response to oxidative stress. 
-  \end{block}
-  \pause
-  \begin{block}{}
-    Finally, there are frequent mutations concerning the genes of the
-    \textit{Ras family}, which also have regulatory functions of apoptosis, and
-    genes of the \textit{Raf family} that are related to oncogenes and
-    participate in \textit{RAS-RAF-MEK-ERK signal transduction cascade}. These
-    results seem to be consistent with what is present in the literature
-    \cite{rasl}. 
-  \end{block}
+    % TODO inserire robe e fingersi oncologi 
+    \begin{block}{}
+        From a broad analysis of the results we can see in each model the presence of \textbf{mutations for \textit{TP53}}, primarily responsible for apoptosis.
+    \end{block}
+    \pause
+    \begin{block}{}
+        Another recurrent result is \textbf{\textit{KEAP1} mutation} which concerns the response to oxidative stress.
+    \end{block}
+    \pause
+    \begin{block}{}
+        Finally, there are \textbf{frequent mutations} concerning the genes of the \textit{Ras family}, which also have regulatory functions of apoptosis, and genes of the \textit{Raf family} that are related to oncogenes and participate in \textbf{\textit{RAS-RAF-MEK-ERK signal transduction cascade}}. 
+    \end{block}
+    \pause
+    \begin{alertblock}{}
+      These results seem to be consistent with what is present in the literature  \cite{rasl}.
+    \end{alertblock}
 \end{frame}
 \begin{frame}{Result Analysis II}
-  \begin{block}{Molecular subtypes}
-    Regarding the three subtypes we can observe in the models that the
-    hypotheses extracted from the marker paper are represented
-    \cite{luadmarker}: 
-    \begin{itemize}
-      \item "the PI subtype was characterized by solid histopathology and
-      co-mutation of \textit{NF1} and \textit{TP53}" 
-      \item "the PP subtype was enriched for mutation of \textit{KRAS}, along
-      with inactivation of the \textit{STK11} tumour suppressor gene" 
-    \end{itemize}
-    On the other hand, for TRU subtype, in the marker paper we have: "the TRU
-    subtype harboured the majority of the \textit{EGFR-mutated} tumours as well
-    as the kinase fusion expressing tumours". This could be confirmed in the
-    \textit{DAG} due to the presence of genes mutations from \textit{RAF/RAS
-      families}, in addition to \textit{EGFR} mutations. 
-  \end{block}
+    \begin{block}{Molecular subtypes}
+      Regarding the three subtypes we can observe in the models that the hypotheses extracted from the marker paper are represented \cite{luadmarker}:
+      \begin{itemize}
+          \item "the PI subtype was characterized by solid histopathology and co-mutation of \textit{NF1} and \textit{TP53}"
+          \item "the PP subtype was enriched for mutation of \textit{KRAS}, along with inactivation of the \textit{STK11} tumour suppressor gene"
+      \end{itemize}
+      On the other hand, for TRU subtype, in the marker paper we have: "the TRU subtype harboured the majority of the \textit{EGFR-mutated} tumours as well as the kinase fusion expressing tumours". This could be confirmed in the \textit{DAG} due to the presence of genes mutations from \textit{RAF/RAS families}, in addition to \textit{EGFR} mutations.
+    \end{block}
 \end{frame}
 \begin{frame}{OncoBN Comparison I}
-  \only<1>{
-    \begin{block}{}
-      Trying to validate our results we searched the literature for further
-      studies on \textit{LUAD} and one of them is another \textit{R} library
-      called \textbf{OncoBN} \cite{oncobn}.\\ 
-      In the paper there are also some comparisons with \textit{CAPRI algorithm}
-    \end{block}
-    
-    \begin{block}{}
-      In this study the authors recovered three highconfident roots:
-      \textit{KRAS}, \textit{KEAP1} and \textit{EGFR} plus a high confident edge
-      \textit{TP53}$\to$\textit{RB1}. 
-    \end{block}
-    
-    \begin{block}{}
-      From a quick visual comparison, the model obtained with \textit{OncoBN}
-      seems consistent with our model obtained from the \textit{PiCnIc pipeline}
-      (with all subtypes), even if the latter takes into account a much more
-      complex input which involves an equally complex final model. 
-    \end{block}
-  }
-  \only<2>{
-    \begin{figure}
-      \centering
-      \includegraphics[scale = 0.75]{img/oncobn.jpg}
-      \caption{Synthetically lethal mutations of \textbf{LUAD}, \textit{KRAS}
-        and \textit{EGFR} ({\color{nordgreen}green nodes}), appear in disjoint
-        branches. Frequently co-occurred mutations \textit{STK11},
-        \textit{KEAP1} and \textit{SMARCA4} occupy a branch of the inferred
-        network ({\color{nordred}red nodes}). Subtype defining mutations
-        \textit{TP53} and \textit{RB1} are ordered with high confident
-        \cite{oncobn}.} 
+    \only<1>{
+        \begin{block}{}
+          Trying to validate our results we searched the literature for further studies on \textit{LUAD} and one of them is another \textit{R} library called \textbf{OncoBN} \cite{oncobn}.\\
+          In the paper there are also some comparisons with \textit{CAPRI algorithm}
+        \end{block}
+        
+        \begin{block}{}
+          In this study the authors recovered three highconfident roots: \textit{KRAS}, \textit{KEAP1} and \textit{EGFR} plus a high confident edge \textit{TP53}$\to$\textit{RB1}.
+        \end{block}
+        
+        \begin{block}{}
+          From a quick visual comparison, the model obtained with \textit{OncoBN} seems consistent with our model obtained from the \textit{PiCnIc pipeline} (with all subtypes), even if the latter takes into account a much more complex input which involves an equally complex final model.
+        \end{block}
+    }
+    \only<2>{
+        \begin{figure}
+        \centering
+        \includegraphics[scale = 0.75]{img/oncobn.jpg}
+        \caption{Synthetically lethal mutations of \textbf{LUAD}, \textit{KRAS} and \textit{EGFR} ({\color{nordgreen}green nodes}), appear in disjoint branches. Frequently co-occurred mutations \textit{STK11}, \textit{KEAP1} and \textit{SMARCA4} occupy a branch of the inferred network ({\color{nordred}red nodes}). Subtype defining mutations \textit{TP53} and \textit{RB1} are ordered with high confident \cite{oncobn}.}
     \end{figure}
-  }
+    }
 \end{frame}
 \begin{frame}{OncoBN Comparison II}
-  \begin{block}{Comparison with \textit{PiCnIc models}}
-    \begin{itemize}
-      \item \textbf{All subtypes}: all the edges and nodes can be found in
-      \textit{CAPRI} model  
-      \item \textbf{TRU subtype}: we can't find any edge but we have some
-      consistent nodes 
-      \item \textbf{PI subtype}: we can't find any edge, except
-      \textit{KEAP1}$\to$\textit{STK11}, but we have some consistent nodes 
-      \item \textbf{PP subtype}: we have some consistent edges but it has all
-      nodes. It's interesting to report that \textit{TP53} is strongly related
-      with some mutations, with few samples, that are not shown in
-      \textit{OncoBN} plot. 
-    \end{itemize}
-  \end{block}
-  \begin{block}{}
-    These can be considered expected results due to the fact that
-    \textit{OncoBN} does not study mutational subtypes.   
-  \end{block}
+    \begin{block}{Comparison with \textit{PiCnIc models}}
+      \begin{itemize}
+          \item \textbf{All subtypes}: all the edges and nodes can be found in \textit{CAPRI} model 
+          \item \textbf{TRU subtype}: we can't find any edge but we have some consistent nodes
+          \item \textbf{PI subtype}: we can't find any edge, except \textit{KEAP1}$\to$\textit{STK11}, but we have some consistent nodes
+          \item \textbf{PP subtype}: we have some consistent edges but it has all nodes. It's interesting to report that \textit{TP53} is strongly related with some mutations, with few samples, that are not shown in \textit{OncoBN} plot.
+      \end{itemize}
+    \end{block}
+    \begin{block}{}
+      These can be considered expected results due to the fact that \textit{OncoBN} does not study mutational subtypes.  
+    \end{block}
 \end{frame}
 \section{References and Q\&A}
 \begin{frame}[allowframebreaks]{References}
