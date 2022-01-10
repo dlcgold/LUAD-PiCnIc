@@ -1,3 +1,4 @@
+# STATISTICAL ANALYSIS
 #' Function to make statistical analysis of model LUAD
 #'
 #' @param LUAD.model TRONCO object model
@@ -5,22 +6,19 @@
 #' 
 #' @return LUAD.model TRONCO object model
 statistics <- function(LUAD.model, label, label.short) {
-  ## STATISTICS
-  
-  # STATISTICS
   ## non-parametric bootstrap
   LUAD.model <- tronco.bootstrap(LUAD.model,
                                  nboot = num_boot_iter,
                                  cores.ratio = .5)
-  
+
   ## statistical bootstrap
   LUAD.model <- tronco.bootstrap(LUAD.model,
                                  type = "statistical",
                                  nboot = num_boot_iter,
                                  cores.ratio = .5)
-  
-  save(LUAD.model, file=paste("input/model_boostrap", label.short, ".rda", sep=''))
-  
+
+  save(LUAD.model, file = paste0("input/model_boostrap", label.short, ".rda"))
+
   ## DAG of the model above
   ## Equal as model tronco.plot
   if (plot_verbose) {
@@ -37,11 +35,10 @@ statistics <- function(LUAD.model, label, label.short) {
       height.logic = .3,
       title = paste(label, "- first bootstrap")
     )
-    
+
   }
-  
+
   ## plot of bootstrap scores
-  ## TODO sometimes not work
   if (plot_verbose) {
     par(.pardefault)
     ## first non-parametric
@@ -104,29 +101,31 @@ statistics <- function(LUAD.model, label, label.short) {
       number_format = "%f"
     )
   }
-  
+
   ## table with bootstrap scores
   boot_tab <- as.bootstrap.scores(LUAD.model)
-  
+
   if (verbose) {
     print(boot_tab)
   }
-  
+
   ## kfold
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.eloss(LUAD.model)
   kfold_eloss <- as.kfold.eloss(LUAD.model)
-  
+
+
   if (verbose) {
     print("kfold loss")
     print(kfold_eloss)
   }
+
   ## plot for every fold
-  ## TODO make it work
   if (plot_verbose) {
     vioplot(
       LUAD.model$kfold$capri_bic$eloss,
       LUAD.model$kfold$capri_aic$eloss,
+    
       col = 'red',
       lty = 1,
       rectCol = "gray",
@@ -135,22 +134,39 @@ statistics <- function(LUAD.model, label, label.short) {
       pchMed = 15,
       horizontal = T
     )
+    
+    legend(legend =c(paste("mean: ", round(kfold_eloss$Mean[1],2)),
+                     paste("%log: ", round(kfold_eloss$`%-of-logLik`[1],2)),
+                     paste("std dev: ", round(kfold_eloss$Stdev[1],2)),
+                     paste("logLik: ", round(LUAD.model$model$capri_aic$logLik, 2)),
+                     paste("score:  ", round(LUAD.model$model$capri_aic$score, 2))),
+          x='topright',
+          title = "AIC")
+    
+    legend(legend =c(paste("mean: ", round(kfold_eloss$Mean[2],2)),
+                     paste("%log: ", round(kfold_eloss$`%-of-logLik`[2],2)),
+                     paste("std dev: ", round(kfold_eloss$Stdev[2],2)),
+                     paste("logLik: ", round(LUAD.model$model$capri_bic$logLik, 2)),
+                     paste("score:  ", round(LUAD.model$model$capri_bic$score, 2))),
+           x='bottomleft',
+           title = "BIC")    
+    
     title(main = paste('Entropy loss \n LUAD tumors -', label))
   }
-  
+
   ## k-fold cross validation, prediction error for each parent set X
   LUAD.model <- tronco.kfold.prederr(LUAD.model)
   kfold_pred <- as.kfold.prederr(LUAD.model)
-  
+
   if (verbose) {
     print("kfold prediction")
     print(kfold_pred)
   }
-  
+
   ## k-fold cross validation, posterior classification error for each edge
   LUAD.model <- tronco.kfold.posterr(LUAD.model)
   kfold_post <- as.kfold.posterr(LUAD.model)
-  
+
   if (verbose) {
     print("kfold posterior")
     print(kfold_post)
@@ -158,7 +174,7 @@ statistics <- function(LUAD.model, label, label.short) {
   ## visualize a table with all edge statistics
   tab_bic <- tabular(LUAD.model, 'capri_bic')
   tab_aic <- tabular(LUAD.model, 'capri_aic')
-  
+
   if (verbose) {
     print(label)
     print("table with all edge statistics using capri_bic")
@@ -166,43 +182,63 @@ statistics <- function(LUAD.model, label, label.short) {
     print("table with all edge statistics using capri_aic")
     print(tab_aic)
   }
-  
+
   ## save model
   save(LUAD.model,
        file = paste("output/luadDefModel_", label.short, ".rda", sep = ''))
   
-
-  # export.graphml(LUAD.model,
-  #                file = "output/LUADgraphml.xml",
-  #                pathways = pathway.list,
-  #                edge.cex = 1.5,
-  #                legend.cex = .35,
-  #                scale.nodes = .6,
-  #                confidence = c('tp', 'pr', 'hg'),
-  #                pathways.color = pathways.color,
-  #                disconnected = F,
-  #                height.logic = .3)
-  #
-  # igraph <- read.graph(file = "output/LUADgraphml.xml", format = "graphml")
-  # lisg <- as_adj_list(igraph, mode = "out")
-  # lisge <- as_adj_edge_list(igraph, mode = "out")
-  # matrix <- as_adjacency_matrix(igraph, sparse = FALSE, attr = "weight")
-  # #matrix <- as.data.frame(matrix)
-  # matrix <- matrix[rownames(matrix) %in% pathway.genes,]
-  # matrix <- matrix[, colnames(matrix) %in% pathway.genes]
-  # matrix <- matrix[, colnames(matrix) %in% pathway.genes]
+  # barplots 
+  pred_aic <- data.frame(kfold_pred$capri_aic)
+  pred_bic <- data.frame(kfold_pred$capri_bic)
   
- 
+  pred_sel <- pred_aic
+  pred_sel[c('TYPE', 'NAME')] <- str_split_fixed(pred_sel$SELECTED, ' ', 2)
+  pred_sel <- pred_sel[order(pred_sel$MEAN.PREDERR, decreasing = FALSE),]
+  
+  pred_sel$COLOR <- with(pred_sel, ifelse(TYPE == 'Deletion', '#8FBCBB',
+                                          ifelse(TYPE=='Amplification', '#81A1C1',
+                                                 ifelse(TYPE == 'Mutation','#D3AECC', '#D8DEE9' ))))
+  
+  barplot(pred_sel$MEAN.PREDERR,
+          horiz = TRUE,
+          names.arg = pred_sel$NAME, 
+          las=2,
+          col = pred_sel$COLOR,
+          cex.names = 0.3,
+          main = paste("Prediction error of AIC scores for -",label))
+  legend("bottomright",                                    # Add legend to barplot
+         legend = c("Amplification", "Deletion", "Mutation", "Pattern"),
+         fill = c("#81A1C1", "#8FBCBB", "#D3AECC", "#D8DEE9"))
+  
+  pred_sel <- pred_bic
+  pred_sel[c('TYPE', 'NAME')] <- str_split_fixed(pred_sel$SELECTED, ' ', 2)
+  pred_sel <- pred_sel[order(pred_sel$MEAN.PREDERR, decreasing = FALSE),]
+  
+  pred_sel$COLOR <- with(pred_sel, ifelse(TYPE == 'Deletion', '#8FBCBB',
+                                          ifelse(TYPE=='Amplification', '#81A1C1',
+                                                 ifelse(TYPE == 'Mutation','#D3AECC', '#D8DEE9' ))))
+  
+  barplot(pred_sel$MEAN.PREDERR,
+          horiz = TRUE,
+          names.arg = pred_sel$NAME, 
+          las=2,
+          col = pred_sel$COLOR,
+          cex.names = 0.3,
+          main = paste("Prediction error of BIC scores for -",label))
+  legend("bottomright",                                    # Add legend to barplot
+         legend = c("Amplification", "Deletion", "Mutation", "Pattern"),
+         fill = c("#81A1C1", "#8FBCBB", "#D3AECC", "#D8DEE9"))
+
   ## excel with all data
   excel.file <- paste0("output/LUAD_statistics_", label, ".xlsx")
-  
+
   excel.wbook <- createWorkbook()
-  
+
   sheet.luad.bic <- createSheet(wb = excel.wbook,
                                 sheetName = "LUAD-bic")
   sheet.luad.aic <- createSheet(wb = excel.wbook,
                                 sheetName = "LUAD-aic")
-  
+
   addDataFrame(
     x = tabular(LUAD.model,
                 'capri_bic'),
@@ -217,10 +253,10 @@ statistics <- function(LUAD.model, label, label.short) {
     showNA = T,
     characterNA = 'NA'
   )
-  
+
   saveWorkbook(excel.wbook,
                excel.file)
-  
+
   return(LUAD.model)
-  
+
 }

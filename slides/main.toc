@@ -1,0 +1,18 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Lung Adenocarcinoma}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{PiCnIc Pipeline}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{LUAD}{5}{0}{1}
+\beamer@sectionintoc {2}{Genes Drivers Selection}{10}{0}{2}
+\beamer@sectionintoc {3}{Data Import}{18}{0}{3}
+\beamer@subsectionintoc {3}{1}{MAF}{20}{0}{3}
+\beamer@subsectionintoc {3}{2}{GISTIC}{25}{0}{3}
+\beamer@subsectionintoc {3}{3}{Clinical}{28}{0}{3}
+\beamer@subsectionintoc {3}{4}{Final Dataset}{34}{0}{3}
+\beamer@sectionintoc {4}{Molecular Subtyping}{36}{0}{4}
+\beamer@sectionintoc {5}{Group Exclusivity}{43}{0}{5}
+\beamer@subsectionintoc {5}{1}{Mutex}{44}{0}{5}
+\beamer@subsectionintoc {5}{2}{Other Hypotheses}{47}{0}{5}
+\beamer@sectionintoc {6}{Model Reconstruction}{51}{0}{6}
+\beamer@sectionintoc {7}{Statistical Analysis}{63}{0}{7}
+\beamer@sectionintoc {8}{Result and Discussion}{79}{0}{8}
+\beamer@sectionintoc {9}{References and Q\&A}{87}{0}{9}
