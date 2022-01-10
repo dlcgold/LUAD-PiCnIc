@@ -114,29 +114,22 @@ LUAD.PP <- annotate.description(LUAD.PP,
                                 "LUAD PP subtype")
 LUAD.PI <- annotate.description(LUAD.PI,
                                 "LUAD PI subtype")
-LUAD <- annotate.description(LUAD,
-                             "LUAD somatic mutations and CNA from GCD portal, final")
+LUAD <- annotate.description(
+  LUAD,
+  "LUAD somatic mutations and CNA from GCD portal, final")
 
 
 if (plot_verbose) {
   oncoprint(
     LUAD.TRU,
-    # legend.cex = .5,
-    # cellwidth = 3,
-    # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
   )
 }
 
-
-## oncoprint of the subtypes
 if (plot_verbose) {
   oncoprint(
     LUAD.PP,
-    # legend.cex = .5,
-    # cellwidth = 3,
-    # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
   )
@@ -145,9 +138,6 @@ if (plot_verbose) {
 if (plot_verbose) {
   oncoprint(
     LUAD.PI,
-    # legend.cex = .5,
-    # cellwidth = 3,
-    # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
   )
@@ -156,9 +146,6 @@ if (plot_verbose) {
 if (plot_verbose) {
   oncoprint(
     LUAD,
-    # legend.cex = .5,
-    # cellwidth = 3,
-    # cellheight = 10,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
   )
@@ -166,14 +153,10 @@ if (plot_verbose) {
 
 if (histological_verbose) {
   ## select events for every subtype and get the corresponding TRONCO objects
-  LUAD.acinar <- events.selection(LUAD.acinar,
-                                  filter.freq = min_freq)
-  LUAD.nonmucinous <- events.selection(LUAD.nonmucinous,
-                                       filter.freq = min_freq)
-  LUAD.papillary <- events.selection(LUAD.papillary,
-                                     filter.freq = min_freq)
-  LUAD.mucinous <- events.selection(LUAD.mucinous,
-                                    filter.freq = min_freq)
+  LUAD.acinar <- events.selection(LUAD.acinar, filter.freq = min_freq)
+  LUAD.nonmucinous <- events.selection(LUAD.nonmucinous, filter.freq = min_freq)
+  LUAD.papillary <- events.selection(LUAD.papillary, filter.freq = min_freq)
+  LUAD.mucinous <- events.selection(LUAD.mucinous, filter.freq = min_freq)
 
   ## print number of samples and events
   if (verbose) {
@@ -214,9 +197,6 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.acinar,
-      # legend.cex = .5,
-      # cellwidth = 3,
-      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""
@@ -228,9 +208,6 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.nonmucinous,
-      # legend.cex = .5,
-      # cellwidth = 3,
-      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""
@@ -243,9 +220,6 @@ if (histological_verbose) {
   if (plot_verbose) {
     oncoprint(
       LUAD.papillary,
-      # legend.cex = .5,
-      # cellwidth = 3,
-      # cellheight = 10,
       gene.annot = pathway.list,
       gene.annot.color = pathways.color,
       title = ""

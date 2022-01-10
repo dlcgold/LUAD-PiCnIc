@@ -36,12 +36,12 @@ First of all, in _R_ console, set the working directory to this one:
 ```R 
  setwd("~/DCB-project")
  ```
-then simply source `luadpipe.r`, arranging in case the configurations present 
-at the beginning of the script.
+then simply source `luadpipe.r`, making sure to adjust your configuration in
+`src/conf.R` before.
 
 With default bootstrap iterations (100) the script will take several tens of 
 minutes to finish the computation. 
 
-In `/output` directory will be saved the final results while in `/input`
-directory, in addition to some input files (such as those for mutex), partial 
-models obtained during computation will also be saved.
+In `/output` directory will be saved the final statistical results and models,
+while in `/input` directory, in addition to some input files (such as those
+for mutex), partial models obtained during computation will also be saved.

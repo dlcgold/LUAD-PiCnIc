@@ -73,8 +73,7 @@ if (maf_reload) {
                          "Mutation",
                          "#D3AECC")
   }
-  LUAD <- annotate.description(LUAD,
-                               "LUAD somatic mutations from GDC portal")
+  LUAD <- annotate.description(LUAD, "LUAD somatic mutations from GDC portal")
   save(LUAD, file = "input/luadDef.rda")
 } else{
   LUAD <- loadRData("input/luadDef.rda")
@@ -107,7 +106,6 @@ if (verbose) {
               nevents(LUAD)))
   print("LUAD events:")
   print(as.events(LUAD))
-  ## TODO add other similar events that can be queried together
   print("similar events:")
   print(as.events(LUAD, genes = c('KRAS',
                                   'TP53')))
@@ -275,7 +273,6 @@ if (plot_verbose) {
 }
 
 ## other clinicl data from cBIO
-## TODO check if there is something interesting here
 luad_cbio <- cbio.query(
   genes = pathway.genes,
   cbio.study = 'luad_tcga',
@@ -305,7 +302,7 @@ if (gistic_reload) {
   gistic <- GDCprepare(gistic.query)
   gist <- getGistic("LUAD", type = "thresholded")
   
-  ## convert the result to a dataframe for preprocessing and genes drivers filtering
+  ## converting results to dataframe preprocessing and genes drivers filtering
   LUAD.gistic <- as.data.frame(gist)
   LUAD.gistic <- LUAD.gistic[LUAD.gistic$`Gene Symbol` %in% pathway.genes, ]
   LUAD.gistic <- LUAD.gistic[,!names(LUAD.gistic) %in% c("Locus ID",
@@ -393,8 +390,9 @@ LUAD <- intersect.datasets(LUADGistic,
 LUAD <- trim(LUAD)
 LUAD <- annotate.stages(LUAD,
                         clinical.data)
-LUAD <- annotate.description(x = LUAD,
-                             label = "LUAD somatic mutations and CNA from GCD portal")
+LUAD <- annotate.description(
+  x = LUAD,
+  label = "LUAD somatic mutations and CNA from GCD portal")
 
 LUAD$types['Deletion', ] <- '#8FBCBB'
 LUAD$types['Amplification', ] <- '#81a1c1'
@@ -460,8 +458,9 @@ if (plot_verbose) {
   oncoprint(LUAD.smoke)
 }
 
-LUAD <- annotate.description(LUAD,
-                             "LUAD somatic mutations and CNA from GCD portal, final")
+LUAD <- annotate.description(
+  LUAD,
+  "LUAD somatic mutations and CNA from GCD portal, final")
 
 ## other fancy plots using maftools
 MAF.dataframe <- import.MAF(

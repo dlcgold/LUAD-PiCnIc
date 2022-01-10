@@ -54,13 +54,12 @@ if (plot_verbose) {
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.raf),
-    title = paste("LAUD - RAF KRAS/EGFR exclusivity (knowledge prior)"),
+    title = paste("LUAD - RAF KRAS/EGFR exclusivity (knowledge prior)"),
     legend.cex = .3,
     font.row = 6,
     ann.hits = FALSE,
     cellheight = 10,
     cellwidth = 1,
-    #silent = T,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
     gtable = TRUE
@@ -72,13 +71,12 @@ if (plot_verbose) {
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.megsa),
-    title = paste("LAUD - MEGSA1 (knowledge prior)"),
+    title = paste("LUAD - MEGSA1 (knowledge prior)"),
     legend.cex = .3,
     font.row = 6,
     ann.hits = FALSE,
     cellheight = 10,
     cellwidth = 1,
-    #silent = T,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
     gtable = TRUE
@@ -89,17 +87,42 @@ if (plot_verbose) {
   oncoprint(
     events.selection(LUAD,
                      filter.in.names = LUAD.megsa2),
-    title = paste("LAUD - MEGSA2 (knowledge prior)"),
+    title = paste("LUAD - MEGSA2 (knowledge prior)"),
     legend.cex = .3,
     font.row = 6,
     ann.hits = FALSE,
     cellheight = 10,
     cellwidth = 1,
-    #silent = T,
     gene.annot = pathway.list,
     gene.annot.color = pathways.color,
     gtable = TRUE
   )
 }
-
 par(.pardefault)
+
+## models list for analysis (the first is dataset without subtype selection)
+models <- list(LUAD,
+               LUAD.TRU,
+               LUAD.PI,
+               LUAD.PP)
+
+label.all <- 'all subtypes'
+label.tru <- 'terminal respiratory unit (TRU, branchoid)'
+label.pp <- 'proximal proliferative (PP, magnoid)'
+label.pi <- 'proximal inflammatory (PI, squamoid)'
+
+label.all.short <- 'ALL'
+label.tru.short <- 'TRU'
+label.pp.short <- 'PP'
+label.pi.short <- 'PI'
+
+## labels for every subtype (the first is dataset without subtype selection)
+labels <- c(label.all,
+            label.tru,
+            label.pi,
+            label.pp)
+## short labels
+labels.short <- c(label.all.short,
+                  label.tru.short,
+                  label.pi.short,
+                  label.pp.short)

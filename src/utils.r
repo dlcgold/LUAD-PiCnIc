@@ -29,20 +29,6 @@ tabular <- function(obj, M){
   return(tab)
 }
 
-# tabular2 <- function(obj, M){
-#   tab <- Reduce(
-#     function(...) merge(..., all = TRUE),
-#     list(as.kfold.prederr(obj, models = M)))
-#   ## merge reverses first with second column
-#   tab <- tab[, c(2,1,3:ncol(tab))]
-#   tab <- tab[order(tab[, paste0(M, '.NONPAR.BOOT')],
-#                    na.last = TRUE,
-#                    decreasing = TRUE), ]
-#   return(tab)
-# }
-
-
-
 #' Function to reduce dataset to a selected number of samples
 #'
 #' @param dataset a TRONCO dataset
